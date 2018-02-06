@@ -34,3 +34,16 @@
 Extern/
 Tools/
 *.sdf
+*.bsc
+*.pdb
+*.vcxproj
+*.tlog
+*.sbr
+*.opendb
+*.log
+*.res
+*.vcxproj
+*.db
+*.ipch
+*.cache
+*.map

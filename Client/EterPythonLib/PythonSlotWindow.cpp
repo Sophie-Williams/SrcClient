@@ -996,7 +996,6 @@ void CSlotWindow::OnOverOutItem()
 		return;
 
 	m_dwToolTipSlotNumber = SLOT_NUMBER_NONE;
-	m_CoolDownStore.clear();
 	PyCallClassMemberFunc(m_poHandler, "OnOverOutItem", Py_BuildValue("()"));
 }
 
@@ -1523,6 +1522,8 @@ void CSlotWindow::__Initialize()
 	m_dwSlotType = 0;
 	m_dwSlotStyle = SLOT_STYLE_PICK_UP;
 	m_dwToolTipSlotNumber = SLOT_NUMBER_NONE;
+
+	m_CoolDownStore.clear();
 
 	m_isUseMode = FALSE;
 	m_isUsableItem = FALSE;
