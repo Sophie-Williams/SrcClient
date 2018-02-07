@@ -45,6 +45,8 @@ volatile int _AVOID_FLOATING_POINT_LIBRARY_BUG = _fltused;
 #pragma comment( lib, "granny2.8.49.0.lib" )
 #elif GrannyProductMinorVersion==9
 #pragma comment( lib, "granny2.9.12.0.lib" )
+#elif GrannyProductMinorVersion==11
+#pragma comment( lib, "granny2.11.8.0.lib" )
 #else
 #error "unknown granny version"
 #endif
@@ -273,7 +275,7 @@ bool checkPyLibDir(const string szDirName)
 
 bool __CheckPyLibFiles()
 {
-	PRINTME(1, "__CheckPyLibFiles processing "PYFOLD);
+	PRINTME(1, "__CheckPyLibFiles processing ", PYFOLD);
 	if (checkPyLibDir(PYFOLD))
 		return false;
 	return true;
@@ -1090,7 +1092,7 @@ static void GrannyError(granny_log_message_type Type,
 {
 	TraceError("GRANNY: %s", Error);
 }
-#elif GrannyProductMinorVersion==9 || GrannyProductMinorVersion==8
+#elif GrannyProductMinorVersion==11 || GrannyProductMinorVersion==9 || GrannyProductMinorVersion==8
 static void GrannyError(granny_log_message_type Type,
 						granny_log_message_origin Origin,
 						char const*  File,

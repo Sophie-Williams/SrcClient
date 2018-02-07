@@ -80,7 +80,7 @@ namespace UI
 			} TSlot;
 			typedef std::list<TSlot> TSlotList;
 			typedef TSlotList::iterator TSlotListIterator;
-			typedef struct SStoreCoolDown { float fCoolTime; float fElapsedTime; bool bActive; };
+			struct SStoreCoolDown { float fCoolTime; float fElapsedTime; bool bActive; };
 
 		public:
 			CSlotWindow(PyObject * ppyObject);

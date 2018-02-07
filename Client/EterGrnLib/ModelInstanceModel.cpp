@@ -76,7 +76,7 @@ granny_world_pose* CGrannyModelInstance::__GetWorldPosePtr() const
 
 #if GrannyProductMinorVersion==4
 int* CGrannyModelInstance::__GetMeshBoneIndices(unsigned int iMeshBinding) const
-#elif GrannyProductMinorVersion==9 || GrannyProductMinorVersion==8 || GrannyProductMinorVersion==7
+#elif GrannyProductMinorVersion==11 || GrannyProductMinorVersion==9 || GrannyProductMinorVersion==8 || GrannyProductMinorVersion==7
 const granny_int32x* CGrannyModelInstance::__GetMeshBoneIndices(unsigned int iMeshBinding) const
 #else
 #error "unknown granny version"

@@ -58,7 +58,7 @@ void CGrannyMesh::DeformPNTVertices(void * dstBaseVertices, D3DXMATRIX * boneMat
 	// WORK
 #if GrannyProductMinorVersion==4
 	int * boneIndices = GrannyGetMeshBindingToBoneIndices(pgrnMeshBinding);
-#elif GrannyProductMinorVersion==9 || GrannyProductMinorVersion==8 || GrannyProductMinorVersion==7
+#elif GrannyProductMinorVersion==11 || GrannyProductMinorVersion==9 || GrannyProductMinorVersion==8 || GrannyProductMinorVersion==7
 	const granny_int32x * boneIndices = GrannyGetMeshBindingToBoneIndices(pgrnMeshBinding);
 #else
 #error "unknown granny version"
@@ -108,7 +108,7 @@ int CGrannyMesh::GetIndexBasePosition() const
 // WORK
 #if GrannyProductMinorVersion==4
 int * CGrannyMesh::GetDefaultBoneIndices() const
-#elif GrannyProductMinorVersion==9 || GrannyProductMinorVersion==8 || GrannyProductMinorVersion==7
+#elif GrannyProductMinorVersion==11 || GrannyProductMinorVersion==9 || GrannyProductMinorVersion==8 || GrannyProductMinorVersion==7
 const granny_int32x * CGrannyMesh::GetDefaultBoneIndices() const
 #else
 #error "unknown granny version"
@@ -150,7 +150,7 @@ bool CGrannyMesh::CreateFromGrannyMeshPointer(granny_skeleton * pgrnSkeleton, gr
 
 #if GrannyProductMinorVersion==4
 		m_pgrnMeshDeformer = GrannyNewMeshDeformer(pgrnInputType, pgrnOutputType, GrannyDeformPositionNormal);
-#elif GrannyProductMinorVersion==9 || GrannyProductMinorVersion==8 || GrannyProductMinorVersion==7
+#elif GrannyProductMinorVersion==11 || GrannyProductMinorVersion==9 || GrannyProductMinorVersion==8 || GrannyProductMinorVersion==7
 		m_pgrnMeshDeformer = GrannyNewMeshDeformer(pgrnInputType, pgrnOutputType, GrannyDeformPositionNormal, GrannyDontAllowUncopiedTail);
 		// m_pgrnMeshDeformer = GrannyNewMeshDeformer(pgrnInputType, pgrnOutputType, GrannyDeformPositionNormal, GrannyAllowUncopiedTail);
 #else

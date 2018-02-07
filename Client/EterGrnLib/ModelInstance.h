@@ -134,7 +134,7 @@ class CGrannyModelInstance : public CGraphicCollisionObject
 
 #if GrannyProductMinorVersion==4
 		int*	__GetMeshBoneIndices(unsigned int iMeshBinding) const;
-#elif GrannyProductMinorVersion==9 || GrannyProductMinorVersion==8 || GrannyProductMinorVersion==7
+#elif GrannyProductMinorVersion==11 || GrannyProductMinorVersion==9 || GrannyProductMinorVersion==8 || GrannyProductMinorVersion==7
 		const granny_int32x*	__GetMeshBoneIndices(unsigned int iMeshBinding) const;
 #else
 #error "unknown granny version"

@@ -47,3 +47,10 @@ Tools/
 *.ipch
 *.cache
 *.map
+*.htm
+
+Client/.vs/Metin2Client_VC100/v15/.suo
+Client/.vs/Metin2Client_VC100/v14/.suo
+
+*.db-wal
+*.db-shm

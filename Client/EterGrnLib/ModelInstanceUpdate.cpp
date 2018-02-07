@@ -49,7 +49,7 @@ void CGrannyModelInstance::UpdateTransform(D3DXMATRIX * pMatrix, float fSecondsE
 	}
 #if GrannyProductMinorVersion==4
 	GrannyUpdateModelMatrix(m_pgrnModelInstance, fSecondsElapsed, (const float *) pMatrix, (float *) pMatrix);
-#elif GrannyProductMinorVersion==9 || GrannyProductMinorVersion==8 || GrannyProductMinorVersion==7
+#elif GrannyProductMinorVersion==11 || GrannyProductMinorVersion==9 || GrannyProductMinorVersion==8 || GrannyProductMinorVersion==7
 	GrannyUpdateModelMatrix(m_pgrnModelInstance, fSecondsElapsed, (const float *) pMatrix, (float *) pMatrix, false);
 #else
 #error "unknown granny version"
@@ -185,7 +185,7 @@ void CGrannyModelInstance::UpdateWorldMatrices(const D3DXMATRIX* c_pWorldMatrix)
 
 #if GrannyProductMinorVersion==4
 		int * boneIndices = __GetMeshBoneIndices(i);
-#elif GrannyProductMinorVersion==9 || GrannyProductMinorVersion==8 || GrannyProductMinorVersion==7
+#elif GrannyProductMinorVersion==11 || GrannyProductMinorVersion==9 || GrannyProductMinorVersion==8 || GrannyProductMinorVersion==7
 		const granny_int32x * boneIndices = __GetMeshBoneIndices(i);
 #else
 #error "unknown granny version"
@@ -200,7 +200,7 @@ void CGrannyModelInstance::UpdateWorldMatrices(const D3DXMATRIX* c_pWorldMatrix)
 		{
 #if GrannyProductMinorVersion==4
 			int iBone = *boneIndices;
-#elif GrannyProductMinorVersion==9 || GrannyProductMinorVersion==8 || GrannyProductMinorVersion==7
+#elif GrannyProductMinorVersion==11 || GrannyProductMinorVersion==9 || GrannyProductMinorVersion==8 || GrannyProductMinorVersion==7
 			const granny_int32x iBone = *boneIndices;
 #else
 #error "unknown granny version"

@@ -52,7 +52,7 @@ class CGrannyMesh
 		// WORK
 #if GrannyProductMinorVersion==4
 		int *					GetDefaultBoneIndices() const;
-#elif GrannyProductMinorVersion==9 || GrannyProductMinorVersion==8 || GrannyProductMinorVersion==7
+#elif GrannyProductMinorVersion==11 || GrannyProductMinorVersion==9 || GrannyProductMinorVersion==8 || GrannyProductMinorVersion==7
 		const granny_int32x *					GetDefaultBoneIndices() const;
 #else
 #error "unknown granny version"
