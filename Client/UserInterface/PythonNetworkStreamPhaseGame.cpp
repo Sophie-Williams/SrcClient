@@ -1755,7 +1755,7 @@ bool CPythonNetworkStream::RecvShopPacket()
 
 				CPythonShop::instance().SetTabCount(shop_tab_count);
 
-				for (size_t i = 0; i < shop_tab_count; i++)
+				for (BYTE i = 0; i < shop_tab_count; i++)
 				{
 					TPacketGCShopStartEx::TSubPacketShopTab* pPackTab = (TPacketGCShopStartEx::TSubPacketShopTab*)&vecBuffer[read_point];
 					read_point += sizeof(TPacketGCShopStartEx::TSubPacketShopTab);
@@ -3955,7 +3955,7 @@ bool CPythonNetworkStream::SendBuildPrivateShopPacket(const char * c_szName, con
 	TPacketCGMyShop packet;
 	packet.bHeader = HEADER_CG_MYSHOP;
 	strncpy(packet.szSign, c_szName, SHOP_SIGN_MAX_LEN);
-	packet.bCount = c_rSellingItemStock.size();
+	packet.bCount = (BYTE)c_rSellingItemStock.size();
 	if (!Send(sizeof(packet), &packet))
 		return false;
 

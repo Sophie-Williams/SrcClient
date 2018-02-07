@@ -581,7 +581,6 @@ class CPythonNonPlayer : public CSingleton<CPythonNonPlayer>
 					case sizeof(TMobTable_r263):
 					case sizeof(TMobTable_r275):
 						return true;
-						break;
 				}
 				return false;
 			}
@@ -629,25 +628,25 @@ class CPythonNonPlayer : public CSingleton<CPythonNonPlayer>
 				switch (structSize)
 				{
 					case sizeof(TMobTable_r256):
-					{
-						MTABLE_SWITCH_RESIST(256);
-					}
-					break;
+						{
+							MTABLE_SWITCH_RESIST(256);
+						}
+						break;
 					case sizeof(TMobTable_r262):
-					{
-						MTABLE_SWITCH_RESIST(262);
-					}
-					break;
+						{
+							MTABLE_SWITCH_RESIST(262);
+						}
+						break;
 					case sizeof(TMobTable_r263):
-					{
-						MTABLE_SWITCH_RESIST(263);
-					}
-					break;
+						{
+							MTABLE_SWITCH_RESIST(263);
+						}
+						break;
 					case sizeof(TMobTable_r275):
-					{
-						MTABLE_SWITCH_RESIST(275);
-					}
-					break;
+						{
+							MTABLE_SWITCH_RESIST(275);
+						}
+						break;
 				}
 
 				return resistID;
@@ -728,35 +727,35 @@ class CPythonNonPlayer : public CSingleton<CPythonNonPlayer>
 				switch (structSize)
 				{
 					case sizeof(TMobTable_r235):
-					{
-						MTABLE_PROCESS(235);
-					}
-					break;
+						{
+							MTABLE_PROCESS(235);
+						}
+						break;
 					case sizeof(TMobTable_r255):
-					{
-						MTABLE_PROCESS(255);
-					}
-					break;
+						{
+							MTABLE_PROCESS(255);
+						}
+						break;
 					case sizeof(TMobTable_r256):
-					{
-						MTABLE_PROCESS(256);
-					}
-					break;
+						{
+							MTABLE_PROCESS(256);
+						}
+						break;
 					case sizeof(TMobTable_r262):
-					{
-						MTABLE_PROCESS(262);
-					}
-					break;
+						{
+							MTABLE_PROCESS(262);
+						}
+						break;
 					case sizeof(TMobTable_r263):
-					{
-						MTABLE_PROCESS(263);
-					}
-					break;
+						{
+							MTABLE_PROCESS(263);
+						}
+						break;
 					case sizeof(TMobTable_r275):
-					{
-						MTABLE_PROCESS(275);
-					}
- 					break;
+						{
+							MTABLE_PROCESS(275);
+						}
+ 						break;
 				}
 			}
 		} TMobTableAll;
