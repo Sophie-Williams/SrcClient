@@ -641,12 +641,10 @@ class CPythonNonPlayer : public CSingleton<CPythonNonPlayer>
 						{
 							MTABLE_SWITCH_RESIST(263);
 						}
-						break;
 					case sizeof(TMobTable_r275):
 						{
 							MTABLE_SWITCH_RESIST(275);
 						}
-						break;
 				}
 
 				return resistID;
@@ -750,7 +748,6 @@ class CPythonNonPlayer : public CSingleton<CPythonNonPlayer>
 						{
 							MTABLE_PROCESS(263);
 						}
-						break;
 					case sizeof(TMobTable_r275):
 						{
 							MTABLE_PROCESS(275);
