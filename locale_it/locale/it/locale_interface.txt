@@ -1,0 +1,630 @@
+KW_TIME	%d min. rimasti
+ACCEPT	OK
+ACCE_ABSORB	Assorbimento dei bonus
+ACCE_COMBINE	Fusione
+ACCE_MAIN	Stola 1
+ACCE_RESULT	Risultato
+ACCE_SERVE	Stola 2
+ATTACH_METIN_INFO	Vuoi utilizzare la Pietra Spirituale?
+ATTACH_METIN_TITLE	Utilizza la Pietra Spirituale
+ATTENDANCE_TITLE	Evento dei Cacciatori di boss
+AUTO_AUTO_ATTACK	Attacca
+AUTO_AUTO_POSITION	Pozioni
+AUTO_AUTO_RANGE	Focus
+AUTO_AUTO_SKILL	Abilità
+AUTO_CLEAR	Svuota
+AUTO_END	Stop
+AUTO_OFF	Off
+AUTO_ON	On
+AUTO_POSITION_SETTING	Pozioni
+AUTO_SETTING	Impostazioni
+AUTO_SKILL_SETTING	Abilità
+AUTO_START	Start
+AUTO_TITLE	Autocaccia
+BANNER_ATTENDANCE_BUTTON	Evento dei Cacciatori di boss
+BANNER_MONSTERBACK_BUTTON	Incassa punti vita
+BANNER_OKEY_BUTTON	Evento Okey
+BATTLE_FIELD_INFO	Zona di combattimento
+BATTLE_FIELD_OPERATION_TIME	È possibile entrare nella zona di combattimento dalle ore %s:00 alle ore %s:00.
+BATTLE_FIELD_OPERATION_TIME_ALL	È possibile accedere in qualsiasi momento.
+BATTLE_FIELD_OPERATION_TIME_END	Zona di Combattimento aperta ancora per %s ora/e.
+BATTLE_FIELD_OPERATION_TIME_NA	Attualmente non è possibile accedere.
+BATTLE_FIELD_OPERATION_TIME_OPEN	È possibile accedere tra %s h per %s h.
+BATTLE_FILED_RANK	Rango
+BATTLE_FILED_RANK_EMPIRE	Regno
+BATTLE_FILED_RANK_NAME	Nome
+BATTLE_FILED_RANK_POINT	Punti
+CANCEL	Interrompi
+CHANGE_PASSWORD_CONFIRM	Conferma nuova pass
+CHANGE_PASSWORD_NEW	Nuova password
+CHANGE_PASSWORD_OLD	Vecchia password
+CHANGE_PASSWORD_TITLE	Modifica password
+CHARACTER_ACTION	Azioni
+CHARACTER_EMOTICON	Emozioni
+CHARACTER_MAIN	Personaggio
+CHARACTER_MUTUAL_ACTION	Azioni interattive
+CHARACTER_NORMAL_ACTION	Azioni normali
+CHARACTER_QUEST	Missioni
+CHARACTER_SKILL	Abilità
+CHAT_FILTER	Filtro della chat
+CHAT_FILTER_DICE	Dado
+CLOSE	Chiudi
+COMB_APPEARANCE	Costume 1
+COMB_ATTRIBUTE	Costume 2
+COMB_SKILLBOOK_TILE	Scambia libri
+COMB_TITLE	
+COSTUME_TITLE	Costumi
+COSTUME_WINDOW_TITLE	Costumi
+CREATE_ATT_GRADE	STR
+CREATE_CREATE	Imposta
+CREATE_DEX_GRADE	DEX
+CREATE_HP	VIT
+CREATE_LAST_POINT	Punti
+CREATE_MAN	Uomo
+CREATE_NAME	Nome
+CREATE_NEXT	Avanti
+CREATE_PREV	Indietro
+CREATE_SEX	Sesso
+CREATE_SHAPE	Aspetto
+CREATE_SP	INT
+CREATE_STAT_RESET	Indietro
+CREATE_WOMAN	Donna
+CUBE_INFO_TITLE	Manuale della rifinitura
+CUBE_REQUIRE_MATERIAL	Materiali necessari
+CUBE_REQUIRE_MATERIAL_OR	oppure
+CUBE_TITLE	Finestra del raffinamento
+CURRENT_POINT	Punteggio attuale: %s
+DO_REFINE	Raffinamento
+DRAGONSOUL_ACTIVATE	Attiva
+DRAGONSOUL_PAGE_BUTTON_1	Grezzo
+DRAGONSOUL_PAGE_BUTTON_2	Tagliato
+DRAGONSOUL_PAGE_BUTTON_3	Raro
+DRAGONSOUL_PAGE_BUTTON_4	Antico
+DRAGONSOUL_PAGE_BUTTON_5	Leggendario
+DRAGONSOUL_REFINE_WINDOW_TITLE	Finestra del raffinamento
+DRAGONSOUL_TAP_TITLE_1	Diamante del drago
+DRAGONSOUL_TAP_TITLE_2	Rubino del drago
+DRAGONSOUL_TAP_TITLE_3	Giada del drago
+DRAGONSOUL_TAP_TITLE_4	Zaffiro del drago
+DRAGONSOUL_TAP_TITLE_5	Granato del drago
+DRAGONSOUL_TAP_TITLE_6	Onice del drago
+DRAGONSOUL_TITLE	Alchimia delle Pietre del drago
+EMPIRE_EXIT	Fine
+EMPIRE_NEXT	Avanti
+EMPIRE_PREV	Indietro
+EMPIRE_SELECT	Scegli
+ENTER_BATTLE_FIELD	Entra
+EXCHANGE_ACCEPT	Accetta
+EXCHANGE_TITLE	Commercio
+EXIT_BATTLE_FIELD	Vuoi davvero uscire dalla zona di combattimento?
+EXIT_BATTLE_FIELD_ON_DEAD	Vuoi lasciare la Zona di Combattimento con %d punto/i?
+GAMEOPTION_TITLE	Opzioni di gioco
+GAME_EXIT_OBSERVER	Termina modalità spettatore
+GAME_GUILD_WAR_JOIN	Partecipa alla guerra tra gilde
+GAME_HELP	Aiuto
+GAME_QUEST	Rinuncia
+GAME_SKILL_UP	Aumenta abilità.
+GAME_STAT_UP	Aumenta status
+GRADE	Classe
+GRADE_SELECT	Classe
+GUILDWINDOW_BASE_BUFF	Bonus gilda
+GUILD_BANKINFO_CLOSE	Chiudi
+GUILD_BANKINFO_NAME	Membro
+GUILD_BANKINFO_TITLE	Log Magazzino della Gilda
+GUILD_BANKINFO_TYPE	Oggetto/Valuta
+GUILD_BANKINFO_USETYPE	Offerta
+GUILD_BANK_CLOSE	Chiudi
+GUILD_BANK_INFO	Sez. magaz.:
+GUILD_BANK_NUMBER	Numero banca
+GUILD_BASEINFO_BANK	Magazzino Gilda
+GUILD_BASEINFO_BANKLASTOUT	Riscos. ult. item
+GUILD_BASEINFO_BUILDING	Edificio Gilda
+GUILD_BASEINFO_DEAL	Vendi terreno della gilda
+GUILD_BASEINFO_FACTORY	Armaiolo
+GUILD_BASEINFO_GOLDMANAGE	Transazione
+GUILD_BASEINFO_GUILDLAND	Terreno della gilda
+GUILD_BASEINFO_LANDABANDON	Rescindi il contratto del terreno della gilda.
+GUILD_BASEINFO_LANDSCAPE	Varie
+GUILD_BASEINFO_LOCALE	Posizione
+GUILD_BASEINFO_MONEY	Saldo
+GUILD_BASEINFO_MONEYBANKINFO	Informazioni banca gilda
+GUILD_BASEINFO_MONEYIN	Versamento
+GUILD_BASEINFO_MONEYLASTOUT	Ultimo prelievo
+GUILD_BASEINFO_MONEYOUT	Prelievo
+GUILD_BASEINFO_POWER	Altare della Forza
+GUILD_BASEINFO_SMEITER	Alchimista della gilda
+GUILD_BASEINFO_TITLE	Informazioni terreno
+GUILD_BASEINFO_VOTE	Sondaggio
+GUILD_BASENAME	Nome base
+GUILD_BOARD_ID	Nome
+GUILD_BOARD_REFRESH	Aggiorna
+GUILD_BOARD_TEXT	Messaggio
+GUILD_BUILDING_CATEGORY_TITLE	Unità di costruzione
+GUILD_BUILDING_CHANGE	Cambia
+GUILD_BUILDING_CHANGE_DELETE	Cancella
+GUILD_BUILDING_CHANGE_FIX	Modifiche gilda
+GUILD_BUILDING_CHANGE_LIST	Lista oggetti gilda
+GUILD_BUILDING_DIRECTION	Orientamento
+GUILD_BUILDING_FIX	Modifica
+GUILD_BUILDING_GRADE	Posizione
+GUILD_BUILDING_INFO	Info edifici e costi
+GUILD_BUILDING_LIST_TITLE	Lista edifici
+GUILD_BUILDING_LOG	Tronco
+GUILD_BUILDING_NAME	Nome edificio
+GUILD_BUILDING_OPERATE	Uso
+GUILD_BUILDING_PLY	Compensato
+GUILD_BUILDING_POSITION	Posizione
+GUILD_BUILDING_PREVIEW	Anteprima
+GUILD_BUILDING_PRICE	Prezzo
+GUILD_BUILDING_REFRESH	Aggiorna
+GUILD_BUILDING_STONE	Pietra fond.
+GUILD_BUILDING_TITLE	Edificio della Gilda
+GUILD_CRYSTAL	Cristallo
+GUILD_DEPOSIT	Numeri
+GUILD_DRAGONLAIR_RANKING	Classifica
+GUILD_DRAGONLAIR_RANKING_COUNT	Posto
+GUILD_DRAGONLAIR_RANKING_MEMBER	Membri
+GUILD_DRAGONLAIR_RANKING_NAME	Gilda
+GUILD_DRAGONLAIR_RANKING_TIME	Tempo
+GUILD_DROP_RESOURCE1	qui
+GUILD_DROP_RESOURCE2	Far cadere risorse
+GUILD_GEM	Pietre preziose
+GUILD_GRADE_CHANGE_GRADE_NAME	Nuovo nome di Rango
+GUILD_GRADE_NUM	Nr.
+GUILD_GRADE_PERMISSION_BANK	Si possono usare la banca della gilda e il Magazzino della Gilda
+GUILD_GRADE_PERMISSION_DELETE	Estrometti
+GUILD_GRADE_PERMISSION_JOIN	Invita
+GUILD_GRADE_PERMISSION_NOTICE	Scrivi
+GUILD_GRADE_PERMISSION_SKILL	Abilità
+GUILD_GRADE_PERMISSION_WAR	Si possono scegliere i membri che partecipano in veste di guerrieri
+GUILD_GRADE_RANK	Rango
+GUILD_GRADE_WRITE	Scrivi
+GUILD_INFO	Informazioni della Gilda
+GUILD_INFO_CUR_EXP	Esperienza
+GUILD_INFO_DECALRE_WAR	Dichiara guerra
+GUILD_INFO_ENEMY_GUILD	Gilda nemica
+GUILD_INFO_ENEMY_GUILD_EMPTY	Nessuno
+GUILD_INFO_LEVEL	Livello Gilde
+GUILD_INFO_MARK	Simbolo delle Gilde
+GUILD_INFO_MASTER	Capo
+GUILD_INFO_MASTER_VALUE	Capo
+GUILD_INFO_MEMBER_AVG_LEVEL	Livello medio
+GUILD_INFO_MEMBER_NUM	Numero di membri
+GUILD_INFO_NAME	Nome della Gilda
+GUILD_INFO_NAME_VALUE	Questo è il nome di una Gilda
+GUILD_INFO_OFFER_EXP	Invest.
+GUILD_INFO_REST_EXP	Esperienza necessaria
+GUILD_INFO_UPLOAD_MARK	Carica Stemma
+GUILD_INFO_UPLOAD_SYMBOL	Carica bandiera
+GUILD_LANDDEAL_VOTE	Vendi terreno della gilda
+GUILD_LANDDEAL_VOTE_DEALGOLD	Prezzo in Yang:
+GUILD_LANDDEAL_VOTE_DEALGUILDNAME	Nome gilda:
+GUILD_MARK	Stemma della gilda
+GUILD_MASTER_CHANGE_TITLEBAR	Rinuncia alla conduzione della gilda
+GUILD_MEMBER_JOB	Classe
+GUILD_MEMBER_KNIGHT	Guerriero
+GUILD_MEMBER_LEVEL	Livello
+GUILD_MEMBER_NAME	Nome
+GUILD_MEMBER_OUT_TITLEBAR	Espelli membro
+GUILD_MEMBER_RANK	Posizione
+GUILD_MEMBER_SPECIFIC_GRAVITY	Invest.
+GUILD_MEMBER_VOTE_CHECK	Controlla sondaggio
+GUILD_METIN_STONE	Pietra spirituale
+GUILD_MINENAL	Minerale
+GUILD_MONEY	Yang
+GUILD_NAME	Gilda
+GUILD_RESOURCE_INFO	Informazioni delle risorse
+GUILD_SKILLPAGE_LADDER	Punti Karma
+GUILD_SKILLPAGE_RANK	Rango
+GUILD_SKILL_ACTIVE	Attivo
+GUILD_SKIlL_HEAL_GSP	Ricaricare
+GUILD_SKILL_PASSIVE	Passivo
+GUILD_SKILL_POWER	Energia
+GUILD_SKILL_STATE	Abilità della Gilda
+GUILD_SYMBOL	Stemma della Gilda
+GUILD_WAR_ACCEPT	Accettare dichiarazione di guerra
+GUILD_WAR_ALLSCORE	Tutte le battaglie
+GUILD_WAR_BATTLE_TYPE	Tipo di lotta
+GUILD_WAR_CTF	Bandiera
+GUILD_WAR_DECLARE	Dichiarare guerra
+GUILD_WAR_ENEMY	Avversario
+GUILD_WAR_GAINSCORE	Punti
+GUILD_WAR_GAINSCORE_FIFTY	50
+GUILD_WAR_GAINSCORE_HUNDRED	100
+GUILD_WAR_GAINSCORE_THIRTY	30
+GUILD_WAR_GAMETIME	Durata battaglia
+GUILD_WAR_GAMETIME_SIXTY	60 min.
+GUILD_WAR_GAMETIME_TEN	10 min.
+GUILD_WAR_GAMETIME_THIRTY	30 min.
+GUILD_WAR_JOINMEMBER	Membri
+GUILD_WAR_JOINMEMBER_COUNT	Membri
+GUILD_WAR_JOINMEMBER_FIFTEEN	15
+GUILD_WAR_JOINMEMBER_FIVE	5
+GUILD_WAR_JOINMEMBER_TEN	10
+GUILD_WAR_NORMAL	Campo
+GUILD_WAR_REPORT	Riepilogo guerra
+GUILD_WAR_REPORTLIST	Tabella (Combattimenti: C; Vittorie: V; Sconfitte: S; Parità: P)
+GUILD_WAR_SCORE	Riepilogo guerra
+GUILD_WAR_SKILL	Abilità della gilda
+GUILD_WAR_TYPE_DEFENSE	Battaglia difensiva
+GUILD_WAR_TYPE_DIE	Battaglia arena
+GUILD_WAR_TYPE_FLAG	Battaglia per la bandiera
+GUILD_WAR_TYPE_NORMAL	Battaglia campale
+GUILD_WAR_TYPE_TIGER	Battaglia di annientamento
+GUILD_WAR_TYPE_TIME	Attacco a tempo
+GUILD_WAR_WARP	Arena
+GUILD_WAR_WIN	Round
+GUILD_WAR_WIN_FIVE	5
+GUILD_WAR_WIN_ONE	1
+GUILD_WAR_WIN_THREE	3
+GUILD_WATER	Acqua
+GUILD_WATER_STONE	Pietra acquatica
+GUILD_WITHDRAW	Prendi
+HELP_ATTACK	Attiva l'attacco unico cliccando con il mouse.
+HELP_ATTACK_KEY	Attacco: tasto sinistro del mouse o barra spaziatrice
+HELP_AUTO_ATTACK	Attiva l'attacco automatico cliccando con il mouse.
+HELP_CAMERA	Videocamere
+HELP_CHANGE_PK_MODE	Cambiare il tipo di attacco: modifica impostazioni del tasto sinistro del mouse
+HELP_CHARACTER_BUTTON1	(Finestra del personaggio, finestra dell'inventario,
+HELP_CHARACTER_BUTTON2	lista degli amici e opzioni)
+HELP_CHAT	Per chattare con i rispettivi gruppi, scrivi !(audiochat), #(chat di gruppo) oppure %(chat della gilda) prima del tuo testo.
+HELP_CLICK_OTHER_PLAYER	Cliccando con il tasto destro su un altro giocatore, puoi negoziare, fondare gruppi e sfidarlo a duello.
+HELP_CONTROL_CAMERA_BY_MIDDLEBUTTON	Modalità videocamera: tasto centrale del mouse
+HELP_CONTROL_CAMERA_BY_RIGHTBUTTON	Modalità videocamera: tasto destro o sinistro del mouse
+HELP_EMOTINO	Con le combinazioni di tasti <Ctrl> + <1~9> puoi visualizzare le emozioni.
+HELP_EXP	Esperienza
+HELP_FURY	Item Shop Ingame
+HELP_GUILD_WINDOW	Aprire la finestra della Gilda: Alt + G
+HELP_HELP	Mostra aiuto: H
+HELP_HELP_KEY	L'Aiuto mostra le impostazioni standard.
+HELP_HP	Punti vita (HP)
+HELP_KEYSETTING	Nelle opzioni di gioco puoi impostare le tue combinazioni di tasti.
+HELP_MESSENGER_WINDOW	Aprire la lista degli amici: Alt + M
+HELP_MINIMAP	Visualizza la Mini-mappa.
+HELP_MINIMAP_QUEST	Sulla Mini-mappa e sulla Mappa grande, le missioni vengono indicate con un segnale luminoso.
+HELP_MOUSE_LEFT	Funzione del tasto sinistro del mouse
+HELP_MOUSE_RIGHT	Funzione del tasto destro del mouse
+HELP_MOVE_KEY	Movimento personaggio: W, S, A, D o tasti freccia
+HELP_OFF_QUESTSCROLL	Con <Ctrl> + Q puoi visualizzare e nascondere i Papiri della Quest.
+HELP_OPEN_CHARACTER	Finestra del personaggio: C
+HELP_OPEN_CHAT	Aprire la finestra di chat: invio
+HELP_OPEN_INVENTORY	Aprire la finestra dell'inventario: I
+HELP_OPEN_LOG	Aprire il protocollo chat (log): L
+HELP_OPEN_MINIMAP	Aprire la mini-mappa: MAIUSC + M
+HELP_OPEN_QUEST	Aprire la finestra delle missioni: N
+HELP_OPEN_SKILL	Aprire la finestra delle abilità: V
+HELP_OPEN_WHISPER	Aprire la chat privata: MAIUSC + INVIO
+HELP_OPEN_ZONEMAP	Aprire la mappa grande: M
+HELP_PICK_ITEM	Raccogliere oggetti: \ o Z o il tasto sinistro del mouse
+HELP_QUICKSLOT	Campi di accesso rapido
+HELP_SCREEN_CAPTURE	Fare uno screenshot: Stamp o Print (l'immagine sarà salvata nella cartella "Metin2\screenshot")
+HELP_SERVER	Visualizza server e canale.
+HELP_SHOW_ALL_NAME	Visualizza nome: Alt
+HELP_SKILL	Clicca con il tasto destro del mouse per usare un'abilità.
+HELP_SP	Punti Mana (MP)
+HELP_SYSTEM_BUTTON	Tasti di sistema
+INVENTORY_PAGE_BUTTON_TOOLTIP_1	1° Inventario
+INVENTORY_PAGE_BUTTON_TOOLTIP_2	2° Inventario
+INVENTORY_PAGE_BUTTON_TOOLTIP_3	3° Inventario
+INVENTORY_PAGE_BUTTON_TOOLTIP_4	4° Inventario
+INVENTORY_TITLE	Inventario
+ITEM_MALL	Item Shop
+KEYCHANGE_ACTION_WINDOW	Offerte
+KEYCHANGE_ATTACK	Attacca
+KEYCHANGE_AUTORUN	Automovimento
+KEYCHANGE_AUTO_WINDOW	Autocaccia
+KEYCHANGE_BASEACTION	Impostazioni base
+KEYCHANGE_CAM_DOWN1	Videocamera (in basso)
+KEYCHANGE_CAM_DOWN2	Videocamera (in basso)
+KEYCHANGE_CAM_LEFT1	Videocamera (a sinistra)
+KEYCHANGE_CAM_LEFT2	Videocamera (a sinistra)
+KEYCHANGE_CAM_RIGHT1	Videocamera (a destra)
+KEYCHANGE_CAM_RIGHT2	Videocamera (a destra)
+KEYCHANGE_CAM_UP1	Videocamera (in alto)
+KEYCHANGE_CAM_UP2	Videocamera (in alto)
+KEYCHANGE_CAM_ZOOM_IN1	Videocamera (zoom +)
+KEYCHANGE_CAM_ZOOM_IN2	Videocamera (zoom +)
+KEYCHANGE_CAM_ZOOM_OUT1	Videocamera (zoom -)
+KEYCHANGE_CAM_ZOOM_OUT2	Videocamera (zoom -)
+KEYCHANGE_CANCLE	Esci
+KEYCHANGE_CHAT_WINDOW	Protocollo della chat
+KEYCHANGE_CLEAR	Standard
+KEYCHANGE_DDS_WINDOW	DSS
+KEYCHANGE_DOWN1	Indietro
+KEYCHANGE_DOWN2	Indietro
+KEYCHANGE_EMOTION1	Emozione (triste)
+KEYCHANGE_EMOTION2	Emozione (Yang)
+KEYCHANGE_EMOTION3	Emozione (musica)
+KEYCHANGE_EMOTION4	Emozione (cuore)
+KEYCHANGE_EMOTION5	Emozione (cuoricino)
+KEYCHANGE_EMOTION6	Emozione (bomba)
+KEYCHANGE_EMOTION7	Emozione (idea)
+KEYCHANGE_EMOTION8	Emozione (tempesta)
+KEYCHANGE_EMOTION9	Emozione (sorry)
+KEYCHANGE_GUILD_WINDOW	Gilda
+KEYCHANGE_HELP_WINDOW	Aiuto
+KEYCHANGE_IMPOSSIBLE_CHANGE	Qui non si possono utilizzare [Ctrl], [Alt] e [Shift]!
+KEYCHANGE_INTERFACE	Finestra
+KEYCHANGE_INVENTORY_WINDOW	Inventario
+KEYCHANGE_KEY_SETTING	Impostazioni tastiera
+KEYCHANGE_LEFT1	A sinistra
+KEYCHANGE_LEFT2	A sinistra
+KEYCHANGE_MESSENGER_WINDOW	Amici
+KEYCHANGE_MINIMAP_MINER	Mini-mappa (-)
+KEYCHANGE_MINIMAP_PLUS	Mini-mappa (+)
+KEYCHANGE_MINIMAP_WINDOW	Mappa grande
+KEYCHANGE_MONSTER_CARD_WINDOW	Carta mostro
+KEYCHANGE_NEXT_TARGET	Prossimo obiettivo
+KEYCHANGE_PET_WINDOW	Pet
+KEYCHANGE_QUEST_SCROLL_ONOFF	Visualizzazione missione
+KEYCHANGE_QUEST_WINDOW	Missioni
+KEYCHANGE_QUICKSLOT1	Livello 1
+KEYCHANGE_QUICKSLOT2	Livello 2
+KEYCHANGE_QUICKSLOT3	Livello 3
+KEYCHANGE_QUICKSLOT4	Livello 4
+KEYCHANGE_RIDE	Cavalca
+KEYCHANGE_RIDE_BYE	Manda via il cavallo
+KEYCHANGE_RIDE_HORSE	Cavalca
+KEYCHANGE_RIDE_PEED	Nutri il cavallo
+KEYCHANGE_RIGHT1	A destra
+KEYCHANGE_RIGHT2	A destra
+KEYCHANGE_ROOT1	Annulla
+KEYCHANGE_ROOT2	Annulla
+KEYCHANGE_SAVE	Salva
+KEYCHANGE_SCREENSHOT	Fotografia istantanea
+KEYCHANGE_SHOW_NAME	Visualizza nomi
+KEYCHANGE_SKILL_WINDOW	Abilità
+KEYCHANGE_SLOT1	Slot 1
+KEYCHANGE_SLOT2	Slot 2
+KEYCHANGE_SLOT3	Slot 3
+KEYCHANGE_SLOT4	Slot 4
+KEYCHANGE_SLOT5	Slot 5
+KEYCHANGE_SLOT6	Slot 6
+KEYCHANGE_SLOT7	Slot 7
+KEYCHANGE_SLOT8	Slot 8
+KEYCHANGE_SLOT_KET	Accesso rapido
+KEYCHANGE_STATUS_WINDOW	Personaggio
+KEYCHANGE_UP1	Avanti
+KEYCHANGE_UP2	Avanti
+LOAD_ERROR	Il file dati è rovinato. Reinstalla il Client. Clicca ora il tasto ESC.
+LOGIN_CONNECT	Collegare
+LOGIN_CONNECTING	Stai per essere collegato al server.
+LOGIN_DEFAULT_SERVERADDR	Nome del server, Canale 1
+LOGIN_EXIT	Termina
+LOGIN_REGION_TITLE	Luogo dove deve essere spedito il conto
+LOGIN_SELECT_BUTTON	Scegli
+LOGIN_SELECT_EXIT	Termina
+LOGIN_SELECT_OK	Ok
+LOGIN_SELECT_TITLE	Scegli server
+MALL_PASSWORD_TITLE	Password
+MALL_TITLE	Magazzino dell'Item Shop
+MARKET_TITLE	Negozio
+MARKLIST_REFRESH	Attualizza
+MARKLIST_TITLE	Registra il logo della Gilda
+MC_EXCHANGE_BUTTON	Scambia
+MC_MISSION_INIT_BUTTON	Ripristina livello missione
+MC_MOTION_BUTTON	Movimento
+MC_POLY_BUTTON	Trasformazione
+MC_PROMOTION_BUTTON	Migliora
+MC_REQUEST_MISSION_BUTTON	Acquisisci missione
+MC_REWARD_CARD_BUTTON	Ottieni carta mostro
+MC_SHUFFLE_BUTTON	Riordina carte mostro
+MC_SUMMON_BUTTON	Evoca
+MC_TAB_BUTTON_CARD_MISSION	Missione carte
+MC_TAB_BUTTON_PARTY	Raccolta nel dungeon
+MC_TAB_BUTTON_SOLO	Raccolta sul campo
+MC_WARP_BUTTON	Teletrasporto
+MESSAGE	Questo è un messaggio
+MESSENGER_ADD_FRIEND	Aggiungi amico
+MESSENGER_BLOCK_FRIEND	Blocca
+MESSENGER_DELETE_FRIEND	Cancella
+MESSENGER_MOBILE	Invia SMS
+MESSENGER_OPEN_GUILD	Apri la finestra della Gilda
+MESSENGER_TITLE	Amici
+MESSENGER_USE_GUILD_MOVE_SKILL	Utilizza l'abitlità di movimento della Gilda
+MESSENGER_WHISPER	Chat privata
+MINIMIZE	Minimizza
+MINI_GAME_RUMI_DISCARD_TEXT	Modalità sicura
+MINI_GAME_RUMI_EXIT	Termina
+MINI_GAME_RUMI_LBUTTON_DESC	Inserisci la carta facendo clic con il tasto sinistro
+MINI_GAME_RUMI_RBUTTON_DESC	Rimuovi la carta facendo clic con il tasto destro
+MINI_GAME_RUMI_SCORE	Punti
+MINI_GAME_RUMI_START_TEXT	Inizia
+MINI_GAME_RUMI_TITLE	Gioco di carte Okey Metin2
+MOUSEBUTTON_ATTACK	Attacca
+MOUSEBUTTON_AUTO_ATTACK	Attacca automaticamente
+MOUSEBUTTON_CAMERA	Videocamera
+MOUSEBUTTON_SKILL	Abilità.
+MUSICLIST_TITLE	Scelta della musica
+MYSHOP_DECO_CANCEL	Chiudi.
+MYSHOP_DECO_DEFAULT	Standard
+MYSHOP_DECO_NEXT	Avanti
+MYSHOP_DECO_OK	Chiudi
+MYSHOP_DECO_PREV	Indietro
+MYSHOP_DECO_SELECT_MODEL	Seleziona l'aspetto del tuo negozio.
+MYSHOP_DECO_SELECT_TITLE	Seleziona l'aspetto del tuo titolo.
+NO	No
+OK	Ok
+OPPOSITES	Rifiuta
+OPTION_ALWAYS_SHOW_NAME	Nome
+OPTION_ALWAYS_SHOW_NAME_OFF	Limitato
+OPTION_ALWAYS_SHOW_NAME_ON	Sempre
+OPTION_BLOCK	Blocca
+OPTION_BLOCK_EXCHANGE	Commercio
+OPTION_BLOCK_FRIEND	Amici
+OPTION_BLOCK_GUILD	Gilda
+OPTION_BLOCK_PARTY	Gruppo
+OPTION_BLOCK_PARTY_REQUEST	Richiesta
+OPTION_BLOCK_WHISPER	Chat privata
+OPTION_CAMERA_DISTANCE	Videocamera
+OPTION_CAMERA_DISTANCE_LONG	Lontano
+OPTION_CAMERA_DISTANCE_SHORT	Vicino
+OPTION_DELETE_MOBILE_BUTTON	Cancella numero di cellulare
+OPTION_EFFECT	Visualizzatore dei bersagli
+OPTION_ENV_EFFECT	Ambiente
+OPTION_ENV_EFFECT_OFF	Off
+OPTION_ENV_EFFECT_ON	On
+OPTION_FOG	Nebbia
+OPTION_FOG_DENSE	Molto
+OPTION_FOG_LIGHT	Poco
+OPTION_FOG_MIDDLE	Media
+OPTION_FOG_OFF	Off
+OPTION_FOG_ON	On
+OPTION_INPUT_MOBILE_BUTTON	Inserisci il numero di cellulare
+OPTION_KEY_SETTING	Tastiera
+OPTION_MOBILE	Cellulare
+OPTION_MOB_INFO	Info mostri
+OPTION_MOB_INFO_AGGR	Aggressivo
+OPTION_MOB_INFO_LEVEL	Livello
+OPTION_MUSIC	Musica
+OPTION_MUSIC_CHANGE	Cambia
+OPTION_MUSIC_DEFAULT_THEMA	Titolo standard di Metin2
+OPTION_NAME_COLOR	Colore Nome
+OPTION_NAME_COLOR_EMPIRE	Nome del regno
+OPTION_NAME_COLOR_NORMAL	Normale
+OPTION_NIGHT_MODE	Notte
+OPTION_NIGHT_MODE_OFF	Off
+OPTION_NIGHT_MODE_ON	On
+OPTION_PVPMODE	Modo PvP
+OPTION_PVPMODE_FREE	Libero
+OPTION_PVPMODE_FREE_TOOLTIP	Puoi attaccare tutti i giocatori.
+OPTION_PVPMODE_GUILD	Gilda
+OPTION_PVPMODE_GUILD_TOOLTIP	Puoi attaccare tutti i giocatori esclusi membri della Gilda.
+OPTION_PVPMODE_PEACE	Pace
+OPTION_PVPMODE_PEACE_TOOLTIP	Non puoi attaccare i giocatori del tuo regno.
+OPTION_PVPMODE_REVENGE	Ostile
+OPTION_PVPMODE_REVENGE_TOOLTIP	Puoi attaccare solo giocatori con gradi diversi dal tuo.
+OPTION_SALESTEXT	Nome del negozio
+OPTION_SALESTEXT_VIEW_OFF	nascondi
+OPTION_SALESTEXT_VIEW_ON	visualizza
+OPTION_SETTING	Apri
+OPTION_SNOW_MODE	Nevicata
+OPTION_SNOW_MODE_OFF	Off
+OPTION_SNOW_MODE_ON	On
+OPTION_SNOW_TEXTURE_MODE	Neve
+OPTION_SNOW_TEXTURE_MODE_OFF	Off
+OPTION_SNOW_TEXTURE_MODE_ON	On
+OPTION_SOUND	Effetti
+OPTION_TARGET_BOARD	Menù bersaglio
+OPTION_TARGET_BOARD_NO_VIEW	Chiudi
+OPTION_TARGET_BOARD_VIEW	Visualizza
+OPTION_TILING	Memoria video
+OPTION_TILING_APPLY	Usa
+OPTION_TILING_CPU	CPU
+OPTION_TILING_GPU	GPU
+OPTION_TITLE	Opzioni
+OPTION_VIEW_CHAT	Righe di Chat
+OPTION_VIEW_CHAT_OFF	nascondi
+OPTION_VIEW_CHAT_ON	visualizza
+PARTY_MEMBER_INFO_NAME	Nome dei membri del gruppo
+PASSWORD_DESC_1	Digita una password,
+PASSWORD_DESC_2	per aprire il magazzino.
+PASSWORD_DESC_3	Hai già cambiato la password?
+PASSWORD_DESC_4	In caso non l'avessi fatto, la tua password è: "000000".
+PASSWORD_DESC_5	Cambia la tua password nel magazzino.
+PASSWORD_TITLE	Salva-PW
+PET_FEED_TITLE	Nutri
+PET_FFED_BUTTON_TEXT	Nutri
+PET_HATCHING_BUTTON	Fai schiudere
+PET_HATCHING_NIK	Nome del pet
+PET_HATCHING_WINDOW_TITLE	Incubatrice
+PET_INFORMATION_ABILITIES	Bonus
+PET_INFORMATION_AGE	Età
+PET_INFORMATION_COSTUME_BONUS	Bonus costume
+PET_INFORMATION_DEFENCE	Difesa
+PET_INFORMATION_EVOL_BUTTON	Sviluppo
+PET_INFORMATION_EXP	Esperienza
+PET_INFORMATION_EXP_BUTTON	Item EXP
+PET_INFORMATION_HP	HP
+PET_INFORMATION_LEVEL	Livello
+PET_INFORMATION_LIFE	Durata
+PET_INFORMATION_LIFETIME_BUTTON	Nutri
+PET_INFORMATION_LIFE_TIME	Ore
+PET_INFORMATION_SKILL	Abilità
+PET_INFORMATION_SP	MP
+PET_INFORMATION_TITLE	Pet
+PET_NAME_CHANGE_BUTTON	Modifica
+PET_NAME_CHANGE_WINDOW_TITLE	Modifica nome
+PICK_MONEY_TITLE	Dividi
+PRIVATESHOPSEARCH_BUY	Compra
+PRIVATESHOPSEARCH_COUNT	Quantità
+PRIVATESHOPSEARCH_ITEMNAME	Nome
+PRIVATESHOPSEARCH_ITEMTYPE	Oggetti
+PRIVATESHOPSEARCH_JOB	Classe
+PRIVATESHOPSEARCH_LEVEL	Livello
+PRIVATESHOPSEARCH_PRICE	Prezzo
+PRIVATESHOPSEARCH_REFINE	Livello dell'oggetto
+PRIVATESHOPSEARCH_SEARCH	Cerca
+PRIVATESHOPSEARCH_SEARCH_BAR	Cerca
+PRIVATESHOPSEARCH_SELECT	Scegli
+PRIVATESHOPSEARCH_SELLER	Venditore
+PRIVATE_SHOP_CLOSE_BUTTON	Chiudi negozio
+PRIVATE_SHOP_NAME	Nome del negozio
+PRIVATE_SHOP_TITLE	Crea un negozio privato
+REFINE_COST	Costi di miglioramento: 0 Yang
+REFINE_INFO	Probabilità di successo del miglioramento: 100%
+REFINE_MONEY	Tassa sul raffinamento
+REFINE_SELECT	Raffinamento
+REFINE_TTILE	Miglioramenti
+REPORT_VIOLENT_WHISPER	
+RESTART_HERE	Ricomincia qui
+RESTART_IMMEDIATE	Reincarnazione
+RESTART_TOWN	Ricomincia nella città.
+SAFE_CHANGE_PASSWORD	Modifica password
+SAFE_TITLE	Magazzino
+SELECT_ATTR_CHANGED	Nuovi
+SELECT_ATTR_CURRENT	Vecchi
+SELECT_ATTR_SELECT	Scegli
+SELECT_ATTR_TITLE	Incanta oggetto+
+SELECT_ATT_GRADE	STR
+SELECT_CREATE	Crea
+SELECT_DELETE	Cancella
+SELECT_DEX_GRADE	DEX
+SELECT_EMPIRE_NAME	Nome del Regno
+SELECT_EXIT	Termina
+SELECT_HP	VIT
+SELECT_LEVEL	Livello
+SELECT_METIN_STONE_TITLE	Scegli pietra spirituale
+SELECT_NAME	Nome
+SELECT_NO_GUILD	Nessuna Gilda
+SELECT_PLAYTIME	Tempo di gioco
+SELECT_SELECT	Start
+SELECT_SP	INT
+SELECT_TITLE	Scegli titolo
+SHOP_BUY	Compra
+SHOP_SELL	Vendi
+SHOP_TITLE	Negozio
+SKILL_SUPPORT_TITLE	Abilità standard
+STEP	Grado di chiarezza
+STEP_SELECT	Grado di purezza
+STRENGTH	Rinforza
+STRENGTH_SELECT	Livello
+STRUCTURE_VIEW_MODE	Decorazione
+STRUCTURE_VIEW_TYPE_STRUCTURE	Nascondi
+SYSTEMOPTION_TITLE	Opzioni di sistema
+SYSTEM_CHANGE	Cambia personaggio
+SYSTEM_EXIT	Termina gioco
+SYSTEM_HELP	Aiuto
+SYSTEM_LOGOUT	Sconnetti
+SYSTEM_MALL	Item Shop
+SYSTEM_MOVE_CHANNEL	Cambia canale
+SYSTEM_OPTION	Opzioni di sistema
+TASKBAR_CHARACTER	Personaggio [C/V/B/N]
+TASKBAR_CHAT	Finestra di Chat [Invio]
+TASKBAR_DISABLE	Disattiva
+TASKBAR_DRAGON_SOUL	Alchimia delle Pietre del drago
+TASKBAR_EXPAND	Ingrandisci la finestra
+TASKBAR_INVENTORY	Inventario [I]
+TASKBAR_MESSENGER	Amici [Alt+M]
+TASKBAR_NEXT_QUICKSLOT	Prossimo campo di utilizzo veloce [MAIUSC + Numero, Alt]
+TASKBAR_PET_INFO	Informazioni sul pet
+TASKBAR_PREV_QUICKSLOT	Precedente campo di utilizzo veloce [MAIUSC + Numero]
+TASKBAR_SYSTEM	Opzioni[ESC]
+TOTAL_RANKING	Classifica complessiva
+WEEKLY_RANKING	Classifica settimanale
+WHISPER_BAN	Blocca
+WHISPER_NAME	Sussurra
+WHISPER_REPORT	
+WHISPER_SEND	Invia
+YES	Sì.
+ZONE_MAP	Mappa grande

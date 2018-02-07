@@ -1,0 +1,15 @@
+Group Info
+{
+
+	on_off	0
+}
+
+Group Banner
+{
+	
+	Group Link_Metin2_Account_With_Steam
+	{
+		text		"Collega subito Steam al tuo account di Metin2!"
+		url			""
+	}
+}
