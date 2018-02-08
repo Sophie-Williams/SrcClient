@@ -30,6 +30,7 @@ void __GetRaceResourcePathes(unsigned race, std::vector <std::string>& vec_stPat
 		vec_stPathes.push_back ("d:/ymir work/npc/");
 		vec_stPathes.push_back ("d:/ymir work/npc2/");
 		vec_stPathes.push_back ("d:/ymir work/npc_pet/");
+		vec_stPathes.push_back ("d:/ymir work/npc_mount/");
 		vec_stPathes.push_back ("d:/ymir work/monster/");
 		vec_stPathes.push_back ("d:/ymir work/monster2/");
 	}
