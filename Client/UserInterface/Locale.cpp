@@ -19,7 +19,7 @@ const char* LSS_GLOBAL		= "GLOBAL";
 static bool IS_CHEONMA = false;
 
 #ifndef LSS_SECURITY_KEY
-#define LSS_SECURITY_KEY    "1234abcd5678efgh"
+#define LSS_SECURITY_KEY	"testtesttesttest"
 #endif
 
 std::string __SECURITY_KEY_STRING__ = LSS_SECURITY_KEY;
