@@ -5,10 +5,10 @@
 
 bool __IsGuildRace(unsigned race)
 {
-	if (race >= 14000 && race < 15000)
+	if (race >= 14000 && race <= 14049)
 		return true;
 
-	if (20043 == race)
+	if (race >= 20043 && race <= 20046)
 		return true;
 
 	return false;
@@ -16,100 +16,52 @@ bool __IsGuildRace(unsigned race)
 
 bool __IsNPCRace(unsigned race)
 {
-	if (race > 9000)
-		return true;
+	return race > 9000;
+}
 
-	return false;
+bool __IsPet(unsigned race)
+{
+	return race >= 34001 && race <= 34099;
+}
+
+bool __IsMount(unsigned race)
+{
+	return race >= 20201 && race <= 20258;
 }
 
 void __GetRaceResourcePathes(unsigned race, std::vector <std::string>& vec_stPathes)
 {
-	if (__IsGuildRace(race))
+	if (__IsNPCRace(race))
 	{
-		vec_stPathes.push_back ("d:/ymir work/guild/");
-		vec_stPathes.push_back ("d:/ymir work/npc/");
-		vec_stPathes.push_back ("d:/ymir work/npc2/");
-		vec_stPathes.push_back ("d:/ymir work/npc_pet/");
-		vec_stPathes.push_back ("d:/ymir work/npc_mount/");
-		vec_stPathes.push_back ("d:/ymir work/monster/");
-		vec_stPathes.push_back ("d:/ymir work/monster2/");
-	}
-	else if (__IsNPCRace(race))
-	{
-		if (race >= 30000)
+		if (__IsGuildRace(race))
 		{
-			if (race==34028 || race==34029)
-			{
-				vec_stPathes.push_back ("d:/ymir work/npc_pet/");
-				vec_stPathes.push_back ("d:/ymir work/npc2/");
-			}
-			else
-			{
-				vec_stPathes.push_back ("d:/ymir work/npc2/");
-				vec_stPathes.push_back ("d:/ymir work/npc_pet/");
-			}
-			vec_stPathes.push_back ("d:/ymir work/npc/");
-			vec_stPathes.push_back ("d:/ymir work/monster/");
-			vec_stPathes.push_back ("d:/ymir work/monster2/");
-			vec_stPathes.push_back ("d:/ymir work/guild/");
+			vec_stPathes.push_back("d:/ymir work/guild/");
+			vec_stPathes.push_back("d:/ymir work/npc/");
+			vec_stPathes.push_back("d:/ymir work/npc2/");
+		}
+
+		else if (__IsPet(race))
+		{
+			vec_stPathes.push_back("d:/ymir work/npc2/");
+			vec_stPathes.push_back("d:/ymir work/npc_pet/");
+		}
+
+		else if (__IsMount(race))
+		{
+			vec_stPathes.push_back("d:/ymir work/npc2/");
+			vec_stPathes.push_back("d:/ymir work/npc_mount/");
 		}
 		else
 		{
-			vec_stPathes.push_back ("d:/ymir work/npc/");
-			vec_stPathes.push_back ("d:/ymir work/npc2/");
-			vec_stPathes.push_back ("d:/ymir work/npc_pet/");
-			vec_stPathes.push_back ("d:/ymir work/monster/");
-			vec_stPathes.push_back ("d:/ymir work/monster2/");
-			vec_stPathes.push_back ("d:/ymir work/guild/");
+			vec_stPathes.push_back("d:/ymir work/npc/");
+			vec_stPathes.push_back("d:/ymir work/npc2/");
 		}
-	}
-	// 만우절 이벤트용 예외 몬스터
-	else if (8507 == race || 8510 == race)
-	{
-		vec_stPathes.push_back ("d:/ymir work/monster2/");
-		vec_stPathes.push_back ("d:/ymir work/monster/");
-		vec_stPathes.push_back ("d:/ymir work/npc/");
-		vec_stPathes.push_back ("d:/ymir work/npc2/");
-		vec_stPathes.push_back ("d:/ymir work/npc_pet/");
-		vec_stPathes.push_back ("d:/ymir work/guild/");
-	}
-	else if (race > 8000)
-	{
-		vec_stPathes.push_back ("d:/ymir work/monster/");
-		vec_stPathes.push_back ("d:/ymir work/monster2/");
-		vec_stPathes.push_back ("d:/ymir work/npc/");
-		vec_stPathes.push_back ("d:/ymir work/npc2/");
-		vec_stPathes.push_back ("d:/ymir work/npc_pet/");
-		vec_stPathes.push_back ("d:/ymir work/guild/");
-	}
-	else if (race > 2000)
-	{
-		vec_stPathes.push_back ("d:/ymir work/monster2/");
-		vec_stPathes.push_back ("d:/ymir work/monster/");
-		vec_stPathes.push_back ("d:/ymir work/npc/");
-		vec_stPathes.push_back ("d:/ymir work/npc2/");
-		vec_stPathes.push_back ("d:/ymir work/npc_pet/");
-		vec_stPathes.push_back ("d:/ymir work/guild/");
-	}
-	else if (race>=1400 && race<=1700)
-	{
-		vec_stPathes.push_back ("d:/ymir work/monster2/");
-		vec_stPathes.push_back ("d:/ymir work/monster/");
-		vec_stPathes.push_back ("d:/ymir work/npc/");
-		vec_stPathes.push_back ("d:/ymir work/npc2/");
-		vec_stPathes.push_back ("d:/ymir work/npc_pet/");
-		vec_stPathes.push_back ("d:/ymir work/guild/");
 	}
 	else
 	{
-		vec_stPathes.push_back ("d:/ymir work/monster/");
-		vec_stPathes.push_back ("d:/ymir work/monster2/");
-		vec_stPathes.push_back ("d:/ymir work/npc/");
-		vec_stPathes.push_back ("d:/ymir work/npc2/");
-		vec_stPathes.push_back ("d:/ymir work/npc_pet/");
-		vec_stPathes.push_back ("d:/ymir work/guild/");
+		vec_stPathes.push_back("d:/ymir work/monster/");
+		vec_stPathes.push_back("d:/ymir work/monster2/");
 	}
-	return;
 }
 
 CRaceData* CRaceManager::__LoadRaceData(DWORD dwRaceIndex)
@@ -173,7 +125,7 @@ CRaceData* CRaceManager::__LoadRaceData(DWORD dwRaceIndex)
 		{
 			if (i != vec_stFullPathName.size() - 1)
 			{
-				TraceError("CRaceManager::RegisterRacePath : RACE[%u] LOAD MSMFILE[%s] ERROR. Will Find Another Path.", dwRaceIndex, stMSMFileName.c_str());
+				//TraceError("CRaceManager::RegisterRacePath : RACE[%u] LOAD MSMFILE[%s] ERROR. Will Find Another Path.", dwRaceIndex, stMSMFileName.c_str());
 				continue;
 			}
 
