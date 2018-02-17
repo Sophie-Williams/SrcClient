@@ -41,6 +41,8 @@ import miniMap
 import uiselectitem
 # END_OF_ACCESSORY_REFINE_ADD_METIN_STONE
 import uiScriptLocale
+import uiOfflineShop
+import uiOfflineShopBuilder
 
 import event
 import localeInfo
@@ -86,6 +88,7 @@ class Interface(object):
 		self.guildScoreBoardDict = {}
 		self.equipmentDialogDict = {}
 		event.SetInterfaceWindow(self)
+		self.offlineShopAdvertisementBoardDict = {}
 
 	def __del__(self):
 		systemSetting.DestroyInterfaceHandler()
@@ -190,6 +193,11 @@ class Interface(object):
 
 		wndChatLog = uiChat.ChatLogWindow()
 		wndChatLog.BindInterface(self)
+		# OFFLINE_SHOP_ADMIN_PANEL
+		wndOfflineShopAdminPanel = uiOfflineShop.OfflineShopAdminPanelWindow()
+		wndOfflineShopAdminPanel.BindInterfaceClass(self)
+		self.wndOfflineShopAdminPanel = wndOfflineShopAdminPanel
+		# END_OF_OFFLINE_SHOP_ADMIN_PANEL
 
 		self.wndCharacter = wndCharacter
 		self.wndInventory = wndInventory
@@ -225,6 +233,10 @@ class Interface(object):
 		self.dlgSystem = uiSystem.SystemDialog()
 		self.dlgSystem.LoadDialog()
 		self.dlgSystem.SetOpenHelpWindowEvent(ui.__mem_func__(self.OpenHelpWindow))
+		
+		self.dlgOfflineShop = uiOfflineShop.OfflineShopDialog()
+		self.dlgOfflineShop.LoadDialog()
+		self.dlgOfflineShop.Hide()
 
 		self.dlgSystem.Hide()
 
@@ -242,6 +254,9 @@ class Interface(object):
 
 		self.privateShopBuilder = uiPrivateShopBuilder.PrivateShopBuilder()
 		self.privateShopBuilder.Hide()
+		
+		self.offlineShopBuilder = uiOfflineShopBuilder.OfflineShopBuilder()
+		self.offlineShopBuilder.Hide()
 
 		self.dlgRefineNew = uiRefine.RefineDialogNew()
 		self.dlgRefineNew.Hide()
@@ -351,6 +366,9 @@ class Interface(object):
 		self.dlgShop.SetItemToolTip(self.tooltipItem)
 		self.dlgExchange.SetItemToolTip(self.tooltipItem)
 		self.privateShopBuilder.SetItemToolTip(self.tooltipItem)
+		
+		self.dlgOfflineShop.SetItemToolTip(self.tooltipItem)
+		self.offlineShopBuilder.SetItemToolTip(self.tooltipItem)
 
 		self.__InitWhisper()
 		self.DRAGON_SOUL_IS_QUALIFIED = False
@@ -481,6 +499,16 @@ class Interface(object):
 		if self.wndItemSelect:
 			self.wndItemSelect.Destroy()
 		# END_OF_ACCESSORY_REFINE_ADD_METIN_STONE
+		
+		if (self.dlgOfflineShop):
+			self.dlgOfflineShop.Destroy()
+			
+		if (self.offlineShopBuilder):
+			self.offlineShopBuilder.Destroy()
+		# OFFLINE_SHOP_ADMIN_PANEL
+		if (self.wndOfflineShopAdminPanel):
+			self.wndOfflineShopAdminPanel.Destroy()
+		# END_OF_OFFLINE_SHOP_ADMIN_PANEL
 
 		self.wndChatLog.Destroy()
 		for btn in self.questButtonList:
@@ -540,6 +568,12 @@ class Interface(object):
 		del self.tipBoard
 		del self.bigBoard
 		del self.wndItemSelect
+		
+		del self.dlgOfflineShop
+		del self.wndOfflineShopAdminPanel
+		# OFFLINE_SHOP
+		self.wndOfflineShopAdminPanel = None
+		# END_OF_OFFLINE_SHOP
 
 		self.questButtonList = []
 		self.whisperButtonList = []
@@ -672,6 +706,18 @@ class Interface(object):
 
 	def RefreshShopDialog(self):
 		self.dlgShop.Refresh()
+	# OfflineShop
+	def OpenOfflineShopDialog(self, vid):
+		self.wndInventory.Show()
+		self.wndInventory.SetTop()
+		self.dlgOfflineShop.Open(vid)
+		self.dlgOfflineShop.SetTop()
+		
+	def CloseOfflineShopDialog(self):	
+		self.dlgOfflineShop.Close()
+		
+	def RefreshOfflineShopDialog(self):
+		self.dlgOfflineShop.Refresh()
 
 	## Quest
 	def OpenCharacterWindowQuestPage(self):
@@ -1084,6 +1130,12 @@ class Interface(object):
 			if app.ENABLE_DRAGON_SOUL_SYSTEM:
 				if True == self.wndDragonSoulRefine.IsShow():
 					self.wndDragonSoulRefine.Close()
+	# Offline Shop Admin Panel
+	def ToggleOfflineShopAdminPanelWindow(self):
+		if (self.wndOfflineShopAdminPanel.IsShow() == TRUE):
+			self.wndOfflineShopAdminPanel.Close()
+		else:
+			self.wndOfflineShopAdminPanel.Show()			
 
 	# ¿ëÈ¥¼® ³¡
 
@@ -1309,6 +1361,46 @@ class Interface(object):
 
 		del self.privateShopAdvertisementBoardDict[vid]
 		uiPrivateShopBuilder.DeleteADBoard(vid)
+	#####################################################################################
+	### Offline Shop ###
+	
+	def OpenOfflineShopInputNameDialog(self):
+		inputDialog = uiOfflineShop.OfflineShopInputDialog()
+		inputDialog.SetAcceptEvent(ui.__mem_func__(self.OpenOfflineShopBuilder))
+		inputDialog.SetCancelEvent(ui.__mem_func__(self.CloseOfflineShopInputNameDialog))
+		inputDialog.Open()
+		self.inputDialog = inputDialog
+		
+	def CloseOfflineShopInputNameDialog(self):
+		self.inputDialog = None
+		return TRUE
+	
+	def OpenOfflineShopBuilder(self):
+		if (not self.inputDialog):
+			return TRUE
+			
+		if (not len(self.inputDialog.GetTitle())):
+			return TRUE
+			
+		if (self.inputDialog.GetTime() < 0 or self.inputDialog.GetTime() == 0):
+			return TRUE
+			
+		self.offlineShopBuilder.Open(self.inputDialog.GetTitle(), self.inputDialog.GetTime())
+		self.CloseOfflineShopInputNameDialog()
+		return TRUE
+	
+	def AppearOfflineShop(self, vid, text):
+		board = uiOfflineShopBuilder.OfflineShopAdvertisementBoard()
+		board.Open(vid, text)
+		
+		self.offlineShopAdvertisementBoardDict[vid] = board
+		
+	def DisappearOfflineShop(self, vid):
+		if (not self.offlineShopAdvertisementBoardDict.has_key(vid)):
+			return
+			
+		del self.offlineShopAdvertisementBoardDict[vid]
+		uiOfflineShopBuilder.DeleteADBoard(vid)
 
 	#####################################################################################
 	### Equipment ###

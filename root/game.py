@@ -38,6 +38,7 @@ import uiTarget
 import uiPrivateShopBuilder
 # END_OF_PRIVATE_SHOP_PRICE_LIST
 
+
 import mouseModule
 import consoleModule
 import localeInfo
@@ -59,6 +60,8 @@ import uiPvP
 import uiPvP_Confirm
 import uiSystemList
 import uiTeleporter
+import uiOfflineShopBuilder
+import uiOfflineShop
 
 from _weakref import proxy
 
@@ -213,6 +216,8 @@ class GameWindow(ui.ScriptWindow):
 		# PRIVATE_SHOP_PRICE_LIST
 		uiPrivateShopBuilder.Clear()
 		# END_OF_PRIVATE_SHOP_PRICE_LIST
+		
+		uiOfflineShopBuilder.Clear()
 
 		# UNKNOWN_UPDATE
 		exchange.InitTrading()
@@ -471,7 +476,7 @@ class GameWindow(ui.ScriptWindow):
 				net.SendChatPacket("/unmount")
 			else:
 				#net.SendChatPacket("/user_horse_ride")
-				if not uiPrivateShopBuilder.IsBuildingPrivateShop():
+				if not uiPrivateShopBuilder.IsBuildingPrivateShop() or not uiOfflineShopBuilder.IsBuildingOfflineShop():
 					for i in xrange(player.INVENTORY_PAGE_SIZE*player.INVENTORY_PAGE_COUNT):
 						if player.GetItemIndex(i) in (71114, 71116, 71118, 71120):
 							net.SendItemUsePacket(i)
@@ -1024,6 +1029,16 @@ class GameWindow(ui.ScriptWindow):
 
 	def SetShopSellingPrice(self, Price):
 		pass
+	## OfflineShop
+	def StartOfflineShop(self, vid):
+		chat.AppendChat(chat.CHAT_TYPE_INFO, "mlml")
+		self.interface.OpenOfflineShopDialog(vid)
+		
+	def EndOfflineShop(self):
+		self.interface.CloseOfflineShopDialog()
+		
+	def RefreshOfflineShop(self):
+		self.interface.RefreshOfflineShopDialog()
 
 	## Exchange
 	def StartExchange(self):
@@ -1407,6 +1422,16 @@ class GameWindow(ui.ScriptWindow):
 			chat.AppendChat(chat.CHAT_TYPE_INFO, localeInfo.DROP_ITEM_FAILURE_PRIVATE_SHOP)
 			return
 		# END_OF_PRIVATESHOP_DISABLE_ITEM_DROP
+		# OFFLINESHOP_DISABLE_ITEM_DROP
+		if (uiOfflineShopBuilder.IsBuildingOfflineShop()):
+			chat.AppendChat(chat.CHAT_TYPE_INFO, localeInfo.DROP_ITEM_FAILURE_OFFLINE_SHOP)
+			return
+		# END_OF_OFFLINESHOP_DISABLE_ITEM_DROP
+		# OFFLINESHOP_DISABLE_ITEM_DROP2
+		if (uiOfflineShop.IsEditingOfflineShop()):
+			chat.AppendChat(chat.CHAT_TYPE_INFO, localeInfo.DROP_ITEM_FAILURE_OFFLINE_SHOP)
+			return
+		# END_OF_OFFLINESHOP_DISABLE_ITEM_DROP2
 
 		if attachedMoney>=1000:
 			self.stream.popupWindow.Close()
@@ -1429,6 +1454,16 @@ class GameWindow(ui.ScriptWindow):
 			chat.AppendChat(chat.CHAT_TYPE_INFO, localeInfo.DROP_ITEM_FAILURE_PRIVATE_SHOP)
 			return
 		# END_OF_PRIVATESHOP_DISABLE_ITEM_DROP
+		# OFFLINESHOP_DISABLE_ITEM_DROP
+		if (uiOfflineShopBuilder.IsBuildingOfflineShop()):
+			chat.AppendChat(chat.CHAT_TYPE_INFO, localeInfo.DROP_ITEM_FAILURE_OFFLINE_SHOP)
+			return
+		# END_OFF_OFFLINESHOP_DISABLE_ITEM_DROP
+		# OFFLINESHOP_DISABLE_ITEM_DROP2
+		if (uiOfflineShop.IsEditingOfflineShop()):
+			chat.AppendChat(chat.CHAT_TYPE_INFO, localeInfo.DROP_ITEM_FAILURE_OFFLINE_SHOP)
+			return
+		# END_OF_OFFLINESHOP_DISABLE_ITEM_DROP2
 
 		if player.SLOT_TYPE_INVENTORY == attachedType and player.IsEquipmentSlot(attachedItemSlotPos):
 			self.stream.popupWindow.Close()
@@ -1509,6 +1544,13 @@ class GameWindow(ui.ScriptWindow):
 	def __SendDropItemPacket(self, itemVNum, itemCount, itemInvenType = player.INVENTORY):
 		if uiPrivateShopBuilder.IsBuildingPrivateShop():
 			chat.AppendChat(chat.CHAT_TYPE_INFO, localeInfo.DROP_ITEM_FAILURE_PRIVATE_SHOP)
+			return
+		if (uiOfflineShopBuilder.IsBuildingOfflineShop()):
+			chat.AppendChat(chat.CHAT_TYPE_INFO, localeInfo.DROP_ITEM_FAILURE_OFFLINE_SHOP)
+			return
+			
+		if (uiOfflineShop.IsEditingOfflineShop()):
+			chat.AppendChat(chat.CHAT_TYPE_INFO, localeInfo.DROP_ITEM_FAILURE_OFFLINE_SHOP)
 			return
 
 		net.SendItemDropPacketNew(itemInvenType, itemVNum, itemCount)
@@ -1954,6 +1996,7 @@ class GameWindow(ui.ScriptWindow):
 			"PRESERVE_DayMode"		: self.__PRESERVE_DayMode_Update,
 			"CloseRestartWindow"	: self.__RestartDialog_Close,
 			"OpenPrivateShop"		: self.__PrivateShop_Open,
+			"OpenOfflineShop"		: self.__OfflineShop_Open,
 			"PartyHealReady"		: self.PartyHealReady,
 			"ShowMeSafeboxPassword"	: self.AskSafeboxPassword,
 			"CloseSafebox"			: self.CommandCloseSafebox,
@@ -2188,6 +2231,17 @@ class GameWindow(ui.ScriptWindow):
 
 	def BINARY_PrivateShop_Disappear(self, vid):
 		self.interface.DisappearPrivateShop(vid)
+	# OfflineShop
+	def __OfflineShop_Open(self):
+		self.interface.OpenOfflineShopInputNameDialog()
+	
+	def BINARY_OfflineShop_Appear(self, vid, text):	
+		if (chr.GetInstanceType(vid) == chr.INSTANCE_TYPE_NPC):
+			self.interface.AppearOfflineShop(vid, text)
+		
+	def BINARY_OfflineShop_Disappear(self, vid):	
+		if (chr.GetInstanceType(vid) == chr.INSTANCE_TYPE_NPC):
+			self.interface.DisappearOfflineShop(vid)
 
 	## DayMode
 	def __PRESERVE_DayMode_Update(self, mode):

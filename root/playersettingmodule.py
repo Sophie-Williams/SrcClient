@@ -420,8 +420,7 @@ def __LoadGameEffect():
 	chrmgr.RegisterEffect(chrmgr.EFFECT_AFFECT+24, "", "d:/ymir work/pc/shaman/effect/10kwaesok_loop.mse") ## ¹«´ç - Äè¼Ó
 	chrmgr.RegisterEffect(chrmgr.EFFECT_AFFECT+25, "", "d:/ymir work/pc/sura/effect/heuksin_loop.mse")
 	chrmgr.RegisterEffect(chrmgr.EFFECT_AFFECT+26, "", "d:/ymir work/pc/sura/effect/muyeong_loop.mse")
-	#chrmgr.RegisterEffect(chrmgr.EFFECT_AFFECT+28, "Bip01", "d:/ymir work/effect/hit/blow_flame/flame_loop.mse")
-	chrmgr.RegisterEffect(chrmgr.EFFECT_AFFECT+28, "Bip01", "d:/ymir work/effect/hit/hwayeom_loop_1.mse")
+	chrmgr.RegisterEffect(chrmgr.EFFECT_AFFECT+28, "Bip01", "d:/ymir work/effect/hit/blow_flame/flame_loop.mse")
 	chrmgr.RegisterEffect(chrmgr.EFFECT_AFFECT+29, "Bip01 R Hand", "d:/ymir work/pc/shaman/effect/6gicheon_hand.mse")
 	chrmgr.RegisterEffect(chrmgr.EFFECT_AFFECT+30, "Bip01 L Hand", "d:/ymir work/pc/shaman/effect/jeungryeok_hand.mse")
 	chrmgr.RegisterEffect(chrmgr.EFFECT_AFFECT+32, "Bip01 Head", "d:/ymir work/pc/sura/effect/pabeop_loop.mse")

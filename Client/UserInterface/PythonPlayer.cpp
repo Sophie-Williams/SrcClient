@@ -1159,6 +1159,15 @@ DWORD CPythonPlayer::GetPlayTime()
 {
 	return m_dwPlayTime;
 }
+void CPythonPlayer::SetCurrentOfflineShopMoney(DWORD dwMoney)
+{
+	m_dwCurrentOfflineShopMoney = dwMoney;
+}
+
+DWORD CPythonPlayer::GetCurrentOfflineShopMoney()
+{
+	return m_dwCurrentOfflineShopMoney;
+}
 
 void CPythonPlayer::SendClickItemPacket(DWORD dwIID)
 {

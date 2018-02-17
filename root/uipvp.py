@@ -31,7 +31,11 @@ class uiPvP(ui.ScriptWindow):
 		
 	def Close(self):
 		self.Hide()
-	
+		
+	def OnPressEscapeKey(self):
+		self.Close()
+		return True
+		
 	def OnClickSubscribe(self):
 		if self.state == 0:
 			net.SendChatPacket("/auto_pvp_subscribe")

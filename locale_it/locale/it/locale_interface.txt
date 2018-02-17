@@ -1,4 +1,4 @@
-KW_TIME	%d min. rimasti
+OFFLINE_SHOP_TITLE	Apri negozio offline
 ACCEPT	OK
 ACCE_ABSORB	Assorbimento dei bonus
 ACCE_COMBINE	Fusione

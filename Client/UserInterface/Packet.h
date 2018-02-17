@@ -84,8 +84,10 @@ enum
     HEADER_CG_ADD_FLY_TARGETING                 = 53,
 	HEADER_CG_SHOOT								= 54,
 	HEADER_CG_MYSHOP                            = 55,
-	//HEADER_BLANK56								= 56,
-	//HEADER_BLANK57								= 57,
+#ifdef ENABLE_OFFLINE_SHOP_SYSTEM
+	HEADER_CG_OFFLINE_SHOP = 56,
+	HEADER_CG_MY_OFFLINE_SHOP = 57,
+#endif
 	//HEADER_BLANK58								= 58,
 	//HEADER_BLANK59								= 59,
 	HEADER_CG_ITEM_USE_TO_ITEM					= 60,
@@ -240,7 +242,10 @@ enum
 #ifdef ENABLE_AUTO_PVP_SYSTEM
 	HEADER_GC_AUTO_PVP = 53,
 #endif
-
+#ifdef ENABLE_OFFLINE_SHOP_SYSTEM
+	HEADER_GC_OFFLINE_SHOP = 54,
+	HEADER_GC_OFFLINE_SHOP_SIGN = 55,
+#endif
 	HEADER_GC_MOUNT								= 61,
 	HEADER_GC_OWNERSHIP                         = 62,
     HEADER_GC_TARGET                            = 63,
@@ -422,7 +427,9 @@ enum
 	QUICKSLOT_MAX_NUM = 36, // 서버와 맞춰져 있는 값
 
 	SHOP_HOST_ITEM_MAX_NUM = 40,
-
+#ifdef ENABLE_OFFLINE_SHOP_SYSTEM
+	OFFLINE_SHOP_HOST_ITEM_MAX_NUM = 120,
+#endif
 	METIN_SOCKET_COUNT = 6,
 
 	PARTY_AFFECT_SLOT_MAX_NUM = 7,
@@ -725,6 +732,16 @@ enum
 	SHOP_SUBHEADER_CG_BUY,
 	SHOP_SUBHEADER_CG_SELL,
 	SHOP_SUBHEADER_CG_SELL2,
+#ifdef ENABLE_OFFLINE_SHOP_SYSTEM
+	SHOP_SUBHEADER_CG_CHANGE_EDIT_TIME,
+	SHOP_SUBHEADER_CG_ADD_ITEM,
+	SHOP_SUBHEADER_CG_REMOVE_ITEM,
+	SHOP_SUBHEADER_CG_CHANGE_PRICE,
+	SHOP_SUBHEADER_CG_DESTROY_OFFLINE_SHOP,
+	SHOP_SUBHEADER_CG_REFRESH,
+	SHOP_SUBHEADER_CG_REFRESH_MONEY,
+	SHOP_SUBHEADER_CG_WITHDRAW_MONEY,
+#endif
 };
 
 typedef struct command_shop
@@ -1100,6 +1117,23 @@ typedef struct SPacketCGMyShop
     BYTE        bCount;	// count of TShopItemTable, max 39
 } TPacketCGMyShop;
 
+#ifdef ENABLE_OFFLINE_SHOP_SYSTEM
+// Offline Shop
+typedef struct SOfflineShopItemTable
+{
+	BYTE		bDisplayPos;
+	BYTE		bPos;
+	long		lPrice;
+} TOfflineShopItemTable;
+
+typedef struct TPacketCGMyOfflineShop
+{
+	BYTE	bHeader;
+	char	szSign[SHOP_SIGN_MAX_LEN + 1];
+	WORD	bCount;
+	BYTE	bTime;
+} TPacketCGMyOfflineShop;
+#endif
 typedef struct SPacketCGRefine
 {
 	BYTE		header;
@@ -1929,7 +1963,12 @@ typedef struct packet_shop_start
 {
 	struct packet_shop_item		items[SHOP_HOST_ITEM_MAX_NUM];
 } TPacketGCShopStart;
-
+#ifdef ENABLE_OFFLINE_SHOP_SYSTEM
+typedef struct packet_offline_shop_start
+{
+	struct packet_shop_item		items[OFFLINE_SHOP_HOST_ITEM_MAX_NUM];
+} TPacketGCOfflineShopStart;
+#endif
 typedef struct packet_shop_start_ex // 다음에 TSubPacketShopTab* shop_tabs 이 따라옴.
 {
 	typedef struct sub_packet_shop_tab
@@ -1948,7 +1987,12 @@ typedef struct packet_shop_update_item
 	BYTE						pos;
 	struct packet_shop_item		item;
 } TPacketGCShopUpdateItem;
-
+#ifdef ENABLE_OFFLINE_SHOP_SYSTEM
+typedef struct packet_offline_shop_money
+{
+	DWORD		dwMoney;
+} TPacketGCOfflineShopMoney;
+#endif
 typedef struct packet_shop_update_price
 {
 	int iElkAmount;
@@ -1968,6 +2012,10 @@ enum EPacketShopSubHeaders
 	SHOP_SUBHEADER_GC_SOLD_OUT,
 	SHOP_SUBHEADER_GC_START_EX,
 	SHOP_SUBHEADER_GC_NOT_ENOUGH_MONEY_EX,
+#ifdef ENABLE_OFFLINE_SHOP_SYSTEM
+	SHOP_SUBHEADER_GC_UPDATE_ITEM2,
+	SHOP_SUBHEADER_GC_REFRESH_MONEY,
+#endif
 };
 
 typedef struct packet_shop

@@ -1674,4 +1674,11 @@ void initapp()
 	PyModule_AddIntConstant(poModule, "USE_OPENID",	0);
 	PyModule_AddIntConstant(poModule, "OPENID_TEST",	0);
 #endif /* USE_OPENID */
+
+#ifdef ENABLE_OFFLINE_SHOP_SYSTEM
+	PyModule_AddIntConstant(poModule, "ENABLE_OFFLINE_SHOP_SYSTEM", 1);
+#else
+	PyModule_AddIntConstant(poModule, "ENABLE_OFFLINE_SHOP_SYSTEM", 0);
+#endif
+
 }

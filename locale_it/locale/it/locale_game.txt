@@ -1,3 +1,18 @@
+OFFLINE_SHOP	Negozio
+OFFLINE_SHOP_CHANGE_TIME	Your offline shop's time is changed with %d hour(s)
+OFFLINE_SHOP_CHANGE_TIME2	Your offline shop's time is changed with unlimited.
+OFFLINE_SHOP_SELECT_TIME	Hai scelto il nuovo tempo. (%d)
+OFFLINE_SHOP_SELECT_TIME2	Hai scelto un tempo infinito.
+OFFLINE_SHOP_WARNING1	Modalita' acquisto rapido attiva.
+OFFLINE_SHOP_WARNING2	Da questo momento puoi comprare con un click.
+OFFLINE_SHOP	Negozio di 
+OFFLINE_SHOP_CANNOT_SELL_ITEM	Non puoi vendere item con il negozio aperto.
+PRIVATE_SHOP_CANNOT_SELL_ITEM	Non puoi vendere questo item nel negozio privato.
+PRIVATE_SHOP_CLOSE_QUESTION	Vuoi chiudere il negozio privato?
+PRIVATE_SHOP_INPUT_NAME_DIALOG_TITLE	Nome del negozio privato.
+OFFLINE_SHOP_INPUT_NAME_DIALOG_TITLE	Nome del negozio privato.
+PRIVATE_SHOP_INPUT_PRICE_DIALOG_TITLE	Prezo
+OFFLINE_SHOP_INPUT_PRICE_DIALOG_TITLE	Prezzo
 ACCE_REFINE_COST	Costo dell'assorbimento: %d
 ACCE_ABSORB_CHANCE	Tasso di assorbimento: %d%%
 ACCE_ABSORB_CHANCE2	Tasso di assorbimento: %d%% ~ %d%%

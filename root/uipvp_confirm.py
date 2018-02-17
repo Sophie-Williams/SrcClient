@@ -26,6 +26,9 @@ class uiPvP(ui.ScriptWindow):
 			app.FlashApplication()
 		except:
 			exception.Abort("Error: GUI Error: pvp_confirm.py")
+	def OnPressEscapeKey(self):
+		self.Close()
+		return True
 
 	def Show(self):
 		ui.ScriptWindow.Show(self)

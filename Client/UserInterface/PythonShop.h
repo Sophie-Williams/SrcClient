@@ -30,7 +30,13 @@ class CPythonShop : public CSingleton<CPythonShop>
 
 		void SetItemData(BYTE tabIdx, DWORD dwSlotPos, const TShopItemData & c_rShopItemData);
 		BOOL GetItemData(BYTE tabIdx, DWORD dwSlotPos, const TShopItemData ** c_ppItemData);
+#ifdef ENABLE_OFFLINE_SHOP_SYSTEM
+		void SetOfflineShopItemData(DWORD dwIndex, const TShopItemData & c_rShopItemData);
+		BOOL GetOfflineShopItemData(DWORD dwIndex, const TShopItemData ** c_ppItemData);
 
+		void SetOfflineShopItemData(BYTE tabIdx, DWORD dwSlotPos, const TShopItemData & c_rShopItemData);
+		BOOL GetOfflineShopItemData(BYTE tabIdx, DWORD dwSlotPos, const TShopItemData ** c_ppItemData);
+#endif
 		void SetTabCount(BYTE bTabCount) { m_bTabCount = bTabCount; }
 		BYTE GetTabCount() { return m_bTabCount; }
 
@@ -43,7 +49,13 @@ class CPythonShop : public CSingleton<CPythonShop>
 
 		//BOOL GetSlotItemID(DWORD dwSlotPos, DWORD* pdwItemID);
 
+#ifdef ENABLE_OFFLINE_SHOP_SYSTEM
+		void Open(BOOL isPrivateShop, BOOL isMainPrivateShop, BOOL isOfflineShop);
+		BOOL IsOfflineShop();
+#else
 		void Open(BOOL isPrivateShop, BOOL isMainPrivateShop);
+#endif
+
 		void Close();
 		BOOL IsOpen();
 		BOOL IsPrivateShop();
@@ -54,7 +66,13 @@ class CPythonShop : public CSingleton<CPythonShop>
 		void DelPrivateShopItemStock(TItemPos ItemPos);
 		int GetPrivateShopItemPrice(TItemPos ItemPos);
 		void BuildPrivateShop(const char * c_szName);
-
+#ifdef ENABLE_OFFLINE_SHOP_SYSTEM
+		void ClearOfflineShopStock();
+		void AddOfflineShopItemStock(TItemPos ItemPos, BYTE byDisplayPos, DWORD dwPrice);
+		void DelOfflineShopItemStock(TItemPos ItemPos);
+		int	 GetOfflineShopItemPrice(TItemPos ItemPos);
+		void BuildOfflineShop(const char * c_szName, BYTE bTime);
+#endif
 	protected:
 		BOOL	CheckSlotIndex(DWORD dwIndex);
 
@@ -62,7 +80,9 @@ class CPythonShop : public CSingleton<CPythonShop>
 		BOOL				m_isShoping;
 		BOOL				m_isPrivateShop;
 		BOOL				m_isMainPlayerPrivateShop;
-
+#ifdef ENABLE_OFFLINE_SHOP_SYSTEM
+		BOOL				m_isOfflineShop;
+#endif
 		struct ShopTab
 		{
 			ShopTab()
@@ -76,7 +96,26 @@ class CPythonShop : public CSingleton<CPythonShop>
 
 		BYTE m_bTabCount;
 		ShopTab m_aShoptabs[SHOP_TAB_COUNT_MAX];
-
+#ifdef ENABLE_OFFLINE_SHOP_SYSTEM
 		typedef std::map<TItemPos, TShopItemTable> TPrivateShopItemStock;
 		TPrivateShopItemStock	m_PrivateShopItemStock;
+
+		struct OfflineShopTab
+		{
+			OfflineShopTab()
+			{
+				coinType = SHOP_COIN_TYPE_GOLD;
+			}
+			BYTE				coinType;
+			std::string			name;
+			TShopItemData		items[OFFLINE_SHOP_HOST_ITEM_MAX_NUM];
+		};
+
+
+		OfflineShopTab m_aOfflineShoptabs[SHOP_TAB_COUNT_MAX];
+
+
+		typedef std::map<TItemPos, TShopItemTable> TOfflineShopItemStock;
+		TOfflineShopItemStock	m_OfflineShopItemStock;
+#endif
 };

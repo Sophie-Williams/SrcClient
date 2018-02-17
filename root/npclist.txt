@@ -208,67 +208,20 @@
 0	christmas_2016_mammoth_02	christmas_2016_mammoth
 0	ramadan_2017_camel_01	ramadan_2017_camel
 0	ramadan_2017_camel_02	ramadan_2017_camel
-0	halloween_2017_volcano_beast_01	halloween_2017_volcano_beast
-0	halloween_2017_volcano_beast_02	halloween_2017_volcano_beast
 0	flag_1	flag_e
 0	flag_2	flag_e
 0	flag_3	flag_e
 0	peddler_ten	peddler
-0	cz_wolf_01	cz_wolf
-0	cz_wolf_02	cz_wolf
-0	cz_wolf_03	cz_wolf
-0	cz_twoheadedtiger_01	cz_twoheadedtiger
-0	cz_twoheadedtiger_02	cz_twoheadedtiger
-0	cz_twoheadedtiger_03	cz_twoheadedtiger
-0	cz_kentauros_01	cz_kentauros
-0	cz_kentauros_02	cz_kentauros
-0	cz_kentauros_03	cz_kentauros
-0	cz_demon_01	cz_demon
-0	cz_demon_02	cz_demon
-0	cz_demon_03	cz_demon
-0	cz_condor_b	cz_condor
-0	cz_condor_c	cz_condor
-0	cz_zephyr_01	cz_zephyr
-0	cz_zephyr_02	cz_zephyr
-0	cz_zephyr_03	cz_zephyr
-0	cz_elephant_01	cz_elephant
-0	cz_elephant_02	cz_elephant
-0	cz_elephant_03	cz_elephant
-0	cz_dragonman_01	cz_dragonman
-0	cz_dragonman_02	cz_dragonman
-0	cz_dragonman_03	cz_dragonman
-0	12zi_mouse_boss2	12zi_mouse_boss
-0	12zi_cow_boss2	12zi_cow_boss
-0	12zi_tiger_boss2	12zi_tiger_boss
-0	12zi_rabbit_boss2	12zi_rabbit_boss
-0	12zi_dragon_boss2	12zi_dragon_boss
-0	12zi_snake_boss2	12zi_snake_boss
-0	12zi_horse_boss2	12zi_horse_boss
-0	12zi_sheep_boss2	12zi_sheep_boss
-0	12zi_chicken_boss2	12zi_chicken_boss
-0	12zi_monkey_boss2	12zi_monkey_boss
-0	12zi_dog_boss2	12zi_dog_boss
-0	12zi_pig_boss2	12zi_pig_boss
 0	easter_2017_rabbit_1	easter_2017_rabbit
 0	easter_2017_rabbit_2	easter_2017_rabbit
-0	halloween_2017_ghost_1	halloween_2017_ghost
-0	halloween_2017_ghost_2	halloween_2017_ghost
 0	flag_d_02	flag_d
 0	flag_d_03	flag_d
-0	flag_d_04	flag_d
-0	flag_d_05	flag_d
 0	luck_sheep_young1	luck_sheep_young1
 0	luck_sheep_young2	luck_sheep_young1
 0	luck_sheep_boss1	luck_sheep_boss
 0	scholar_beige_M1	scholar_beige_M
 0	scholar_beige_M2	scholar_beige_M
 2555	shaman_f_dd
-0	christmas_2017_sleddog_01	christmas_2017_sleddog
-0	christmas_2017_sleddog_02	christmas_2017_sleddog
-0	christmas_2017_penguin_1	christmas_2017_penguin
-0	christmas_2017_penguin_2	christmas_2017_penguin
-0	zshop_griffon_1	zshop_griffon
-0	zshop_griffon_2	zshop_griffon
 101	stray_dog
 102	wolf
 103	wolf
@@ -678,240 +631,21 @@
 2596	zombie_king
 2597	zombie_god
 2598	zombie_bigboss2
-2600	wolf
-2601	wolf
-2602	mountain_dog_god
-2603	bkarcher
-2604	wild_boar
-2605	wild_boar
-2606	wild_boar_god
-2607	bksecond
-2608	bear
-2609	bear
-2610	bear
-2611	bear
-2612	bkthird
-2613	tiger
-2614	tiger
-2615	tiger
-2616	bkfourth
-2617	bkboss
-2618	spider_young
-2619	spider_poison
-2620	spider_redpoison
-2621	spider_nipper
-2622	spider_soldier
-2623	fire_ghost
-2624	fire_tiger_boss
-2625	fire_man
-2626	fire_knight
-2627	fire_king
-2628	fire_king
-2629	barbarian_infantry
-2630	barbarian_soldier
-2631	barbarian_bow
-2632	barbarian_knight
-2633	barbarian_boss
-2634	ice_snow_monster
-2635	ice_snow_whale
-2636	ice_snow_insect
-2637	ice_snow_dog
-2638	ice_snow_man
-2639	ice_snow_giant_man
-2640	ice_snow_golem
-2641	fennec_fox
-2642	giant_scorpion
-2643	snakeman_sword
-2644	snakeman_bow
-2645	outlaw
-2646	thief1
-2647	thief2
-2648	thief3
-2649	maenghwan
-2650	bou
-2651	gupae
-2652	chuhen
-2653	scorpionman_sword
-2654	scorpionman_bow
-2655	evil_eye
-2656	greenfrog_soldier
-2657	greenfrog_general
-2658	goblin_leafhead
-2659	mutant_1
-2660	mutant_2
-2661	mutant_3
-2662	milgyo_religionist
-2663	milgyo_nahan1
-2664	milgyo_nahan2
-2665	milgyo_nahan_general
-2666	milgyo_executor
-2667	milgyo_monster1
-2668	milgyo_monster2
-2669	orc_soldier
-2670	orc_scouter
-2671	orc_knight
-2672	orc_magician
-2673	orc_general
-2674	orc_black
-2675	orc_bigblack
-2676	redthief_bow
-2677	redthief_soldier2
-2678	redthief_magic
-2679	redthief_officer
-2680	crustacean_soldier
-2681	crustacean_bow
-2682	crustacean_soldier2
-2683	crustacean_officer
-2684	crustacean_general
-2685	giant_soldier
-2686	giant_soldier2
-2687	giant_magic
-2688	giant_officer
-2689	ogre_soldier
-2690	ogre_bow
-2691	ogre_officer
-2692	ogre_magic
-2700	cz_wolf_01
-2701	cz_wolf_02
-2702	cz_wolf_03
-2703	cz_twoheadedtiger_01
-2704	cz_twoheadedtiger_02
-2705	cz_twoheadedtiger_03
-2706	cz_kentauros_01
-2707	cz_kentauros_02
-2708	cz_kentauros_03
-2709	cz_demon_01
-2710	cz_demon_02
-2711	cz_demon_03
-2712	cz_condor
-2713	cz_condor_b
-2714	cz_condor_c
-2715	cz_zephyr_01
-2716	cz_zephyr_02
-2717	cz_zephyr_03
-2718	cz_orc_b
-2719	cz_orc_a
-2720	cz_orc_c
-2721	cz_elephant_01
-2722	cz_elephant_02
-2723	cz_elephant_03
-2724	cz_dragonman_01
-2725	cz_dragonman_02
-2726	cz_dragonman_03
-2727	cz_ironman_a
-2728	cz_ironman_b
-2729	cz_ironman_c
-2730	cz_typhoon_a
-2731	cz_typhoon_b
-2732	cz_typhoon_c
-2733	cz_12_a
-2734	cz_12_b
-2735	cz_12_c
-2736	japanese_pirate
-2737	warp
-2750	12zi_mouse_boss2
-2751	12zi_mouse_boss
-2752	12zi_mouse_boss
-2760	12zi_cow_boss2
-2761	12zi_cow_boss
-2762	12zi_cow_boss
-2770	12zi_tiger_boss2
-2771	12zi_tiger_boss
-2772	12zi_tiger_boss
-2780	12zi_rabbit_boss2
-2781	12zi_rabbit_boss
-2782	12zi_rabbit_boss
-2790	12zi_dragon_boss2
-2791	12zi_dragon_boss
-2792	12zi_dragon_boss
-2800	12zi_snake_boss2
-2801	12zi_snake_boss
-2802	12zi_snake_boss
-2810	12zi_horse_boss2
-2811	12zi_horse_boss
-2812	12zi_horse_boss
-2820	12zi_sheep_boss2
-2821	12zi_sheep_boss
-2822	12zi_sheep_boss
-2830	12zi_monkey_boss2
-2831	12zi_monkey_boss
-2832	12zi_monkey_boss
-2840	12zi_chicken_boss2
-2841	12zi_chicken_boss
-2842	12zi_chicken_boss
-2850	12zi_dog_boss2
-2851	12zi_dog_boss
-2852	12zi_dog_boss
-2860	12zi_pig_boss2
-2861	12zi_pig_boss
-2862	12zi_pig_boss
-2900	metinstone_01
-2901	metinstone_02
-2902	metinstone_03
-2903	metinstone_04
-2904	metinstone_01
-2905	metinstone_02
-2906	metinstone_03
-2907	metinstone_04
-2908	metinstone_05
-2920	cav_guerra
-2921	cav_carestia
-2922	cav_pestilenza
-2923	cav_morte
-2924	number_one
-2925 	number_two
-2926 	number_three
-2927 	number_four
-2928	silvo
-2929	lefter
-2930	loctar
-2931	kel
-2932 	bambola
-2933 	larva
-2934 	pupazzo
-2935 	gordo
-2936 	gordo_blu
-2937	gordo_oscuro
-2938 	guerra
-2939	carestia
-2940	pestilenza
-2941	morte
-2942	sleipnir
-2943	dark_spectrum
-2944	leone
-2945 	spauracchio
-2946 	orco_paludoso
-2947 	stun
-2948 	shoran
-2949 	shoon
-2950 	morchok
-2951 	grupido
-2952 	fata_malvagia
-2953 	fata_oscura
-2954 	cituch
-2955	coob
-2956	cane_infernale
-2957	cavalliere_antico
-2958	cavalliere_tank
-2959	final doom
-2960	goo_crispinu
-2961	gordo_gemelli
-2962	pianta
-2963	pianta2
-2964	pianta_boss
-2965	scheletro_ascia
-2966	war_m_dd
-2967	sura_m_dd
-2968	ninja_m_dd
-2969	shaman_m_dd
-2970	war_f_dd
-2971	sura_f_dd
-2972	ninja_f_dd
-2973	shaman_f_dd
-2974	tank_umanoide
-2975	spirito_terra
-2976	bomba_veleno
-2990	darkdoom
+2600	gnoll_helhound
+2601	gnoll_warrior
+2602	gnoll_mage
+2603	gnoll_commander
+2620	gnoll_minotaur
+2630	troll_warrior
+2631	troll_archer
+2632	troll_mage
+2633	troll_commander
+2650	troll_argus
+2660	naga_soldier
+2661	naga_archer
+2662	naga_mage
+2663	naga_warrior
+2680	naga_commander
 3001	gnoll_soldier
 3002	gnoll_bow
 3003	gnoll_soldier2
@@ -1309,8 +1043,8 @@
 8058	metinstone_13
 8059	metinstone_16
 8060	infezione
-8061	furia
-8062	apocalisse
+8061	piana	
+8062	foresta
 8063	corrotto
 8101	metinstone_01
 8102	metinstone_02
@@ -1741,9 +1475,7 @@
 20132	flag_2
 20133	flag_3
 20134	flag_d_03
-20135	flag_d_05
 20138	flag_d_02
-20142	flag_d_04
 20201	boar_0
 20202	dog_god_0
 20203	fire_tiger_0
@@ -1793,11 +1525,7 @@
 20247	christmas_2016_mammoth_02
 20248	ramadan_2017_camel_01
 20249	ramadan_2017_camel_02
-20250	halloween_2017_volcano_beast_01
-20251	halloween_2017_volcano_beast_02
 20253	horse_normal02
-20257	christmas_2017_sleddog_01
-20258	christmas_2017_sleddog_02
 20300	sinsu_patrol_spear
 20301	sinsu_patrol_spear
 20302	sinsu_patrol_spear
@@ -1895,39 +1623,10 @@
 20421	old_magic_M2
 20422	metinstone_egg02
 20429	scholar_brown_M1
-20438	scholar_brown_M
-20439	warp_blue
-20440	warp_blue
-20441	warp_blue
-20442	warp_blue
-20443	warp_blue
-20444	warp_blue
-20445	warp_blue
-20446	warp_blue
-20447	warp_blue
-20448	warp_blue
-20449	warp_blue
-20450	warp_blue
-20451	peddler_ten
-20452	12zi_statue_mouse_npc
-20453	12zi_statue_cow_npc
-20454	12zi_statue_tiger_npc
-20455	12zi_statue_rabbit_npc
-20456	12zi_statue_dragon_npc
-20457	12zi_statue_snake_npc
-20458	12zi_statue_horse_npc
-20459	12zi_statue_sheep_npc
-20460	12zi_statue_monkey_npc
-20461	12zi_statue_chicken_npc
-20462	12zi_statue_dog_npc
-20463	12zi_statue_pig_npc
-20464	12zi_target_daepo
 20500	metinstone_egg02
 20501	reddragon_room_box
-20502	yut_npc
 20503	scholar_beige_M2
 20504	gemshop
-20505	yut
 30000	privateshop
 30001	privateshop2
 30002	privateshop_1
@@ -2050,14 +1749,6 @@
 34081	luck_sheep_young2
 34084	easter_2017_rabbit_1
 34085	easter_2017_rabbit_2
-34086	halloween_2017_ghost_1
-34087	halloween_2017_ghost_2
-34088	halloween_2017_ghost_1
-34092	christmas_2017_penguin_1
-34093	christmas_2017_penguin_2
-34094	christmas_2017_penguin_1
-34095	zshop_griffon_1
-34096	zshop_griffon_2
 50000	goods
 50001	goods
 50002	goods
@@ -2065,3 +1756,65 @@
 60001	old_master_M
 60002	old_master_M
 60003	scholar_beige_M1
+2920	cav_guerra
+2921	cav_carestia
+2922	cav_pestilenza
+2923	cav_morte
+2924	number_one
+2925 	number_two
+2926 	number_three
+2927 	number_four
+2928	silvo
+2929	lefter
+2930	loctar
+2931	kel
+8060	infezione
+8061	furia
+8062	apocalisse
+8063	corrotto
+2990	darkdoom
+2932 	bambola
+2933 	larva
+2934 	pupazzo
+2935 	gordo
+2936 	gordo_blu
+2937	gordo_oscuro
+2938 	guerra
+2939	carestia
+2940	pestilenza
+2941	morte
+2942	sleipnir
+2943	dark_spectrum
+2944	leone
+2945 	spauracchio
+2946 	orco_paludoso
+2947 	stun
+2948 	shoran
+2949 	shoon
+2950 	morchok
+2951 	grupido
+2952 	fata_malvagia
+2953 	fata_oscura
+2954 	cituch
+2955	coob
+2956	cane_infernale
+2957	cavalliere_antico
+2958	cavalliere_tank
+2959	final doom
+2960	goo_crispinu
+2961	gordo_gemelli
+2962	pianta
+2963	pianta2
+2964	pianta_boss
+2965	scheletro_ascia
+2966	war_m_dd
+2967	sura_m_dd
+2968	ninja_m_dd
+2969	shaman_m_dd
+2970	war_f_dd
+2971	sura_f_dd
+2972	ninja_f_dd
+2973	shaman_f_dd
+2974	tank_umanoide
+2975	spirito_terra
+2976	bomba_veleno

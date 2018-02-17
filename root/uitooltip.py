@@ -60,7 +60,7 @@ def SplitDescription(desc, limit):
 ## ToolTip
 ##
 ##   NOTE : 현재는 Item과 Skill을 상속으로 특화 시켜두었음
-##		  하지만 그다지 의미가 없어 보임
+##          하지만 그다지 의미가 없어 보임
 ##
 class ToolTip(ui.ThinBoard):
 
@@ -484,6 +484,7 @@ class ItemToolTip(ToolTip):
 		ToolTip.__init__(self, *args, **kwargs)
 		self.itemVnum = 0
 		self.isShopItem = False
+		self.isOfflineShopItem = False
 
 		# 아이템 툴팁을 표시할 때 현재 캐릭터가 착용할 수 없는 아이템이라면 강제로 Disable Color로 설정 (이미 그렇게 작동하고 있으나 꺼야 할 필요가 있어서)
 		self.bCannotUseItemForceSetDisableColor = True
@@ -548,6 +549,7 @@ class ItemToolTip(ToolTip):
 
 	def ClearToolTip(self):
 		self.isShopItem = False
+		self.isOfflineShopItem = False
 		self.toolTipWidth = self.TOOL_TIP_WIDTH
 		ToolTip.ClearToolTip(self)
 
@@ -566,8 +568,46 @@ class ItemToolTip(ToolTip):
 		attrSlot = [player.GetItemAttribute(window_type, slotIndex, i) for i in xrange(player.ATTRIBUTE_SLOT_MAX_NUM)]
 
 		self.AddItemData(itemVnum, metinSlot, attrSlot, 0, 0, window_type, slotIndex)
+  	def SetOfflineShopBuilderItem(self, invenType, invenPos, offlineShopIndex):
+		itemVnum = player.GetItemIndex(invenType, invenPos)
+		if (itemVnum == 0):
+			return
+
+		item.SelectItem(itemVnum)
+		self.ClearToolTip()
+		self.AppendSellingPrice(shop.GetOfflineShopItemPrice2(invenType, invenPos))
+
+		metinSlot = []
+		for i in xrange(player.METIN_SOCKET_MAX_NUM):
+			metinSlot.append(player.GetItemMetinSocket(invenPos, i))
+		attrSlot = []
+		for i in xrange(player.ATTRIBUTE_SLOT_MAX_NUM):
+			attrSlot.append(player.GetItemAttribute(invenPos, i))
+		
+		self.AddItemData(itemVnum, metinSlot, attrSlot)
+		
+	def SetOfflineShopItem(self, slotIndex):
+		itemVnum = shop.GetOfflineShopItemID(slotIndex)
+		if (itemVnum == 0):
+			return
+			
+		price = shop.GetOfflineShopItemPrice(slotIndex)
+		self.ClearToolTip()
+		self.isOfflineShopItem = TRUE
+		
+		metinSlot = []
+		for i in xrange(player.METIN_SOCKET_MAX_NUM):
+			metinSlot.append(shop.GetOfflineShopItemMetinSocket(slotIndex, i))
+		attrSlot = []
+		for i in xrange(player.ATTRIBUTE_SLOT_MAX_NUM):
+			attrSlot.append(shop.GetOfflineShopItemAttribute(slotIndex, i))
+			
+		self.AddItemData(itemVnum, metinSlot, attrSlot)
+		self.AppendPrice(price)
+
 
 	def SetShopItem(self, slotIndex):
+		self.AppendTextLine("", "")
 		itemVnum = shop.GetItemID(slotIndex)
 		if 0 == itemVnum:
 			return
@@ -1124,25 +1164,6 @@ class ItemToolTip(ToolTip):
 				maxEXP = item.GetValue(2)
 				self.__AppendLimitInformation()
 				self.__AppendPickInformation(curLevel, curEXP, maxEXP)
-				
-		## Pet/Mount System Bonus info ##
-		elif itemVnum >= 53001 and itemVnum <= 53999 or item.GetItemSubType() == item.COSTUME_TYPE_MOUNT:
-			self.AppendSpace(5)
-			self.__AppendPetIcon(itemVnum)
-			for g in xrange(item.ITEM_APPLY_MAX_NUM):
-				(affectType, affectValue) = item.GetAffect(g)
-				affectString = self.__GetAffectString(affectType, affectValue)
-				if affectString:
-					affectColor = self.GetChangeTextLineColor(affectValue)
-					self.AppendTextLine(affectString, affectColor)
-			self.__AppendAttributeInformation(attrSlot)
-			bHasRealtimeFlag = 0
-			for i in xrange(item.LIMIT_MAX_NUM):
-				(limitType, limitValue) = item.GetLimit(i)
-				if item.LIMIT_REAL_TIME == limitType:
-					bHasRealtimeFlag = 1
-			if bHasRealtimeFlag == 1:
-				self.AppendMallItemLastTime(metinSlot[0])
 
 		## Lottery ##
 		elif item.ITEM_TYPE_LOTTERY == itemType:
@@ -1430,18 +1451,6 @@ class ItemToolTip(ToolTip):
 		itemImage.SetPosition(itemImage.GetWidth()/2, self.toolTipHeight)
 		self.toolTipHeight += itemImage.GetHeight()
 		#self.toolTipWidth += itemImage.GetWidth()/2
-		self.childrenList.append(itemImage)
-		self.ResizeToolTip()
-		
-	def __AppendPetIcon(self, itemVnum):
-		itemImage = ui.ImageBox()
-		itemImage.SetParent(self)
-		itemImage.Show()
-		
-		itemImage.LoadImage(item.GetIconImageFileName())
-
-		itemImage.SetPosition((self.toolTipWidth/2) - itemImage.GetWidth()/2, self.toolTipHeight)
-		self.toolTipHeight += itemImage.GetHeight()
 		self.childrenList.append(itemImage)
 		self.ResizeToolTip()
 

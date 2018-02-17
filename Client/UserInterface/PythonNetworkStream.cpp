@@ -197,6 +197,11 @@ class CMainPacketHeaderMap : public CNetworkPacketHeaderMap
 			Set(HEADER_GC_SPECIFIC_EFFECT, CNetworkPacketHeaderMap::TPacketType(sizeof(TPacketGCSpecificEffect), STATIC_SIZE_PACKET));
 			Set(HEADER_GC_DRAGON_SOUL_REFINE, CNetworkPacketHeaderMap::TPacketType(sizeof(TPacketGCDragonSoulRefine), STATIC_SIZE_PACKET));
 
+#ifdef ENABLE_OFFLINE_SHOP_SYSTEM
+			Set(HEADER_GC_OFFLINE_SHOP, CNetworkPacketHeaderMap::TPacketType(sizeof(TPacketGCShop), DYNAMIC_SIZE_PACKET));
+			Set(HEADER_GC_OFFLINE_SHOP_SIGN, CNetworkPacketHeaderMap::TPacketType(sizeof(TPacketGCShopSign), STATIC_SIZE_PACKET));
+#endif
+
 #ifdef ENABLE_ACCE_COSTUME_SYSTEM
 			Set(HEADER_GC_ACCE,	CNetworkPacketHeaderMap::TPacketType(sizeof(TPacketAcce), STATIC_SIZE_PACKET));
 #endif

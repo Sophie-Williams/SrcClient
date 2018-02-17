@@ -76,6 +76,7 @@ else:
 	SELECT_PATH = "%s/ui/select/" % (name)
 	WINDOWS_PATH = "%s/ui/windows/" % (name)
 	MAPNAME_PATH = "%s/ui/mapname/" % (name)
+	LOCALE_OFFLINESHOP_PATH = "%s/ui/offlineshop" % (name)
 
 	JOBDESC_WARRIOR_PATH = "%s/jobdesc_warrior.txt" % (name)
 	JOBDESC_ASSASSIN_PATH = "%s/jobdesc_assassin.txt" % (name)

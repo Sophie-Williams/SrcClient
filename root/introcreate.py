@@ -25,13 +25,10 @@ GENDER_LIST = (MAN, WOMAN)
 SHAPE0		= 0
 SHAPE1		= 1
 PAGE_COUNT	= 2
-"""
 if app.ENABLE_WOLFMAN_CHARACTER:
 	SLOT_COUNT	= (5, 4)
 else:
 	SLOT_COUNT	= (4, 4)
-"""
-SLOT_COUNT	= (4, 4)
 BASE_CHR_ID	= 3
 
 def GetRealID(page):
@@ -54,14 +51,11 @@ def GetRealIDnSlot(page, slot):
 
 class CreateCharacterWindow(ui.Window):
 
-	"""
 	if app.ENABLE_WOLFMAN_CHARACTER:
 		SLOT_ROTATION = [[135.0, 207.0, 279.0, 351.0, 63.0], [135.0, 225.0, 315.0, 45.0]]
 	else:
 		SLOT_ROTATION = [[135.0, 225.0, 315.0, 45.0], [135.0, 225.0, 315.0, 45.0]]
-	"""
 
-	SLOT_ROTATION = [[135.0, 225.0, 315.0, 45.0], [135.0, 225.0, 315.0, 45.0]]
 
 	CREATE_STAT_POINT = 0
 
@@ -87,12 +81,10 @@ class CreateCharacterWindow(ui.Window):
 						[ 3, 5, 5, 3, ], ## Sura
 						[ 4, 6, 3, 3, ], ## Shaman
 					)
-	"""
 	if app.ENABLE_WOLFMAN_CHARACTER:
 		tmpStartStat = list(START_STAT)
 		tmpStartStat.insert(GetRealIDnSlot(MAN, 5-1), [ 6, 2, 2, 6, ])
 		START_STAT = tuple(tmpStartStat)
-	"""
 
 	DESCRIPTION_FILE_NAME =	(
 		uiScriptLocale.JOBDESC_WARRIOR_PATH,
@@ -170,7 +162,6 @@ class CreateCharacterWindow(ui.Window):
 		self.slot = -1
 		#
 		self.instanceIDs = []
-		"""
 		if app.ENABLE_WOLFMAN_CHARACTER:
 			self.shapeList = [
 				[0, 0, 0, 0, 0],
@@ -179,11 +170,7 @@ class CreateCharacterWindow(ui.Window):
 			self.shapeList = [
 				[0, 0, 0, 0],
 				[0, 0, 0, 0]]
-		"""
-		self.shapeList = [
-			[0, 0, 0, 0],
-			[0, 0, 0, 0]
-		]
+
 		self.descIndex = 0
 
 		try:
@@ -204,10 +191,8 @@ class CreateCharacterWindow(ui.Window):
 			self.NameList[MAN].append(getChild("name_assassin"))
 			self.NameList[MAN].append(getChild("name_sura"))
 			self.NameList[MAN].append(getChild("name_shaman"))
-			"""
 			if app.ENABLE_WOLFMAN_CHARACTER:
 				self.NameList[MAN].append(getChild("name_wolfman"))
-			"""
 			self.NameList[WOMAN] = []
 			self.NameList[WOMAN].append(getChild("name_warrior"))
 			self.NameList[WOMAN].append(getChild("name_assassin"))
@@ -308,10 +293,9 @@ class CreateCharacterWindow(ui.Window):
 		self.__MakeCharacter(MAN, 1, playerSettingModule.RACE_ASSASSIN_M)
 		self.__MakeCharacter(MAN, 2, playerSettingModule.RACE_SURA_M)
 		self.__MakeCharacter(MAN, 3, playerSettingModule.RACE_SHAMAN_M)
-		"""
 		if app.ENABLE_WOLFMAN_CHARACTER:
 			self.__MakeCharacter(MAN, 4, playerSettingModule.RACE_WOLFMAN_M)
-		"""
+
 		self.__MakeCharacter(WOMAN, 0, playerSettingModule.RACE_WARRIOR_W)
 		self.__MakeCharacter(WOMAN, 1, playerSettingModule.RACE_ASSASSIN_W)
 		self.__MakeCharacter(WOMAN, 2, playerSettingModule.RACE_SURA_W)

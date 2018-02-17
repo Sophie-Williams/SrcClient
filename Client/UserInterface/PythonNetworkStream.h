@@ -166,7 +166,19 @@ class CPythonNetworkStream : public CNetworkStream, public CSingleton<CPythonNet
 		bool SendShopBuyPacket(BYTE byCount);
 		bool SendShopSellPacket(BYTE bySlot);
 		bool SendShopSellPacketNew(BYTE bySlot, BYTE byCount);
-
+#ifdef ENABLE_OFFLINE_SHOP_SYSTEM
+		// Offline Shop
+		bool SendOfflineShopEndPacket();
+		bool SendOfflineShopBuyPacket(BYTE byCount);
+		bool SendChangeOfflineShopTime(BYTE bTime);
+		bool SendChangePriceOfflineShopItem(BYTE bPos, int iPrice);
+		bool SendAddOfflineShopItem(BYTE bDisplayPos, BYTE bPos, long lPrice);
+		bool SendRemoveOfflineShopItem(BYTE bPos);
+		bool SendDestroyOfflineShop();
+		bool SendRefreshOfflineShop();
+		bool SendRefreshOfflineShopMoney();
+		bool SendOfflineShopWithdrawMoney(DWORD dwMoney);
+#endif
 		// Exchange
 		bool SendExchangeStartPacket(DWORD vid);
 		bool SendExchangeItemAddPacket(TItemPos ItemPos, BYTE byDisplayPos);
@@ -262,7 +274,9 @@ class CPythonNetworkStream : public CNetworkStream, public CSingleton<CPythonNet
 
 		// Private Shop
 		bool SendBuildPrivateShopPacket(const char * c_szName, const std::vector<TShopItemTable> & c_rSellingItemStock);
-
+#ifdef ENABLE_OFFLINE_SHOP_SYSTEM
+		bool SendBuildOfflineShopPacket(const char * c_szName, const std::vector<TShopItemTable> & c_rSellingItemStock, BYTE bTime);
+#endif
 		// Refine
 		bool SendRefinePacket(BYTE byPos, BYTE byType);
 		bool SendSelectItemPacket(DWORD dwItemPos);
@@ -488,7 +502,10 @@ class CPythonNetworkStream : public CNetworkStream, public CSingleton<CPythonNet
 		bool RecvShopPacket();
 		bool RecvShopSignPacket();
 		bool RecvExchangePacket();
-
+#ifdef ENABLE_OFFLINE_SHOP_SYSTEM
+		bool RecvOfflineShopPacket();
+		bool RecvOfflineShopSignPacket();
+#endif
 		// Quest
 		bool RecvScriptPacket();
 		bool RecvQuestInfoPacket();

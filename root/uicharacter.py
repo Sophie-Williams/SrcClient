@@ -826,12 +826,8 @@ class CharacterWindow(ui.ScriptWindow):
 					elif (not self.__CanUseSkillNow()) or (skillGrade != j):
 						skillPage.SetSlotCount(realSlotIndex, 0)
 						skillPage.DisableCoverButton(realSlotIndex)
-						skillPage.DeactivateSlot(realSlotIndex) # fix
 					else:
 						skillPage.SetSlotCountNew(realSlotIndex, skillGrade, skillLevel)
-
-					if player.IsSkillActive(slotIndex) and (skillGrade == j): # fix
-						skillPage.ActivateSlot(realSlotIndex)
 
 			## ±×¿Ü
 			else:
@@ -844,18 +840,10 @@ class CharacterWindow(ui.ScriptWindow):
 						skillPage.SetCoverButton(realSlotIndex)
 
 			skillPage.RefreshSlot()
-			self.__RestoreSlotCoolTime(skillPage)
-			
-	def __RestoreSlotCoolTime(self, skillPage):
-		restoreType = skill.SKILL_TYPE_NONE
-		if self.PAGE_HORSE == self.curSelectedSkillGroup:
-			restoreType = skill.SKILL_TYPE_HORSE
-		else:
-			restoreType = skill.SKILL_TYPE_ACTIVE
-		
-		skillPage.RestoreSlotCoolTime(restoreType)
+
 
 	def RefreshSkill(self):
+
 		if self.isLoaded==0:
 			return
 
@@ -930,6 +918,7 @@ class CharacterWindow(ui.ScriptWindow):
 
 
 	def RefreshSkillPlusButtonList(self):
+
 		if self.isLoaded==0:
 			return
 
@@ -1011,8 +1000,7 @@ class CharacterWindow(ui.ScriptWindow):
 
 		for slotWindow in self.skillPageDict.values():
 			if slotWindow.HasSlot(slotIndex):
-				slotWindow.StoreSlotCoolTime(skillType, slotIndex, coolTime)
-				self.__RestoreSlotCoolTime(slotWindow)
+				slotWindow.SetSlotCoolTime(slotIndex, coolTime)
 				return
 
 	def OnActivateSkill(self, slotIndex):

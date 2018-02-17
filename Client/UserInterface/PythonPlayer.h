@@ -249,8 +249,11 @@ class CPythonPlayer : public CSingleton<CPythonPlayer>, public IAbstractPlayer
 		// Play Time
 		DWORD	GetPlayTime();
 		void	SetPlayTime(DWORD dwPlayTime);
-
-
+#ifdef ENABLE_OFFLINE_SHOP_SYSTEM
+		// Offline Shop Money
+		void	SetCurrentOfflineShopMoney(DWORD dwMoney);
+		DWORD	GetCurrentOfflineShopMoney();
+#endif
 		// System
 		void	SetMainCharacterIndex(int iIndex);
 
@@ -668,7 +671,9 @@ class CPythonPlayer : public CSingleton<CPythonPlayer>, public IAbstractPlayer
 		DWORD					m_dwTargetVID;
 		DWORD					m_dwTargetEndTime;
 		DWORD					m_dwPlayTime;
-
+#ifdef ENABLE_OFFLINE_SHOP_SYSTEM
+		DWORD					m_dwCurrentOfflineShopMoney;
+#endif
 		SAutoPotionInfo			m_kAutoPotionInfo[AUTO_POTION_TYPE_NUM];
 
 	protected:
