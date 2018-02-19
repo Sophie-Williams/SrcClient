@@ -57,7 +57,7 @@ class OfflineShopAdminPanelWindow(ui.ScriptWindow):
 		try:
 			PythonScriptLoader = ui.PythonScriptLoader()
 			PythonScriptLoader.LoadScriptFile(self, "UIScript/OfflineShopAdminPanel.py")
-			#PythonScriptLoader.LoadScriptFile(self, "OfflineShopAdminPanel.py")
+			# PythonScriptLoader.LoadScriptFile(self, "OfflineShopAdminPanel.py")
 		except:
 			import exception
 			exception.Abort("OfflineShopAdminPanelWindow.LoadWindow.LoadObject")
@@ -232,7 +232,7 @@ class OfflineShopAddItemWindow(ui.ScriptWindow):
 			
 		self.tooltipItem = uiToolTip.ItemToolTip()
 		self.tooltipItem.Hide()
-		self.board.SetTitleName("Meritocracy2 - Stai aggiungendo item al tuo negozio..")		
+		self.board.SetTitleName("Warlords - Stai aggiungendo item al tuo negozio..")		
 		self.Refresh()
 		self.SetCenterPosition()
 		self.SetTop()
@@ -426,7 +426,7 @@ class OfflineShopRemoveItemWindow(ui.ScriptWindow):
 			
 		self.tooltipItem = uiToolTip.ItemToolTip()
 		self.tooltipItem.Hide()
-		self.board.SetTitleName("Meritocracy2 - Stai rimuovendo oggetti dal tuo negozio..")		
+		self.board.SetTitleName("Warlords - Stai rimuovendo oggetti dal tuo negozio..")		
 		self.Refresh()
 		self.SetCenterPosition()
 		self.SetTop()
@@ -652,7 +652,7 @@ class OfflineShopDialog(ui.ScriptWindow):
 		try:
 			pyScrLoader = ui.PythonScriptLoader()
 			pyScrLoader.LoadScriptFile(self, "UIScript/OfflineShopDialog.py")
-			#pyScrLoader.LoadScriptFile(self, "OfflineShopDialog.py")
+			# pyScrLoader.LoadScriptFile(self, "OfflineShopDialog.py")
 		except:
 			import exception
 			exception.Abort("OfflineShopDialog.LoadDialog.LoadObject")
@@ -660,9 +660,9 @@ class OfflineShopDialog(ui.ScriptWindow):
 		try:
 			self.itemSlotWindow = self.GetChild("ItemSlot")
 			self.btnBuy = self.GetChild("BuyButton")
-			# self.btnAdd = self.GetChild("AddButton")
-			# self.btnRemove = self.GetChild("RemoveButton")
-			# self.btnClose = self.GetChild("CloseButton")
+			self.btnAdd = self.GetChild("AddButton")
+			self.btnRemove = self.GetChild("RemoveButton")
+			self.btnClose = self.GetChild("CloseButton")
 			self.titleBar = self.GetChild("TitleBar")
 			self.titleName = self.GetChild("TitleName")
 		except:	
@@ -678,16 +678,16 @@ class OfflineShopDialog(ui.ScriptWindow):
 		
 		self.OfflineShopAdmin = OfflineShopAdminPanelWindow()
 
-		# self.btnAdd.SetEvent(ui.__mem_func__(self.AddItem)) 
-		# self.btnRemove.SetEvent(ui.__mem_func__(self.RemoveItem)) 
-		# self.btnClose.SetEvent(ui.__mem_func__(self.CloseShop)) 
+		self.btnAdd.SetEvent(ui.__mem_func__(self.AddItem)) 
+		self.btnRemove.SetEvent(ui.__mem_func__(self.RemoveItem)) 
+		self.btnClose.SetEvent(ui.__mem_func__(self.CloseShop)) 
 	
 		#self.myBankButton.SetEvent(ui.__mem_func__(self.ClickMyBankButton))
 			
 			
-		# self.btnAdd.Hide()
-		# self.btnRemove.Hide()
-		# self.btnClose.Hide()
+		self.btnAdd.Hide()
+		self.btnRemove.Hide()
+		self.btnClose.Hide()
 		
 		self.btnBuy.SetToggleUpEvent(ui.__mem_func__(self.CancelShopping))
 		self.btnBuy.SetToggleDownEvent(ui.__mem_func__(self.OnBuy))
@@ -720,9 +720,9 @@ class OfflineShopDialog(ui.ScriptWindow):
 		
 	def Open(self, vid):
 		# xxx
-		# self.btnAdd.Hide()
-		# self.btnRemove.Hide()
-		# self.btnClose.Hide()
+		self.btnAdd.Hide()
+		self.btnRemove.Hide()
+		self.btnClose.Hide()
 		self.btnBuy.Show()
 
 		shop.Open(False, False, True)
@@ -734,9 +734,9 @@ class OfflineShopDialog(ui.ScriptWindow):
 		if (("Negozio di " + player.GetName()) == chr.GetNameByVID(vid)):
 			self.titleName.SetText("Il tuo negozio")
 			self.btnBuy.Hide()
-			# self.btnAdd.Show()
-			# self.btnRemove.Show()
-			# self.btnClose.Show()
+			self.btnAdd.Show()
+			self.btnRemove.Show()
+			self.btnClose.Show()
 		else:
 			self.titleName.SetText(chr.GetNameByVID(vid))
 		

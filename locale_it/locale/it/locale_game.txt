@@ -1,6 +1,8 @@
+DO_YOU_WANT_TO_REMOVE_ITEM	Vuoi rimuovere %s?
+DO_YOU_WANT_TO_CLOSE_OFFLINE_SHOP	Vuoi chiudere il negozio? Ricorda di avere abbastanza spazio!
 OFFLINE_SHOP	Negozio
-OFFLINE_SHOP_CHANGE_TIME	Your offline shop's time is changed with %d hour(s)
-OFFLINE_SHOP_CHANGE_TIME2	Your offline shop's time is changed with unlimited.
+OFFLINE_SHOP_CHANGE_TIME	Tempo del negozio cambiato.
+OFFLINE_SHOP_CHANGE_TIME2	Il negozio non scadra' piu'.
 OFFLINE_SHOP_SELECT_TIME	Hai scelto il nuovo tempo. (%d)
 OFFLINE_SHOP_SELECT_TIME2	Hai scelto un tempo infinito.
 OFFLINE_SHOP_WARNING1	Modalita' acquisto rapido attiva.
