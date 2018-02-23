@@ -871,7 +871,7 @@ class ExpandedImageBox(ImageBox):
 	def SetRenderingMode(self, mode):
 		wndMgr.SetRenderingMode(self.hWnd, mode)
 
-	# [0.0, 1.0] 사이의 값만큼 퍼센트로 그리지 않는다.
+	# [0.0, 1.0] ?????? ????u ???T?? ????? ??�?.
 	def SetRenderingRect(self, left, top, right, bottom):
 		wndMgr.SetRenderingRect(self.hWnd, left, top, right, bottom)
 
@@ -1379,16 +1379,25 @@ class SlotWindow(Window):
 		return wndMgr.GetSlotCount(self.hWnd)
 
 	def SetUseMode(self, flag):
-		"True일때만 ItemToItem 이 가능한지 보여준다"
+		"True????? ItemToItem ?? ???????? ???????"
 		wndMgr.SetUseMode(self.hWnd, flag)
 
 	def SetUsableItem(self, flag):
-		"True면 현재 가리킨 아이템이 ItemToItem 적용 가능하다"
+		"True?? ???? ????U ???????? ItemToItem ???? ???????"
 		wndMgr.SetUsableItem(self.hWnd, flag)
 
 	## Slot
 	def SetSlotCoolTime(self, slotIndex, coolTime, elapsedTime = 0.0):
 		wndMgr.SetSlotCoolTime(self.hWnd, slotIndex, coolTime, elapsedTime)
+		
+	def SetSlotCoolTimeColor(self, slotIndex, r, g, b, a):
+		wndMgr.SetSlotCoolTimeColor(self.hWnd, slotIndex, r, g, b, a)
+			
+	def StoreSlotCoolTime(self, key, slotIndex, coolTime, elapsedTime = 0.0):
+		wndMgr.StoreSlotCoolTime(self.hWnd, key, slotIndex, coolTime, elapsedTime)
+	
+	def RestoreSlotCoolTime(self, key):
+		wndMgr.RestoreSlotCoolTime(self.hWnd, key)
 
 	def DisableSlot(self, slotIndex):
 		wndMgr.DisableSlot(self.hWnd, slotIndex)
@@ -1541,7 +1550,7 @@ class TitleBar(Window):
 
 	def MakeTitleBar(self, width, color):
 
-		## 현재 Color는 사용하고 있지 않음
+		## ???? Color?? ?????? ???? ????
 
 		width = max(64, width)
 
@@ -2771,13 +2780,13 @@ class PythonScriptLoader(object):
 
 		print "===== Load Script File : %s" % (FileName)
 
-		#ui 코드는 sandbox 내에서 실행되어야한다.(봇이 껴있을 여지가 있기 때문에)
+		#ui ???? sandbox ?????? ??????????.(???? ?????? ?????? ??? ??????)
 		import sys
 		from utils import Sandbox
 		sandbox = Sandbox(True, ["uiScriptLocale", "localeInfo", "sys", "item", "app", "player"])
 
-		# chr, player 등은 sandbox 내에서 import가 허용되지 않기 때문에,(봇이 악용할 여지가 매우 큼.)
-		#  미리 script dictionary에 필요한 상수를 넣어놓는다.
+		# chr, player ???? sandbox ?????? import?? ?????? ??? ??????,(???? ????? ?????? ??? u.)
+		#  ??? script dictionary?? ????? ????? ?????�?.
 		import chr
 		import player
 		import app

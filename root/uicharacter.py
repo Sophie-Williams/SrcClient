@@ -526,7 +526,7 @@ class CharacterWindow(ui.ScriptWindow):
 		except:
 			#import exception
 			#exception.Abort("CharacterWindow.RefreshStatus.BindObject")
-			## °ÔÀÓÀÌ Æ¨°Ü ¹ö¸²
+			## ?????? ??? ????
 			pass
 
 		self.__RefreshStatusPlusButtonList()
@@ -802,7 +802,7 @@ class CharacterWindow(ui.ScriptWindow):
 			skillLevel = getSkillLevel(slotIndex)
 			skillType = getSkillType(skillIndex)
 
-			## ½Â¸¶ ½ºÅ³ ¿¹¿Ü Ã³¸®
+			## ?¸? ??u ???? ó??
 			if player.SKILL_INDEX_RIDING == skillIndex:
 				if 1 == skillGrade:
 					skillLevel += 19
@@ -826,10 +826,14 @@ class CharacterWindow(ui.ScriptWindow):
 					elif (not self.__CanUseSkillNow()) or (skillGrade != j):
 						skillPage.SetSlotCount(realSlotIndex, 0)
 						skillPage.DisableCoverButton(realSlotIndex)
+						skillPage.DeactivateSlot(realSlotIndex) # fix
 					else:
 						skillPage.SetSlotCountNew(realSlotIndex, skillGrade, skillLevel)
 
-			## ±×¿Ü
+					if player.IsSkillActive(slotIndex) and (skillGrade == j): # fix
+						skillPage.ActivateSlot(realSlotIndex)
+
+			## ???
 			else:
 				if not SHOW_LIMIT_SUPPORT_SKILL_LIST or skillIndex in SHOW_LIMIT_SUPPORT_SKILL_LIST:
 					realSlotIndex = self.__GetETCSkillRealSlotIndex(slotIndex)
@@ -840,10 +844,18 @@ class CharacterWindow(ui.ScriptWindow):
 						skillPage.SetCoverButton(realSlotIndex)
 
 			skillPage.RefreshSlot()
-
+			self.__RestoreSlotCoolTime(skillPage)
+			
+	def __RestoreSlotCoolTime(self, skillPage):
+		restoreType = skill.SKILL_TYPE_NONE
+		if self.PAGE_HORSE == self.curSelectedSkillGroup:
+			restoreType = skill.SKILL_TYPE_HORSE
+		else:
+			restoreType = skill.SKILL_TYPE_ACTIVE
+		
+		skillPage.RestoreSlotCoolTime(restoreType)
 
 	def RefreshSkill(self):
-
 		if self.isLoaded==0:
 			return
 
@@ -863,11 +875,11 @@ class CharacterWindow(ui.ScriptWindow):
 
 	def CanShowPlusButton(self, skillIndex, skillLevel, curStatPoint):
 
-		## ½ºÅ³ÀÌ ÀÖÀ¸¸é
+		## ??u?? ??????
 		if 0 == skillIndex:
 			return False
 
-		## ·¹º§¾÷ Á¶°ÇÀ» ¸¸Á·ÇÑ´Ù¸é
+		## ?????? ?????? ????????
 		if not skill.CanLevelUpSkill(skillIndex, skillLevel):
 			return False
 
@@ -918,7 +930,6 @@ class CharacterWindow(ui.ScriptWindow):
 
 
 	def RefreshSkillPlusButtonList(self):
-
 		if self.isLoaded==0:
 			return
 
@@ -983,8 +994,8 @@ class CharacterWindow(ui.ScriptWindow):
 
 		mouseModule.mouseController.DeattachObject()
 
-	## FIXME : ½ºÅ³À» »ç¿ëÇßÀ»¶§ ½½·Ô ¹øÈ£¸¦ °¡Áö°í ÇØ´ç ½½·ÔÀ» Ã£¾Æ¼­ ¾÷µ¥ÀÌÆ® ÇÑ´Ù.
-	##         ¸Å¿ì ºÒÇÕ¸®. ±¸Á¶ ÀÚÃ¼¸¦ °³¼±ÇØ¾ß ÇÒµí.
+	## FIXME : ??u?? ????????? ???? ????? ?????? ??? ?????? ã??? ??????T ???.
+	##         ??? ?????. ???? ??ü?? ??????? ???.
 	def OnUseSkill(self, slotIndex, coolTime):
 
 		skillIndex = player.GetSkillIndex(slotIndex)
@@ -1000,7 +1011,8 @@ class CharacterWindow(ui.ScriptWindow):
 
 		for slotWindow in self.skillPageDict.values():
 			if slotWindow.HasSlot(slotIndex):
-				slotWindow.SetSlotCoolTime(slotIndex, coolTime)
+				slotWindow.StoreSlotCoolTime(skillType, slotIndex, coolTime)
+				self.__RestoreSlotCoolTime(slotWindow)
 				return
 
 	def OnActivateSkill(self, slotIndex):

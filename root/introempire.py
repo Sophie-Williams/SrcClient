@@ -14,8 +14,9 @@ class SelectEmpireWindow(ui.ScriptWindow):
 
 	EMPIRE_DESCRIPTION_TEXT_FILE_NAME = {
 		net.EMPIRE_A : uiScriptLocale.EMPIREDESC_A,
-		net.EMPIRE_B : uiScriptLocale.EMPIREDESC_B,
-		net.EMPIRE_C : uiScriptLocale.EMPIREDESC_C, }
+		#net.EMPIRE_B : uiScriptLocale.EMPIREDESC_B,
+		net.EMPIRE_C : uiScriptLocale.EMPIREDESC_C,
+	}
 
 	class EmpireButton(ui.Window):
 		def __init__(self, owner, arg):
@@ -47,7 +48,7 @@ class SelectEmpireWindow(ui.ScriptWindow):
 		net.SetPhaseWindow(net.PHASE_WINDOW_EMPIRE, self)
 
 		self.stream=stream
-		self.empireID=app.GetRandom(1, 3)
+		self.empireID=1
 		self.descIndex=0
 		self.empireArea = {}
 		self.empireAreaFlag = {}
@@ -174,13 +175,13 @@ class SelectEmpireWindow(ui.ScriptWindow):
 			self.exitButton		= GetObject("exit_button")
 			self.textBoard		= GetObject("text_board")
 			self.empireArea[net.EMPIRE_A]	= GetObject("EmpireArea_A")
-			self.empireArea[net.EMPIRE_B]	= GetObject("EmpireArea_B")
+			#self.empireArea[net.EMPIRE_B]	= GetObject("EmpireArea_B")
 			self.empireArea[net.EMPIRE_C]	= GetObject("EmpireArea_C")
 			self.empireAreaFlag[net.EMPIRE_A]	= GetObject("EmpireAreaFlag_A")
-			self.empireAreaFlag[net.EMPIRE_B]	= GetObject("EmpireAreaFlag_B")
+			#self.empireAreaFlag[net.EMPIRE_B]	= GetObject("EmpireAreaFlag_B")
 			self.empireAreaFlag[net.EMPIRE_C]	= GetObject("EmpireAreaFlag_C")
 			self.empireFlag[net.EMPIRE_A]	= GetObject("EmpireFlag_A")
-			self.empireFlag[net.EMPIRE_B]	= GetObject("EmpireFlag_B")
+			#self.empireFlag[net.EMPIRE_B]	= GetObject("EmpireFlag_B")
 			self.empireFlag[net.EMPIRE_C]	= GetObject("EmpireFlag_C")
 			GetObject("prev_text_button").SetEvent(ui.__mem_func__(self.PrevDescriptionPage))
 			GetObject("next_text_button").SetEvent(ui.__mem_func__(self.NextDescriptionPage))
@@ -200,16 +201,20 @@ class SelectEmpireWindow(ui.ScriptWindow):
 		return 1
 
 	def ClickLeftButton(self):
-		self.empireID-=1
-		if self.empireID<1:
-			self.empireID=3
+		self.empireID -= 1
+		if self.empireID == 2:
+			self.empireID = 1
+		elif self.empireID < 1:
+			self.empireID = 3
 
 		self.OnSelectEmpire(self.empireID)
 
 	def ClickRightButton(self):
-		self.empireID+=1
-		if self.empireID>3:
-			self.empireID=1
+		self.empireID += 1
+		if self.empireID == 2:
+			self.empireID = 3
+		elif self.empireID > 3:
+			self.empireID = 1
 
 		self.OnSelectEmpire(self.empireID)
 
