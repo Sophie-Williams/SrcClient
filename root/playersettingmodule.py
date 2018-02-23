@@ -1,4 +1,4 @@
-import chr
+﻿import chr
 import chrmgr
 import skill
 import net
@@ -497,31 +497,31 @@ def __LoadGameEffect():
 	EmoticonStr = "d:/ymir work/effect/etc/emoticon/"
 
 	chrmgr.RegisterEffect(chrmgr.EFFECT_EMOTICON+0, "", EmoticonStr+"sweat.mse")
-	net.RegisterEmoticonString("(???)")
-
+	net.RegisterEmoticonString("(황당)")
+ 
 	chrmgr.RegisterEffect(chrmgr.EFFECT_EMOTICON+1, "", EmoticonStr+"money.mse")
-	net.RegisterEmoticonString("(??)")
-
+	net.RegisterEmoticonString("(돈)")
+ 
 	chrmgr.RegisterEffect(chrmgr.EFFECT_EMOTICON+2, "", EmoticonStr+"happy.mse")
-	net.RegisterEmoticonString("(???)")
-
+	net.RegisterEmoticonString("(기쁨)")
+ 
 	chrmgr.RegisterEffect(chrmgr.EFFECT_EMOTICON+3, "", EmoticonStr+"love_s.mse")
-	net.RegisterEmoticonString("(????)")
-
+	net.RegisterEmoticonString("(좋아)")
+ 
 	chrmgr.RegisterEffect(chrmgr.EFFECT_EMOTICON+4, "", EmoticonStr+"love_l.mse")
-	net.RegisterEmoticonString("(???)")
-
+	net.RegisterEmoticonString("(사랑)")
+ 
 	chrmgr.RegisterEffect(chrmgr.EFFECT_EMOTICON+5, "", EmoticonStr+"angry.mse")
-	net.RegisterEmoticonString("(???)")
-
+	net.RegisterEmoticonString("(분노)")
+ 
 	chrmgr.RegisterEffect(chrmgr.EFFECT_EMOTICON+6, "", EmoticonStr+"aha.mse")
-	net.RegisterEmoticonString("(????)")
-
+	net.RegisterEmoticonString("(아하)")
+ 
 	chrmgr.RegisterEffect(chrmgr.EFFECT_EMOTICON+7, "", EmoticonStr+"gloom.mse")
-	net.RegisterEmoticonString("(???)")
-
+	net.RegisterEmoticonString("(우울)")
+ 
 	chrmgr.RegisterEffect(chrmgr.EFFECT_EMOTICON+8, "", EmoticonStr+"sorry.mse")
-	net.RegisterEmoticonString("(???)")
+	net.RegisterEmoticonString("(죄송)")
 
 	chrmgr.RegisterEffect(chrmgr.EFFECT_EMOTICON+9, "", EmoticonStr+"!_mix_back.mse")
 	net.RegisterEmoticonString("(!)")

@@ -181,7 +181,7 @@ class SelectEmpireWindow(ui.ScriptWindow):
 			#self.empireAreaFlag[net.EMPIRE_B]	= GetObject("EmpireAreaFlag_B")
 			self.empireAreaFlag[net.EMPIRE_C]	= GetObject("EmpireAreaFlag_C")
 			self.empireFlag[net.EMPIRE_A]	= GetObject("EmpireFlag_A")
-			#self.empireFlag[net.EMPIRE_B]	= GetObject("EmpireFlag_B")
+			self.empireFlag[net.EMPIRE_B]	= GetObject("EmpireFlag_B")
 			self.empireFlag[net.EMPIRE_C]	= GetObject("EmpireFlag_C")
 			GetObject("prev_text_button").SetEvent(ui.__mem_func__(self.PrevDescriptionPage))
 			GetObject("next_text_button").SetEvent(ui.__mem_func__(self.NextDescriptionPage))
