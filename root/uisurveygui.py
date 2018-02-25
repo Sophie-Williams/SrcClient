@@ -74,6 +74,8 @@ class SurveyGui(ui.ScriptWindow):
 				self.GetChild("label" + str(i+1)).SetText(self.text_splitted[i])
 				self.GetChild("label" + str(i+1)).Show()
 			for i in xrange(len(self.option_splitted)):
+				if (i > 5):
+					continue
 				self.select.append(self.GetChild("select" + str(i+1)))
 				self.select[i].SetEvent(lambda arg=i: self.SetSelect(arg))
 				self.select[i].Show()
@@ -95,7 +97,7 @@ class SurveyGui(ui.ScriptWindow):
 
 	def SendVote(self):
 		self.Close()
-		chat.AppendChat(chat.CHAT_TYPE_INFO, "Voto inviato!"+ str(self.vote))
+		# chat.AppendChat(chat.CHAT_TYPE_INFO, "Voto inviato!")
 		net.SendChatPacket("/survey_vote " + str(self.idx) + " " + str(self.vote))
 
 

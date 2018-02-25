@@ -850,9 +850,8 @@ typedef struct packet_survey
 	BYTE header;
 	int id_survey;
 	char title[100];
-	char text[250];
-	char options[200];
-	DWORD vid;
+	char text[254];
+	char options[254];
 } TPacketSurvey;
 
 typedef struct packet_biologist
@@ -861,7 +860,6 @@ typedef struct packet_biologist
 	BYTE subHeader;
 	int pid_quest;
 	int count_item;
-	DWORD vid;
 } TPacketBiologist;
 
 #ifdef ENABLE_AUTO_PVP_SYSTEM
@@ -870,7 +868,6 @@ typedef struct auto_pvp
 	BYTE header;
 	BYTE subHeader;
 	BYTE state;
-	DWORD vid;
 } TPacketAutoPvPState;
 
 enum
@@ -1798,8 +1795,9 @@ enum EPointTypes
 	POINT_MIN_MAGIC_WEP,
 	POINT_MAX_MAGIC_WEP,
 	POINT_HIT_RATE,
-
-
+#ifdef ENABLE_CHEQUE_SYSTEM
+	POINT_WON = 145
+#endif
     //POINT_MAX_NUM = 255,=>stdafx.h ·Î/
 };
 
@@ -2723,12 +2721,16 @@ typedef struct {
 	int item[3];
 } TAddSpecialQuestGC;
 
+
 typedef struct {
 	BYTE header;
 	BYTE subHeader;
 	DWORD vid;
 	char title[80];
 	char text[80];
+	int idx;
+	int kill;
+	int totalkill;
 	TAddNormalQuestGC nQuest;
 	TAddSpecialQuestGC sQuest;
 } TGuiQuest;
@@ -2739,6 +2741,7 @@ enum
 	QUEST_GUI_SUBHEADER_GC_ADD_TEXT,
 	QUEST_GUI_SUBHEADER_GC_ADD_NORMAL_QUEST,
 	QUEST_GUI_SUBHEADER_GC_ADD_SPECIAL_QUEST,
+	QUEST_GUI_SUBHEADER_GC_UPDATE_KILL,
 	QUEST_GUI_SUBHEADER_GC_CLEAR_QUEST,
 };
 

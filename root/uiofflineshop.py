@@ -278,7 +278,7 @@ class OfflineShopAddItemWindow(ui.ScriptWindow):
 					chat.AppendChat(chat.CHAT_TYPE_INFO, localeInfo.OFFLINE_SHOP_CANNOT_SELL_ITEM)
 					return
 					
-				priceInputBoard = uiCommon.MoneyInputDialog()
+				priceInputBoard = uiCommon.MoneyInputDialogWon()
 				priceInputBoard.SetTitle(item.GetItemName() + " prezzo")
 				priceInputBoard.SetAcceptEvent(ui.__mem_func__(self.AcceptInputPrice))
 				priceInputBoard.SetCancelEvent(ui.__mem_func__(self.CancelInputPrice))
@@ -553,7 +553,7 @@ class OfflineShopBankDialog(ui.ScriptWindow):
 		
 		net.SendRefreshOfflineShopMoney()
 
-		self.currentMoneyLine.SetText(localeInfo.NumberToMoneyString(player.GetCurrentOfflineShopMoney()))
+		self.currentMoneyLine.SetText(localeInfo.NumberToWonString(player.GetCurrentOfflineShopMoney()))
 		#chat.AppendChat(chat.CHAT_TYPE_INFO, "Gli yang vengono aggiornati ogni 15 secondi.")
 		self.Show()
 		
@@ -563,7 +563,7 @@ class OfflineShopBankDialog(ui.ScriptWindow):
 			if (currentMoney == 0):
 				return
 			net.SendOfflineShopWithdrawMoney(currentMoney)
-			self.currentMoneyLine.SetText(localeInfo.NumberToMoneyString(player.GetCurrentOfflineShopMoney()))
+			self.currentMoneyLine.SetText(localeInfo.NumberToWonString(player.GetCurrentOfflineShopMoney()))
 		except ValueError:
 			chat.AppendChat(chat.CHAT_TYPE_INFO, "Errore.")
 		
@@ -819,7 +819,7 @@ class OfflineShopDialog(ui.ScriptWindow):
 		itemName = item.GetItemName()
 
 		itemBuyQuestionDialog = uiCommon.QuestionDialog()
-		itemBuyQuestionDialog.SetText(localeInfo.DO_YOU_BUY_ITEM(itemName, itemCount, localeInfo.NumberToMoneyString(itemPrice)))
+		itemBuyQuestionDialog.SetText(localeInfo.DO_YOU_BUY_ITEM_WON(itemName, itemCount, localeInfo.NumberToWonString(itemPrice)))
 		itemBuyQuestionDialog.SetAcceptEvent(lambda arg=True: self.AnswerBuyItem(arg))
 		itemBuyQuestionDialog.SetCancelEvent(lambda arg=False: self.AnswerBuyItem(arg))
 		itemBuyQuestionDialog.Open()

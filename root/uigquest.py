@@ -7,6 +7,10 @@ import constInfo
 import wndMgr
 import net
 import grp
+import item
+
+ROOT_PATH = "d:/ymir work/ui/game/windows/"
+
 MEDIUM_VALUE_FILE = "d:/ymir work/ui/public/Parameter_Slot_02.sub"
 LARGE_VALUE_FILE = "d:/ymir work/ui/public/Parameter_Slot_04.sub"
 WHITE_COLOR = grp.GenerateColor(1.0, 1.0, 1.0, 0.5)
@@ -20,7 +24,12 @@ class uiGQuest(ui.ScriptWindow):
 		self.cQuest = 0
 		self.lQuest = {}
 		self.reward = {}
-		
+		self.set_bar = 0
+		self.listRewardLabelText = {}
+		self.listRewardBoxText = {}
+		self.listRewardBox = {}
+		self.t = 0
+
 	def __del__(self):
 		self.Window = ui.ScriptWindow
 		self.Window.__del__(self)
@@ -32,7 +41,7 @@ class uiGQuest(ui.ScriptWindow):
 		return 200, self.label_y-2
 	
 	def GetRewardInfo(self, idx):
-		return 18, 33+20*idx
+		return 18, 33+25*idx
 		
 	def IncRewardPosition(self, step):
 		self.label_y += step
@@ -98,10 +107,13 @@ class uiGQuest(ui.ScriptWindow):
 	def Open(self, title):
 		try:
 			pyScrLoader = ui.PythonScriptLoader()
-			pyScrLoader.LoadScriptFile(self, "GQuest.py")
+			pyScrLoader.LoadScriptFile(self, "gquest_system/GQuest.py")
 			self.board		= self.GetChild("Board")
 			self.board2		= self.GetChild("Board2")
-			self.TestLabel()
+			self.board2.Hide()
+			self.board.SetTitleName(title)
+			self.CreateRewardBoard()
+			# self.TestLabel()
 		except:
 			exception.Abort("Error: GUI Error: GQuest.py")
 
@@ -111,12 +123,16 @@ class uiGQuest(ui.ScriptWindow):
 		self.cQuest = 0
 		self.lQuest = {}
 		self.reward = {}
+		self.listRewardLabelText = {}
+		self.listRewardBoxText = {}
+		self.listRewardBox = {}
+		self.set_bar = 0
 		
 	def RefreshGui(self):
-		#chat.AppendChat(chat.CHAT_TYPE_INFO, str(30) + " " + str(self.label_inc*15) + " " + str(self.cQuest*20))
-		new_y = 50 + (self.label_inc*20) + (self.cQuest*25)
-		chat.AppendChat(chat.CHAT_TYPE_INFO, str(new_y))
+		new_y = 54 + (self.label_inc*20) + (self.cQuest*20)
+		#chat.AppendChat(chat.CHAT_TYPE_INFO, str(new_y))
 		self.board.SetSize(300, new_y)
+		# chat.AppendChat(chat.CHAT_TYPE_INFO, str(new_y) + " " + str(self.label_inc) + " " + str(self.cQuest))
 		
 	def AppendLabel(self, text):
 		x, y = self.GetLabelInfo()
@@ -150,30 +166,67 @@ class uiGQuest(ui.ScriptWindow):
 		self.SetRewardQuest(1)
 		self.RefreshGui()
 		
-	def AppendNormalQuest(self, text, difficulty, exp, yang, item):
-		self.reward[self.cQuest] = (exp, yang, item)
+	def AppendNormalQuest(self, text, difficulty, kill, totalkill, exp, yang, itemVnum):
+		if self.set_bar == 0:
+			self.set_bar = 1
+			self.AppendBar()
+		item.SelectItem(itemVnum)
+		self.reward[self.cQuest] = (difficulty, exp, yang, item.GetItemName())
 		x, y = self.GetQuestInfo()
 		boxinfo = self.MakeBoxInfo(self.board, x, y)
 		self.AppendQuest(text)
-		self.lQuest[self.cQuest] = (self.MakeTextLine(boxinfo, "100/200", 0, 4))
+		self.lQuest[self.cQuest] = (self.MakeTextLine(boxinfo, str(kill) + "/" + str(totalkill), 0, 3))
 		self.lQuest[self.cQuest].SetWindowHorizontalAlignCenter()
 		self.lQuest[self.cQuest].SetHorizontalAlignCenter()
+
+		tmpButton = ui.MakeButton(self.board, x+70, y+3, "Ricompensa", ROOT_PATH, "btn_plus_up.sub", "btn_plus_over.sub", "btn_plus_down.sub")
+		tmpButton.SetEvent(lambda arg=self.cQuest: self.SetRewardQuest(arg))
+
 		self.board.Children.append(self.lQuest[self.cQuest])
 		self.board.Children.append(boxinfo)
+		self.board.Children.append(tmpButton)
 		self.cQuest += 1
 		self.RefreshGui()
 
+	def UpdateKill(self, idx, kill, totalkill):
+		self.lQuest[idx].SetText(str(kill) + "/" + str(totalkill))
+		
+	def ResetRewardQuest(self):
+		for i in xrange(4):
+			# self.listRewardLabelText[i].SetText("")
+			self.listRewardLabelText[i].Hide()
+			self.listRewardBoxText[i].SetText("")
+			self.listRewardBoxText[i].Hide()
+			self.listRewardBox[i].Hide()
+
+	def CreateRewardBoard(self):
+		for i in xrange(4):
+			x, y = self.GetRewardInfo(i)
+			if (i == 0):
+				self.listRewardLabelText[i] = self.MakeTextLine(self.board2, "Grado missione", x, y)
+			else:
+				self.listRewardLabelText[i] = self.MakeTextLine(self.board2, str(i) + ") Ricompensa", x, y)
+			self.listRewardLabelText[i].Hide()
+			self.listRewardBox[i] = self.MakeRewardBoxInfo(self.board2, 90, y)
+			self.listRewardBox[i].Hide()
+			self.listRewardBoxText[i] = self.MakeTextLine(self.listRewardBox[i], "" , 0, 3)
+			self.listRewardBoxText[i].SetWindowHorizontalAlignCenter()
+			self.listRewardBoxText[i].SetHorizontalAlignCenter()
+			self.listRewardBoxText[i].Hide()
+			self.board2.Children.append(self.listRewardLabelText[i])
+			self.board2.Children.append(self.listRewardBox[i])
+	
 	def SetRewardQuest(self, idx):
-		self.text_reward = (" Exp", " Yang", "")
+		self.ResetRewardQuest()
+		self.board2.Show()
+		self.text_reward = ("", " Exp", " Yang", "")
 		for i in xrange(len(self.reward[idx])):
 			if (self.reward[idx][i] == 0):
 				continue
-			x, y = self.GetRewardInfo(i+1)
-			self.board.Children.append(self.MakeTextLine(self.board2, str(idx) + ") Ricompensa", x, y))
-			boxinfo = self.MakeRewardBoxInfo(self.board2, 90, y)
-			textinfo = (self.MakeTextLine(boxinfo, str(self.reward[idx][i]) + self.text_reward[i] , 0, 4))
-			textinfo.SetWindowHorizontalAlignCenter()
-			textinfo.SetHorizontalAlignCenter()
-			self.board2.Children.append(textinfo)
-			self.board2.Children.append(boxinfo)
+			x, y = self.GetRewardInfo(i)
+			
+			self.listRewardBoxText[i].SetText(str(self.reward[idx][i]) + self.text_reward[i])
+			self.listRewardBox[i].Show()
+			self.listRewardBoxText[i].Show()
+			self.listRewardLabelText[i].Show()
 		self.RefreshGui()

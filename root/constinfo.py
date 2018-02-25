@@ -229,7 +229,7 @@ ENABLE_RANDOM_CHANNEL_SEL = 0
 # don"t remove id&pass if the login attempt fails
 ENABLE_CLEAN_DATA_IF_FAIL_LOGIN = 0
 # ctrl+v will now work
-ENABLE_PASTE_FEATURE = 0
+ENABLE_PASTE_FEATURE = 1
 # display all the bonuses added by a stone instead of the first one
 ENABLE_FULLSTONE_DETAILS = 1
 # enable successfulness % in the refine dialog

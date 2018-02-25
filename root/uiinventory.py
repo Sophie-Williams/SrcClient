@@ -253,6 +253,7 @@ class InventoryWindow(ui.ScriptWindow):
 	wndCostume = None
 	wndBelt = None
 	dlgPickMoney = None
+	dlgPickMoney2 = None
 
 	sellingSlotNumber = -1
 	isLoaded = 0
@@ -313,6 +314,8 @@ class InventoryWindow(ui.ScriptWindow):
 			self.GetChild("TitleBar").SetCloseEvent(ui.__mem_func__(self.Close))
 			self.wndMoney = self.GetChild("Money")
 			self.wndMoneySlot = self.GetChild("Money_Slot")
+			self.wndChequeSlot = self.GetChild("Cheque_Slot")
+			self.wndCheque = self.GetChild("Cheque")
 			self.mallButton = self.GetChild2("MallButton")
 			self.DSSButton = self.GetChild2("DSSButton")
 			self.costumeButton = self.GetChild2("CostumeButton")
@@ -357,9 +360,13 @@ class InventoryWindow(ui.ScriptWindow):
 		wndEquip.SetOverOutItemEvent(ui.__mem_func__(self.OverOutItem))
 
 		## PickMoneyDialog
-		dlgPickMoney = uiPickMoney.PickMoneyDialog()
-		dlgPickMoney.LoadDialog()
+		dlgPickMoney = uiPickMoney.NewPickMoneyDialog()
+		dlgPickMoney.LoadDialog(1)
 		dlgPickMoney.Hide()
+		## PickMoneyDialog2
+		dlgPickMoney2 = uiPickMoney.NewPickMoneyDialog()
+		dlgPickMoney2.LoadDialog(2)
+		dlgPickMoney2.Hide()
 
 		## RefineDialog
 		self.refineDialog = uiRefine.RefineDialog()
@@ -371,6 +378,8 @@ class InventoryWindow(ui.ScriptWindow):
 
 		## MoneySlot
 		self.wndMoneySlot.SetEvent(ui.__mem_func__(self.OpenPickMoneyDialog))
+		
+		self.wndChequeSlot.SetEvent(ui.__mem_func__(self.OpenPickMoneyDialog2))
 
 		for i in xrange(player.INVENTORY_PAGE_COUNT):
 			self.inventoryTab[i].SetEvent(lambda arg=i: self.SetInventoryPage(arg))
@@ -385,6 +394,7 @@ class InventoryWindow(ui.ScriptWindow):
 		self.wndItem = wndItem
 		self.wndEquip = wndEquip
 		self.dlgPickMoney = dlgPickMoney
+		self.dlgPickMoney2 = dlgPickMoney2
 
 		# MallButton
 		if self.mallButton:
@@ -414,6 +424,8 @@ class InventoryWindow(ui.ScriptWindow):
 
 		self.dlgPickMoney.Destroy()
 		self.dlgPickMoney = 0
+		self.dlgPickMoney2.Destroy()
+		self.dlgPickMoney2 = 0
 
 		self.refineDialog.Destroy()
 		self.refineDialog = 0
@@ -425,8 +437,11 @@ class InventoryWindow(ui.ScriptWindow):
 		self.wndItem = 0
 		self.wndEquip = 0
 		self.dlgPickMoney = 0
+		self.dlgPickMoney2 = 0
 		self.wndMoney = 0
 		self.wndMoneySlot = 0
+		self.wndCheque = 0
+		self.wndChequeSlot = 0
 		self.questionDialog = None
 		self.mallButton = None
 		self.DSSButton = None
@@ -461,6 +476,8 @@ class InventoryWindow(ui.ScriptWindow):
 
 		if self.dlgPickMoney:
 			self.dlgPickMoney.Close()
+		if self.dlgPickMoney2:
+			self.dlgPickMoney2.Close()
 
 		wndMgr.Hide(self.hWnd)
 
@@ -519,10 +536,34 @@ class InventoryWindow(ui.ScriptWindow):
 			if curMoney <= 0:
 				return
 
-			self.dlgPickMoney.SetTitleName(localeInfo.PICK_MONEY_TITLE)
-			self.dlgPickMoney.SetAcceptEvent(ui.__mem_func__(self.OnPickMoney))
-			self.dlgPickMoney.Open(curMoney)
-			self.dlgPickMoney.SetMax(9) # 인벤토리 990000 제한 버그 수정
+			# self.dlgPickMoney.SetTitleName(localeInfo.PICK_MONEY_TITLE)
+			# self.dlgPickMoney.SetAcceptEvent(ui.__mem_func__(self.OnPickMoney))
+			self.dlgPickMoney.Open()
+
+	def OpenPickMoneyDialog2(self):
+
+		if mouseModule.mouseController.isAttached():
+
+			attachedSlotPos = mouseModule.mouseController.GetAttachedSlotNumber()
+			if player.SLOT_TYPE_SAFEBOX == mouseModule.mouseController.GetAttachedType():
+
+				if player.ITEM_MONEY == mouseModule.mouseController.GetAttachedItemIndex():
+					net.SendSafeboxWithdrawMoneyPacket(mouseModule.mouseController.GetAttachedItemCount())
+					snd.PlaySound("sound/ui/money.wav")
+
+			mouseModule.mouseController.DeattachObject()
+
+		else:
+			curMoney = player.GetWon()
+
+			if curMoney <= 0:
+				return
+
+			# self.dlgPickMoney.SetTitleName(localeInfo.PICK_MONEY_TITLE)
+			# self.dlgPickMoney.SetAcceptEvent(ui.__mem_func__(self.OnPickMoney))
+			# self.dlgPickMoney2.SetAcceptEvent(ui.__mem_func__(self.OnPickMoney))
+			self.dlgPickMoney2.Open()
+			# self.dlgPickMoney.SetMax(9) # 인벤토리 990000 제한 버그 수정
 
 	def OnPickMoney(self, money):
 		mouseModule.mouseController.AttachMoney(self, player.SLOT_TYPE_INVENTORY, money)
@@ -635,7 +676,9 @@ class InventoryWindow(ui.ScriptWindow):
 
 	def RefreshStatus(self):
 		money = player.GetElk()
+		won = player.GetWon()
 		self.wndMoney.SetText(localeInfo.NumberToMoneyString(money))
+		self.wndCheque.SetText(localeInfo.NumberToWonString(won))
 
 	def SetItemToolTip(self, tooltipItem):
 		self.tooltipItem = tooltipItem
@@ -739,7 +782,7 @@ class InventoryWindow(ui.ScriptWindow):
 				itemCount = player.GetItemCount(itemSlotIndex)
 
 				if itemCount > 1:
-					self.dlgPickMoney.SetTitleName(localeInfo.PICK_ITEM_TITLE)
+					# self.dlgPickMoney.SetTitleName(localeInfo.PICK_ITEM_TITLE)
 					self.dlgPickMoney.SetAcceptEvent(ui.__mem_func__(self.OnPickItem))
 					self.dlgPickMoney.Open(itemCount)
 					self.dlgPickMoney.itemGlobalSlotIndex = itemSlotIndex

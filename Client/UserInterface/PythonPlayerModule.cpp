@@ -621,6 +621,11 @@ PyObject * playerGetElk(PyObject* poSelf, PyObject* poArgs)
 	return Py_BuildValue("i", CPythonPlayer::Instance().GetStatus(POINT_GOLD));
 }
 
+PyObject * playerGetWon(PyObject* poSelf, PyObject* poArgs)
+{
+	return Py_BuildValue("i", CPythonPlayer::Instance().GetStatus(POINT_WON));
+}
+
 PyObject * playerGetGuildID(PyObject* poSelf, PyObject* poArgs)
 {
 	CInstanceBase * pInstance = CPythonPlayer::Instance().NEW_GetMainActorPtr();
@@ -2273,6 +2278,7 @@ void initPlayer()
 		{ "SetStatus",					playerSetStatus,					METH_VARARGS },
 		{ "GetElk",						playerGetElk,						METH_VARARGS },
 		{ "GetMoney",					playerGetElk,						METH_VARARGS },
+		{ "GetWon",						playerGetWon,						METH_VARARGS },
 		{ "GetGuildID",					playerGetGuildID,					METH_VARARGS },
 		{ "GetGuildName",				playerGetGuildName,					METH_VARARGS },
 		{ "GetAlignmentData",			playerGetAlignmentData,				METH_VARARGS },
@@ -2374,6 +2380,7 @@ void initPlayer()
     PyModule_AddIntConstant(poModule, "STAMINA",				POINT_STAMINA);
     PyModule_AddIntConstant(poModule, "MAX_STAMINA",			POINT_MAX_STAMINA);
     PyModule_AddIntConstant(poModule, "ELK",					POINT_GOLD);
+	PyModule_AddIntConstant(poModule, "WON",					POINT_WON);
     PyModule_AddIntConstant(poModule, "ST",						POINT_ST);
     PyModule_AddIntConstant(poModule, "HT",						POINT_HT);
     PyModule_AddIntConstant(poModule, "DX",						POINT_DX);

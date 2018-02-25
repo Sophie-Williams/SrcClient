@@ -359,7 +359,7 @@ class GameWindow(ui.ScriptWindow):
 		
 		# systemlist
 		onPressKeyDict[app.DIK_F5]	= lambda : self.ShowTeleporter()
-		onPressKeyDict[app.DIK_F6]	= lambda : self.ShowSwitcher()
+		onPressKeyDict[app.DIK_F6]	= lambda : self.ShowOfflineShop()
 		onPressKeyDict[app.DIK_F7]	= lambda : self.ShowPvP()
 		onPressKeyDict[app.DIK_F8]	= lambda : self.ShowBiologist()
 		onPressKeyDict[app.DIK_F9]	= lambda : self.ShowSurvey()
@@ -490,8 +490,8 @@ class GameWindow(ui.ScriptWindow):
 			net.SendChatPacket("/user_horse_ride")
 		else:
 		#gg
-			self.uiSystemList.LoadGui()
-			self.uiSystemList.Show()
+			self.uiGQuest.LoadGui("prova")
+			self.uiGQuest.Show()
 
 	def	__PressBKey(self):
 		if app.IsPressed(app.DIK_LCONTROL) or app.IsPressed(app.DIK_RCONTROL):
@@ -1031,7 +1031,6 @@ class GameWindow(ui.ScriptWindow):
 		pass
 	## OfflineShop
 	def StartOfflineShop(self, vid):
-		chat.AppendChat(chat.CHAT_TYPE_INFO, "mlml")
 		self.interface.OpenOfflineShopDialog(vid)
 		
 	def EndOfflineShop(self):
@@ -1229,16 +1228,17 @@ class GameWindow(ui.ScriptWindow):
 	def ShowTeleporter(self):
 		self.uiTeleporter.LoadGui()
 		self.uiTeleporter.Show()
-	def ShowSwitcher(self):
-		chat.AppendChat(chat.CHAT_TYPE_INFO, "Switcher")
+	def ShowOfflineShop(self):
+		net.SendChatPacket("/open_offlineshop")
 	def ShowPvP(self):
 		self.uiPvP.LoadGui(0)
 		self.uiPvP.Show()
 		
 	def ShowBiologist(self):
 		net.SendChatPacket("/biologist_open")
+		
 	def ShowSurvey(self):
-		net.SendChatPacket("/biologist_open")
+		net.SendChatPacket("/survey_open")
 		
 	def ShowName(self):
 		self.ShowNameFlag = True
@@ -2078,15 +2078,23 @@ class GameWindow(ui.ScriptWindow):
 
 	# GQuestGui
 	def GQuest_Open(self, title):
-		self.uiGQuest.Open(title)
+		self.uiGQuest.Open(str(title))
+		self.uiGQuest.Show()
+
 	def GQuest_AppendLabel(self, text):
-		self.uiGQuest.AppendLabel(text)
-	def GQuest_AppendNormalQuest(self, text, difficulty, exp, yang, item):
-		self.uiGQuest.AppendNormalQuest(text, difficulty, exp, yang, item)
+		self.uiGQuest.AppendLabel(str(text))
+		
+	def GQuest_AppendNormalQuest(self, text, difficulty, kill, totalkill, exp, yang, item):
+		self.uiGQuest.AppendNormalQuest(text, difficulty, kill, totalkill, exp, yang, item)
+		
 	def GQuest_AppendSpecialQuest(self, text, difficulty, item1, item2, item3):
 		self.uiGQuest.AppendSpecialQuest(text, difficulty, item1, item2, item3)
+		
+	def GQuest_UpdateKill(self, idx, kill, totalkill):
+		self.uiGQuest.UpdateKill(idx, kill, totalkill)
+		
 	def GQuest_ClearQuest(self):
-		self.uiGQuest.ClearQuest()
+		self.uiGQuest.ClearGui()
 	
 	def GQuest_ADDHuntingQuest(self, idx, target, kill, total_kill):		
 		self.target_hunt = constInfo.GQUEST_MAP_INFO[int(idx)]['target'][int(target)]

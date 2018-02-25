@@ -603,11 +603,11 @@ class ItemToolTip(ToolTip):
 			attrSlot.append(shop.GetOfflineShopItemAttribute(slotIndex, i))
 			
 		self.AddItemData(itemVnum, metinSlot, attrSlot)
-		self.AppendPrice(price)
+		self.AppendPriceWon(price)
 
 
 	def SetShopItem(self, slotIndex):
-		self.AppendTextLine("", "")
+		# self.AppendTextLine("", "")
 		itemVnum = shop.GetItemID(slotIndex)
 		if 0 == itemVnum:
 			return
@@ -1683,10 +1683,22 @@ class ItemToolTip(ToolTip):
 			return self.MIDDLE_PRICE_COLOR
 		else:
 			return self.LOW_PRICE_COLOR
+			
+	def GetPriceColorWon(self, price):
+		if price>=1000:
+			return self.HIGH_PRICE_COLOR
+		if price>=50:
+			return self.MIDDLE_PRICE_COLOR
+		else:
+			return self.LOW_PRICE_COLOR
 
 	def AppendPrice(self, price):
 		self.AppendSpace(5)
 		self.AppendTextLine(localeInfo.TOOLTIP_BUYPRICE  % (localeInfo.NumberToMoneyString(price)), self.GetPriceColor(price))
+	
+	def AppendPriceWon(self, price):
+		self.AppendSpace(5)
+		self.AppendTextLine(localeInfo.TOOLTIP_BUYPRICE  % (localeInfo.NumberToWonString(price)), self.GetPriceColorWon(price))
 
 	def AppendPriceBySecondaryCoin(self, price):
 		self.AppendSpace(5)

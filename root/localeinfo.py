@@ -842,6 +842,18 @@ elif IsHONGKONG():
 		result = result + MONETARY_UNIT0
 
 		return result
+		
+	def NumberToWonString(number) :
+		if number <= 0 :
+			return "0 %s" % (CHEQUE_SYSTEM_UNIT_WON)
+
+		number = str(number)
+		result = CutMoneyString(number, 0, 4, 	"", "")
+		result = CutMoneyString(number, 4, 8, 	CHEQUE_SYSTEM_UNIT_WON, result)
+		result = CutMoneyString(number, 8, 12, 	CHEQUE_SYSTEM_UNIT_WON, result)
+		result = result + CHEQUE_SYSTEM_UNIT_WON
+
+		return result
 
 	def NumberToSecondaryCoinString(number) :
 		if number <= 0 :
@@ -932,6 +944,12 @@ elif IsEUROPE() and not IsWE_KOREA() and not IsYMIR():
 			return DO_YOU_BUY_ITEM2 % ( buyItemName, buyItemCount, buyItemPrice )
 		else:
 			return DO_YOU_BUY_ITEM1 % ( buyItemName, buyItemPrice )
+			
+	def DO_YOU_BUY_ITEM_WON(buyItemName, buyItemCount, buyItemPrice) :
+		if buyItemCount > 1 :
+			return DO_YOU_BUY_ITEM2_WON % ( buyItemName, buyItemCount, buyItemPrice )
+		else:
+			return DO_YOU_BUY_ITEM1_WON % ( buyItemName, buyItemPrice )
 
 	def REFINE_FAILURE_CAN_NOT_ATTACH(attachedItemName) :
 		return REFINE_FAILURE_CAN_NOT_ATTACH0 % (attachedItemName)
@@ -965,6 +983,12 @@ elif IsEUROPE() and not IsWE_KOREA() and not IsYMIR():
 			return "0 %s" % (MONETARY_UNIT0)
 
 		return "%s %s" % ('.'.join([ i-3<0 and str(n)[:i] or str(n)[i-3:i] for i in range(len(str(n))%3, len(str(n))+1, 3) if i ]), MONETARY_UNIT0)
+	
+	def NumberToWonString(n) :
+		if n <= 0 :
+			return "0 %s" % (CHEQUE_SYSTEM_UNIT_WON)
+
+		return "%s %s" % ('.'.join([ i-3<0 and str(n)[:i] or str(n)[i-3:i] for i in range(len(str(n))%3, len(str(n))+1, 3) if i ]), CHEQUE_SYSTEM_UNIT_WON)
 
 	def NumberToSecondaryCoinString(n) :
 		if n <= 0 :

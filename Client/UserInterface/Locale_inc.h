@@ -51,6 +51,6 @@
 #define ENABLE_OBJECT_SCALING
 #define ENABLE_AUTO_PVP_SYSTEM
 #define ENABLE_OFFLINE_SHOP_SYSTEM 
-
+#define ENABLE_CHEQUE_SYSTEM
 // ### From GameLib ###
 //////////////////////////////////////////////////////////////////////////

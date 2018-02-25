@@ -4603,9 +4603,6 @@ bool CPythonNetworkStream::RecvSurveyPacket()
 	if (!Recv(sizeof(survey), &survey))
 		return false;
 
-	if (!rkPlayer.IsMainCharacterIndex(survey.vid))
-		return false;
-
 	PyCallClassMemberFunc(m_apoPhaseWnd[PHASE_WINDOW_GAME], "BINARY_SurveyInfo", Py_BuildValue("(isss)", survey.id_survey, survey.title, survey.text, survey.options));
 	return true;
 }
@@ -4617,8 +4614,6 @@ bool CPythonNetworkStream::RecvBiologistPacket()
 
 	TPacketBiologist info;
 	if (!Recv(sizeof(info), &info))
-		return false;
-	if (!rkPlayer.IsMainCharacterIndex(info.vid))
 		return false;
 
 	switch (info.subHeader){
@@ -4729,10 +4724,6 @@ bool CPythonNetworkStream::RecvAutoPvpPacket()
 	TPacketAutoPvPState pvp_packet;
 	if (!Recv(sizeof(pvp_packet), &pvp_packet))
 		return false;
-	// check vid
-	CPythonPlayer & rkPlayer = CPythonPlayer::Instance();
-	if (!rkPlayer.IsMainCharacterIndex(pvp_packet.vid))
-		return false;
 	/*
 	
 enum
@@ -4763,6 +4754,7 @@ enum
 #endif
 bool CPythonNetworkStream::RecvGQuestPacket()
 {
+	//TraceError("prova");
 	// check packet
 	TGuiQuest gquest;
 	if (!Recv(sizeof(gquest), &gquest))
@@ -4777,7 +4769,7 @@ bool CPythonNetworkStream::RecvGQuestPacket()
 		Tracef("gquestpacket vid error\n");
 		return false;
 	}
-
+	
 	switch (gquest.subHeader)
 	{
 		case QUEST_GUI_SUBHEADER_GC_OPEN:
@@ -4787,10 +4779,13 @@ bool CPythonNetworkStream::RecvGQuestPacket()
 			PyCallClassMemberFunc(m_apoPhaseWnd[PHASE_WINDOW_GAME], "GQuest_AppendLabel", Py_BuildValue("(s)", gquest.text));
 			break;
 		case QUEST_GUI_SUBHEADER_GC_ADD_NORMAL_QUEST:
-			PyCallClassMemberFunc(m_apoPhaseWnd[PHASE_WINDOW_GAME], "GQuest_AppendNormalQuest", Py_BuildValue("(ssiis)", gquest.text, gquest.nQuest.difficulty, gquest.nQuest.exp, gquest.nQuest.yang, gquest.nQuest.item));
+			PyCallClassMemberFunc(m_apoPhaseWnd[PHASE_WINDOW_GAME], "GQuest_AppendNormalQuest", Py_BuildValue("(ssiiiii)", gquest.nQuest.text, gquest.nQuest.difficulty, gquest.kill, gquest.totalkill, gquest.nQuest.exp, gquest.nQuest.yang, gquest.nQuest.item));
 			break;
 		case QUEST_GUI_SUBHEADER_GC_ADD_SPECIAL_QUEST:
-			PyCallClassMemberFunc(m_apoPhaseWnd[PHASE_WINDOW_GAME], "GQuest_AppendSpecialQuest", Py_BuildValue("(ssiii)", gquest.text, gquest.sQuest.difficulty, gquest.sQuest.item[0], gquest.sQuest.item[1], gquest.sQuest.item[2]));
+			PyCallClassMemberFunc(m_apoPhaseWnd[PHASE_WINDOW_GAME], "GQuest_AppendSpecialQuest", Py_BuildValue("(ssiii)", gquest.nQuest.text, gquest.sQuest.difficulty, gquest.sQuest.item[0], gquest.sQuest.item[1], gquest.sQuest.item[2]));
+			break;
+		case QUEST_GUI_SUBHEADER_GC_UPDATE_KILL:
+			PyCallClassMemberFunc(m_apoPhaseWnd[PHASE_WINDOW_GAME], "GQuest_UpdateKill", Py_BuildValue("(iii)", gquest.idx, gquest.kill, gquest.totalkill));
 			break;
 		case QUEST_GUI_SUBHEADER_GC_CLEAR_QUEST:
 			PyCallClassMemberFunc(m_apoPhaseWnd[PHASE_WINDOW_GAME], "GQuest_ClearQuest", Py_BuildValue("()"));
