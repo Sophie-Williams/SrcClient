@@ -13,7 +13,7 @@ PRIVATE_SHOP_CANNOT_SELL_ITEM	Non puoi vendere questo item nel negozio privato.
 PRIVATE_SHOP_CLOSE_QUESTION	Vuoi chiudere il negozio privato?
 PRIVATE_SHOP_INPUT_NAME_DIALOG_TITLE	Nome del negozio privato.
 OFFLINE_SHOP_INPUT_NAME_DIALOG_TITLE	Nome del negozio privato.
-PRIVATE_SHOP_INPUT_PRICE_DIALOG_TITLE	Prezo
+PRIVATE_SHOP_INPUT_PRICE_DIALOG_TITLE	Prezzo
 OFFLINE_SHOP_INPUT_PRICE_DIALOG_TITLE	Prezzo
 ACCE_REFINE_COST	Costo dell'assorbimento: %d
 ACCE_ABSORB_CHANCE	Tasso di assorbimento: %d%%
@@ -220,6 +220,8 @@ DAY	Giorni
 DONT_USE_ITEM_WHEN_SHOW_CONFIRM	Non è possibile spostare gli oggetti mentre è in corso una richiesta.
 DO_YOU_BUY_ITEM1	Vuoi acquistare %s per %s Yang?
 DO_YOU_BUY_ITEM2	Vuoi acquistare %s (%s unità) per %s Yang?
+DO_YOU_BUY_ITEM1_WON	Vuoi acquistare %s per %s?
+DO_YOU_BUY_ITEM2_WON	Vuoi acquistare %s (%s unità) per %s?
 DO_YOU_BUY_ITEM3	Desideri comprare %s per %s Won e %s Yang?
 DO_YOU_BUY_ITEM4	Desideri comprare %s (%s unità) per %s Won e %s Yang?
 DO_YOU_DROP_MONEY	Desideri lasciar cadere %d Yang?
@@ -1026,6 +1028,7 @@ MINUTE	minuti
 MONETARY_UNIT0	Yang
 MONETARY_UNIT1	diecimila
 MONETARY_UNIT2	cento milioni
+MONETARY_UNIT_JUN	Won											   
 MONEY_INPUT_DIALOG_SELLPRICE	Prezzo di vendita:
 MOVE_CHANNEL_99	CH0
 MOVE_CHANNEL_CANCEL	Interrompi

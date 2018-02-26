@@ -400,7 +400,7 @@ if app.ENABLE_EXTEND_INVEN_SYSTEM and app.ENABLE_CHEQUE_SYSTEM:
 								"horizontal_align" : "right",
 								"text_horizontal_align" : "right",
 
-								"text" : "99 Won",
+								"text" : "",
 							},
 						),
 					},

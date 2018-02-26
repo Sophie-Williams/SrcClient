@@ -67,7 +67,7 @@ window = {
 					"type" : "toggle_button",
 
 					"x" : 154,
-					"y" : 356,
+					"y" : 360,
 	
 					"text" : uiScriptLocale.SHOP_BUY,
 
@@ -81,7 +81,7 @@ window = {
 					"type" : "button",
 
 					"x" : 30,
-					"y" : 356,
+					"y" : 360,
 	
 					"text" : "Aggiungi item",
 
@@ -95,7 +95,7 @@ window = {
 					"type" : "button",
 
 					"x" : 130,
-					"y" : 356,
+					"y" : 360,
 	
 					"text" : "Rimuovi item",
 
@@ -109,7 +109,7 @@ window = {
 					"type" : "button",
 
 					"x" : 300,
-					"y" : 356,
+					"y" : 360,
 	
 					"text" : "Chiudi negozio",
 
