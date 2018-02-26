@@ -100,8 +100,8 @@ class CreateCharacterWindow(ui.Window):
 		uiScriptLocale.JOBDESC_SURA_PATH,
 		uiScriptLocale.JOBDESC_SHAMAN_PATH,
 	)
-	if app.ENABLE_WOLFMAN_CHARACTER:
-		DESCRIPTION_FILE_NAME += (uiScriptLocale.JOBDESC_WOLFMAN_PATH,)
+	# if app.ENABLE_WOLFMAN_CHARACTER:
+		# DESCRIPTION_FILE_NAME += (uiScriptLocale.JOBDESC_WOLFMAN_PATH,)
 
 
 	class DescriptionBox(ui.Window):

@@ -321,10 +321,10 @@ class ItemToolTip(ToolTip):
 		localeInfo.TOOLTIP_SURA,
 		localeInfo.TOOLTIP_SHAMAN
 	)
-	if app.ENABLE_WOLFMAN_CHARACTER:
-		CHARACTER_NAMES += (
-			localeInfo.TOOLTIP_WOLFMAN,
-		)
+	# if app.ENABLE_WOLFMAN_CHARACTER:
+		# CHARACTER_NAMES += (
+			# localeInfo.TOOLTIP_WOLFMAN,
+		# )
 
 	CHARACTER_COUNT = len(CHARACTER_NAMES)
 	WEAR_NAMES = (
@@ -433,14 +433,14 @@ class ItemToolTip(ToolTip):
 		item.APPLY_ANTI_CRITICAL_PCT : localeInfo.TOOLTIP_ANTI_CRITICAL_PCT,
 		item.APPLY_ANTI_PENETRATE_PCT : localeInfo.TOOLTIP_ANTI_PENETRATE_PCT,
 	}
-	if app.ENABLE_WOLFMAN_CHARACTER:
-		AFFECT_DICT.update({
-			item.APPLY_BLEEDING_PCT : localeInfo.TOOLTIP_APPLY_BLEEDING_PCT,
-			item.APPLY_BLEEDING_REDUCE : localeInfo.TOOLTIP_APPLY_BLEEDING_REDUCE,
-			item.APPLY_ATTBONUS_WOLFMAN : localeInfo.TOOLTIP_APPLY_ATTBONUS_WOLFMAN,
-			item.APPLY_RESIST_CLAW : localeInfo.TOOLTIP_APPLY_RESIST_CLAW,
-			item.APPLY_RESIST_WOLFMAN : localeInfo.TOOLTIP_APPLY_RESIST_WOLFMAN,
-		})
+	# if app.ENABLE_WOLFMAN_CHARACTER:
+		# AFFECT_DICT.update({
+			# item.APPLY_BLEEDING_PCT : localeInfo.TOOLTIP_APPLY_BLEEDING_PCT,
+			# item.APPLY_BLEEDING_REDUCE : localeInfo.TOOLTIP_APPLY_BLEEDING_REDUCE,
+			# item.APPLY_ATTBONUS_WOLFMAN : localeInfo.TOOLTIP_APPLY_ATTBONUS_WOLFMAN,
+			# item.APPLY_RESIST_CLAW : localeInfo.TOOLTIP_APPLY_RESIST_CLAW,
+			# item.APPLY_RESIST_WOLFMAN : localeInfo.TOOLTIP_APPLY_RESIST_WOLFMAN,
+		# })
 
 	if app.ENABLE_MAGIC_REDUCTION_SYSTEM:
 		AFFECT_DICT.update({
@@ -473,10 +473,10 @@ class ItemToolTip(ToolTip):
 		2 : item.ITEM_ANTIFLAG_SURA,
 		3 : item.ITEM_ANTIFLAG_SHAMAN,
 	}
-	if app.ENABLE_WOLFMAN_CHARACTER:
-		ANTI_FLAG_DICT.update({
-			4 : item.ITEM_ANTIFLAG_WOLFMAN,
-		})
+	# if app.ENABLE_WOLFMAN_CHARACTER:
+		# ANTI_FLAG_DICT.update({
+			# 4 : item.ITEM_ANTIFLAG_WOLFMAN,
+		# })
 
 	FONT_COLOR = grp.GenerateColor(0.7607, 0.7607, 0.7607, 1.0)
 
@@ -1610,8 +1610,8 @@ class ItemToolTip(ToolTip):
 			not item.IsAntiFlag(item.ITEM_ANTIFLAG_ASSASSIN),
 			not item.IsAntiFlag(item.ITEM_ANTIFLAG_SURA),
 			not item.IsAntiFlag(item.ITEM_ANTIFLAG_SHAMAN))
-		if app.ENABLE_WOLFMAN_CHARACTER:
-			flagList += (not item.IsAntiFlag(item.ITEM_ANTIFLAG_WOLFMAN),)
+		# if app.ENABLE_WOLFMAN_CHARACTER:
+			# flagList += (not item.IsAntiFlag(item.ITEM_ANTIFLAG_WOLFMAN),)
 		characterNames = ""
 		for i in xrange(self.CHARACTER_COUNT):
 
@@ -2196,8 +2196,8 @@ class ItemToolTip(ToolTip):
 						not item.IsAntiFlag(item.ITEM_ANTIFLAG_SHAMAN)
 			)
 			
-			if app.ENABLE_WOLFMAN_CHARACTER:
-				flagList += (not item.IsAntiFlag(item.ITEM_ANTIFLAG_WOLFMAN),)
+			# if app.ENABLE_WOLFMAN_CHARACTER:
+				# flagList += (not item.IsAntiFlag(item.ITEM_ANTIFLAG_WOLFMAN),)
 			
 			characterNames = ""
 			for i in xrange(self.CHARACTER_COUNT):
