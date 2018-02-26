@@ -952,7 +952,7 @@ elif IsEUROPE() and not IsWE_KOREA() and not IsYMIR():
 			return DO_YOU_BUY_ITEM1_WON % ( buyItemName, buyItemPrice )
 
 	def REFINE_FAILURE_CAN_NOT_ATTACH(attachedItemName) :
-		return REFINE_FAILURE_CAN_NOT_ATTACH0 % (attachedItemName)
+		return REFINE_FAILURE_CAN_NOT_ATTACH % (attachedItemName)
 
 	def REFINE_FAILURE_NO_SOCKET(attachedItemName) :
 		return REFINE_FAILURE_NO_SOCKET0 % (attachedItemName)
