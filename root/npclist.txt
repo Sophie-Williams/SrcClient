@@ -1309,8 +1309,8 @@
 8058	metinstone_13
 8059	metinstone_16
 8060	infezione
-8061	furia
-8062	apocalisse
+8061	piana	
+8062	foresta
 8063	corrotto
 8101	metinstone_01
 8102	metinstone_02
