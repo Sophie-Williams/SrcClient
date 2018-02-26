@@ -920,10 +920,10 @@ class ItemToolTip(ToolTip):
 		self.AppendDescription(itemDesc, 26)
 		self.AppendDescription(itemSummary, 26, self.CONDITION_COLOR)
 
-	def AppendExtraDescription(self, metinSlot):
-		if metinSlot[3]:
+	def AppendExtraDescription(self, itemValue):
+		if itemValue == 1:
 			self.AppendTextLine("Epicizzabile", grp.GenerateColor(0, 0.7, 1.0, 1.0))
-		elif metinSlot[4]:
+		elif itemValue == 2:
 			self.AppendTextLine("Epico", grp.GenerateColor(1.0, 0.0, 1.0, 1.0))
 
 	def AddItemData(self, itemVnum, metinSlot, attrSlot = 0, flags = 0, unbindTime = 0, window_type = player.INVENTORY, slotIndex = -1):
@@ -931,7 +931,8 @@ class ItemToolTip(ToolTip):
 		item.SelectItem(itemVnum)
 		itemType = item.GetItemType()
 		itemSubType = item.GetItemSubType()
-
+		itemValue = item.GetValue(0)
+		
 		if 50026 == itemVnum:
 			if 0 != metinSlot:
 				name = item.GetItemName()
@@ -998,7 +999,6 @@ class ItemToolTip(ToolTip):
 
 		self.__AdjustMaxWidth(attrSlot, itemDesc)
 		self.__SetItemTitle(itemVnum, metinSlot, attrSlot)
-
 		### Hair Preview Image ###
 		if self.__IsHair(itemVnum):
 			self.__AppendHairIcon(itemVnum)
@@ -1007,6 +1007,8 @@ class ItemToolTip(ToolTip):
 		self.AppendDescription(itemDesc, 26)
 
 		self.AppendDescription(itemSummary, 26, self.CONDITION_COLOR)
+		self.AppendSpace(5)
+		self.AppendExtraDescription(itemValue)
 
 		### Weapon ###
 		if item.ITEM_TYPE_WEAPON == itemType:
