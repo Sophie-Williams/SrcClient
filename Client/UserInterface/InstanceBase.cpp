@@ -511,6 +511,14 @@ BOOL CInstanceBase::IsInvisibility()
 	return false;
 }
 
+BOOL CInstanceBase::IsCamuffoso()
+{
+	if (IsAffect(AFFECT_EUNHYEONG))
+		return true;
+
+	return false;
+}
+
 BOOL CInstanceBase::IsParalysis()
 {
 	return m_GraphicThingInstance.IsParalysis();
@@ -2606,7 +2614,7 @@ bool CInstanceBase::__CanRender()
 	if (IsAffect(AFFECT_INVISIBILITY) && !__MainCanSeeHiddenThing())
 		return false;
 #else
-	if (IsAffect(AFFECT_INVISIBILITY))
+	if (IsAffect(AFFECT_INVISIBILITY) || IsAffect(AFFECT_EUNHYEONG))
 		return false;
 #endif
 

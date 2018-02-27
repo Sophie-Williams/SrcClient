@@ -4785,7 +4785,7 @@ bool CPythonNetworkStream::RecvGQuestPacket()
 			PyCallClassMemberFunc(m_apoPhaseWnd[PHASE_WINDOW_GAME], "GQuest_AppendSpecialQuest", Py_BuildValue("(ssiii)", gquest.nQuest.text, gquest.sQuest.difficulty, gquest.sQuest.item[0], gquest.sQuest.item[1], gquest.sQuest.item[2]));
 			break;
 		case QUEST_GUI_SUBHEADER_GC_UPDATE_KILL:
-			PyCallClassMemberFunc(m_apoPhaseWnd[PHASE_WINDOW_GAME], "GQuest_UpdateKill", Py_BuildValue("(iii)", gquest.idx, gquest.kill, gquest.totalkill));
+			PyCallClassMemberFunc(m_apoPhaseWnd[PHASE_WINDOW_GAME], "GQuest_UpdateKill", Py_BuildValue("(iii)", gquest.idx, gquest.kill));
 			break;
 		case QUEST_GUI_SUBHEADER_GC_CLEAR_QUEST:
 			PyCallClassMemberFunc(m_apoPhaseWnd[PHASE_WINDOW_GAME], "GQuest_ClearQuest", Py_BuildValue("()"));

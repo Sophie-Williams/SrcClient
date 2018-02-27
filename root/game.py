@@ -2078,11 +2078,11 @@ class GameWindow(ui.ScriptWindow):
 
 	# GQuestGui
 	def GQuest_Open(self, title):
-		self.uiGQuest.Open(str(title))
+		self.uiGQuest.Open(title)
 		self.uiGQuest.Show()
 
 	def GQuest_AppendLabel(self, text):
-		self.uiGQuest.AppendLabel(str(text))
+		self.uiGQuest.AppendLabel(text)
 		
 	def GQuest_AppendNormalQuest(self, text, difficulty, kill, totalkill, exp, yang, item):
 		self.uiGQuest.AppendNormalQuest(text, difficulty, kill, totalkill, exp, yang, item)

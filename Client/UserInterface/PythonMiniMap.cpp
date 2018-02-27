@@ -128,18 +128,21 @@ void CPythonMiniMap::Update(float fCenterX, float fCenterY)
 
 		TMarkPosition aMarkPosition;
 
-		if (pkInstEach->IsPC() && !pkInstEach->IsInvisibility())
+		if (pkInstEach->IsPC())
 		{
-			if (pkInstEach == CPythonCharacterManager::Instance().GetMainInstancePtr())
-				continue;
+			if (!pkInstEach->IsCamuffoso() && !pkInstEach->IsInvisibility())
+			{
+				if (pkInstEach == CPythonCharacterManager::Instance().GetMainInstancePtr())
+					continue;
 
-			aMarkPosition.m_fX = ( m_fWidth - (float)m_WhiteMark.GetWidth() ) / 2.0f + fDistanceFromCenterX + m_fScreenX;
-			aMarkPosition.m_fY = ( m_fHeight - (float)m_WhiteMark.GetHeight() ) / 2.0f + fDistanceFromCenterY + m_fScreenY;
-			aMarkPosition.m_eNameColor=pkInstEach->GetNameColorIndex();
-			if (aMarkPosition.m_eNameColor==CInstanceBase::NAMECOLOR_PARTY)
-				m_PartyPCPositionVector.push_back(aMarkPosition);
-			else
-				m_OtherPCPositionVector.push_back(aMarkPosition);
+				aMarkPosition.m_fX = (m_fWidth - (float)m_WhiteMark.GetWidth()) / 2.0f + fDistanceFromCenterX + m_fScreenX;
+				aMarkPosition.m_fY = (m_fHeight - (float)m_WhiteMark.GetHeight()) / 2.0f + fDistanceFromCenterY + m_fScreenY;
+				aMarkPosition.m_eNameColor = pkInstEach->GetNameColorIndex();
+				if (aMarkPosition.m_eNameColor == CInstanceBase::NAMECOLOR_PARTY)
+					m_PartyPCPositionVector.push_back(aMarkPosition);
+				else
+					m_OtherPCPositionVector.push_back(aMarkPosition);
+			}
 		}
 		else if (pkInstEach->IsNPC())
 		{

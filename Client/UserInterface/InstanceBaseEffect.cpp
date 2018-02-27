@@ -806,6 +806,9 @@ void CInstanceBase::__Assassin_SetEunhyeongAffect(bool isVisible)
 		}
 		else
 		{
+			__EffectContainer_Destroy();
+			DetachTextTail();
+			m_GraphicThingInstance.ClearAttachingEffect();
 			// 2004.10.16.myevan.은형법 완전 투명
 			m_GraphicThingInstance.BlendAlphaValue(0.0f, 1.0f);
 			m_GraphicThingInstance.HideAllAttachingEffect();

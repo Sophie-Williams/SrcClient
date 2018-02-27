@@ -605,6 +605,7 @@ class CInstanceBase
 
 		bool					IsAffect(UINT uAffect);
 		BOOL					IsInvisibility();
+		BOOL					IsCamuffoso();
 		BOOL					IsParalysis();
 		BOOL					IsGameMaster();
 		BOOL					IsSameEmpire(CInstanceBase& rkInstDst);

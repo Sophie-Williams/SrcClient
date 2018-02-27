@@ -53,6 +53,7 @@ class uiGQuest(ui.ScriptWindow):
 		ui.ScriptWindow.Show(self)
 
 	def Close(self):
+		self.t = 0
 		self.Hide()
 		
 	def OnPressEscapeKey(self):
@@ -106,18 +107,28 @@ class uiGQuest(ui.ScriptWindow):
 			
 	def Open(self, title):
 		try:
-			pyScrLoader = ui.PythonScriptLoader()
-			pyScrLoader.LoadScriptFile(self, "gquest_system/GQuest.py")
-			self.board		= self.GetChild("Board")
-			self.board2		= self.GetChild("Board2")
-			self.board2.Hide()
-			self.board.SetTitleName(title)
-			self.CreateRewardBoard()
+			if self.t == 0:
+				pyScrLoader = ui.PythonScriptLoader()
+				pyScrLoader.LoadScriptFile(self, "gquest_system/GQuest.py")
+				self.board		= self.GetChild("Board")
+				self.board2		= self.GetChild("Board2")
+				self.board.SetCloseEvent(ui.__mem_func__(self.Close))
+				self.board2.Hide()
+				self.board.SetTitleName(title)
+				self.CreateRewardBoard()
+				self.t = 1
+			else:
+				self.ClearGui()
+				self.board.SetTitleName(title)
+				
 			# self.TestLabel()
 		except:
 			exception.Abort("Error: GUI Error: GQuest.py")
-
+		
 	def ClearGui(self):
+		for child in self.board.Children:
+			child.Hide()
+
 		self.label_y = 32
 		self.label_inc = 0
 		self.cQuest = 0

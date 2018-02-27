@@ -581,20 +581,21 @@ class OfflineShopInputDialog(ui.ScriptWindow):
 	def LoadWindow(self):
 		try:
 			PythonScriptLoader = ui.PythonScriptLoader()
-			PythonScriptLoader.LoadScriptFile(self, "UIScript/OfflineShopInputDialog.py")
+			PythonScriptLoader.LoadScriptFile(self, "UIScript/inputdialog.py")
+			# PythonScriptLoader.LoadScriptFile(self, "UIScript/OfflineShopInputDialog.py")
 			#PythonScriptLoader.LoadScriptFile(self, "OfflineShopInputDialog.py")
 		except:
 			import exception
 			exception.Abort("OfflineShopInputDialog.LoadWindow.LoadObject")
 			
 		try:
-			self.acceptButton = self.GetChild("AgreeButton")
-			#self.cancelButton = self.GetChild("CancelButton")
+			self.acceptButton = self.GetChild("AcceptButton")
+			self.cancelButton = self.GetChild("CancelButton")
 			self.inputSlot = self.GetChild("InputSlot")
 			self.inputValue = self.GetChild("InputValue")
-			
-			#self.cancelButton.SetEvent(ui.__mem_func__(self.Close))
-
+			self.cancelButton.SetEvent(ui.__mem_func__(self.Close))
+			self.board = self.GetChild("Board")
+			self.board.SetTitleName(localeInfo.PRIVATE_SHOP_INPUT_NAME_DIALOG_TITLE)
 		except:
 			import exception
 			exception.Abort("OfflineShopInputDialog.LoadWindow.BindObject")
