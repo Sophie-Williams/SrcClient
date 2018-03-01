@@ -28,8 +28,9 @@ class uiGQuest(ui.ScriptWindow):
 		self.listRewardLabelText = {}
 		self.listRewardBoxText = {}
 		self.listRewardBox = {}
-		self.t = 0
-
+		self.reset = 0
+		self.isLoaded = 0
+		
 	def __del__(self):
 		self.Window = ui.ScriptWindow
 		self.Window.__del__(self)
@@ -53,7 +54,7 @@ class uiGQuest(ui.ScriptWindow):
 		ui.ScriptWindow.Show(self)
 
 	def Close(self):
-		self.t = 0
+		self.isLoaded = 0
 		self.Hide()
 		
 	def OnPressEscapeKey(self):
@@ -105,9 +106,15 @@ class uiGQuest(ui.ScriptWindow):
 		except:
 			exception.Abort("Error: GUI Error: GQuest.py")
 			
-	def Open(self, title):
+	def GetLoaded(self):
+		return self.isLoaded
+		
+	def Open(self, title, reset):
 		try:
-			if self.t == 0:
+			if self.isLoaded == 1:
+				self.Close()
+				return
+			if (self.reset == 0 or self.isLoaded == 1):
 				pyScrLoader = ui.PythonScriptLoader()
 				pyScrLoader.LoadScriptFile(self, "gquest_system/GQuest.py")
 				self.board		= self.GetChild("Board")
@@ -116,12 +123,24 @@ class uiGQuest(ui.ScriptWindow):
 				self.board2.Hide()
 				self.board.SetTitleName(title)
 				self.CreateRewardBoard()
-				self.t = 1
+				self.reset = 1
 			else:
 				self.ClearGui()
 				self.board.SetTitleName(title)
-				
+			self.isLoaded = 1
+
 			# self.TestLabel()
+		except:
+			exception.Abort("Error: GUI Error: GQuest.py")
+		
+	def Open2(self):
+		try:
+			if self.isLoaded == 1:
+				self.Close()
+				return
+			else:
+				self.board.Show()
+				
 		except:
 			exception.Abort("Error: GUI Error: GQuest.py")
 		

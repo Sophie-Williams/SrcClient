@@ -1,8 +1,8 @@
-ï»¿/*
+/*
 *    Filename: tea.c
-* Description: TEA ì•”í˜¸í™” ëª¨ë“ˆ
+* Description: TEA ¾ÏÈ£È­ ¸ðµâ
 *
-*      Author: ê¹€í•œì£¼ (aka. ë¹„ì—½, Cronan), ì†¡ì˜ì§„ (aka. myevan, ë¹—ìžë£¨)
+*      Author: ±èÇÑÁÖ (aka. ºñ¿±, Cronan), ¼Û¿µÁø (aka. myevan, ºøÀÚ·ç)
 */
 #include "StdAfx.h"
 #include "tea.h"
@@ -10,24 +10,29 @@
 
 /*
 * TEA Encryption Module Instruction
-*					Edited by ê¹€í•œì£¼ aka. ë¹„ì—½, Cronan
+*					Edited by ±èÇÑÁÖ aka. ºñ¿±, Cronan
 *
 * void tea_code(const unsigned long sz, const unsigned long sy, const unsigned long *key, unsigned long *dest)
 * void tea_decode(const unsigned long sz, const unsigned long sy, const unsigned long *key, unsigned long *dest)
-*   8ë°”ì´íŠ¸ë¥¼ ì•”í˜¸/ë³µí˜¸í™” í• ë•Œ ì‚¬ìš©ëœë‹¤. key ëŠ” 16 ë°”ì´íŠ¸ì—¬ì•¼ í•œë‹¤.
-*   sz, sy ëŠ” 8ë°”ì´íŠ¸ì˜ ì—­ìˆœìœ¼ë¡œ ëŒ€ìž…í•œë‹¤.
+*   8¹ÙÀÌÆ®¸¦ ¾ÏÈ£/º¹È£È­ ÇÒ¶§ »ç¿ëµÈ´Ù. key ´Â 16 ¹ÙÀÌÆ®¿©¾ß ÇÑ´Ù.
+*   sz, sy ´Â 8¹ÙÀÌÆ®ÀÇ ¿ª¼øÀ¸·Î ´ëÀÔÇÑ´Ù.
 *
 * int tea_decrypt(unsigned long *dest, const unsigned long *src, const unsigned long *key, int size);
 * int tea_encrypt(unsigned long *dest, const unsigned long *src, const unsigned long *key, int size);
-*   í•œêº¼ë²ˆì— 8 ë°”ì´íŠ¸ ì´ìƒì„ ì•”í˜¸/ë³µí˜¸í™” í• ë•Œ ì‚¬ìš©í•œë‹¤. ë§Œì•½ size ê°€
-*   8ì˜ ë°°ìˆ˜ê°€ ì•„ë‹ˆë©´ 8ì˜ ë°°ìˆ˜ë¡œ í¬ê¸°ë¥¼ "ëŠ˜ë ¤ì„œ" ì•”í˜¸í™” í•œë‹¤.
+*   ÇÑ²¨¹ø¿¡ 8 ¹ÙÀÌÆ® ÀÌ»óÀ» ¾ÏÈ£/º¹È£È­ ÇÒ¶§ »ç¿ëÇÑ´Ù. ¸¸¾à size °¡
+*   8ÀÇ ¹è¼ö°¡ ¾Æ´Ï¸é 8ÀÇ ¹è¼ö·Î Å©±â¸¦ "´Ã·Á¼­" ¾ÏÈ£È­ ÇÑ´Ù.
 *
 * ex. tea_code(pdwSrc[1], pdwSrc[0], pdwKey, pdwDest);
 *     tea_decrypt(pdwDest, pdwSrc, pdwKey, nSize);
 */
+#define ENABLE_WARLORDS_CRYPT
 
-#define TEA_ROUND		42		// 42 ë¥¼ ê¶Œìž¥í•˜ë©°, ë†’ì„ ìˆ˜ë¡ ê²°ê³¼ê°€ ë‚œí•´í•´ ì§„ë‹¤.
-#define DELTA			0x9E3779B9	// DELTA ê°’ ë°”ê¾¸ì§€ ë§ê²ƒ.
+#ifdef ENABLE_WARLORDS_CRYPT
+#define TEA_ROUND		37
+#else
+#define TEA_ROUND		32		// 32 ¸¦ ±ÇÀåÇÏ¸ç, ³ôÀ» ¼ö·Ï °á°ú°¡ ³­ÇØÇØ Áø´Ù.
+#endif
+#define DELTA			0x9E3779B9	// DELTA °ª ¹Ù²ÙÁö ¸»°Í.
 
 void tea_code(const unsigned long sz, const unsigned long sy, const unsigned long *key, unsigned long *dest)
 {
@@ -36,13 +41,19 @@ void tea_code(const unsigned long sz, const unsigned long sy, const unsigned lon
 
 	while (n-- > 0)
 	{
-		y += ((z << 5 ^ z >> 6) + z) ^ (sum + key[sum & 3] + 11);
+#ifdef ENABLE_WARLORDS_CRYPT
+		y += ((z << 7 ^ z >> 3) + z) ^ (sum + key[sum & 5]);
 		sum += DELTA;
-		z += ((y << 3 ^ y >> 6) + y + 13) ^ (sum + key[sum >> 11 & 3]);
+		z += ((y << 7 ^ y >> 3) + y) ^ (sum + key[sum >> 4 & 5]);
+#else
+		y	+= ((z << 4 ^ z >> 5) + z) ^ (sum + key[sum & 3]);
+		sum	+= DELTA;
+		z	+= ((y << 4 ^ y >> 5) + y) ^ (sum + key[sum >> 11 & 3]);
+#endif
 	}
 
-	*(dest++) = y;
-	*dest = z;
+	*(dest++)	= y;
+	*dest	= z;
 }
 
 void tea_decode(const unsigned long sz, const unsigned long sy, const unsigned long *key, unsigned long *dest)
@@ -55,13 +66,19 @@ void tea_decode(const unsigned long sz, const unsigned long sy, const unsigned l
 
 	while (n-- > 0)
 	{
-		z -= ((y << 3 ^ y >> 6) + y + 13) ^ (sum + key[sum >> 11 & 3]);
+#ifdef ENABLE_WARLORDS_CRYPT
+		z -= ((y << 7 ^ y >> 3) + y) ^ (sum + key[sum >> 4 & 5]);
 		sum -= DELTA;
-		y -= ((z << 5 ^ z >> 6) + z) ^ (sum + key[sum & 3] + 11);
+		y -= ((z << 7 ^ z >> 3) + z) ^ (sum + key[sum & 5]);
+#else
+		z -= ((y << 4 ^ y >> 5) + y) ^ (sum + key[sum >> 11 & 3]);
+		sum -= DELTA;
+		y -= ((z << 4 ^ z >> 5) + z) ^ (sum + key[sum & 3]);
+#endif
 	}
 
-	*(dest++) = y;
-	*dest = z;
+	*(dest++)	= y;
+	*dest	= z;
 }
 
 int tea_encrypt(unsigned long *dest, const unsigned long *src, const unsigned long * key, int size)
@@ -72,7 +89,7 @@ int tea_encrypt(unsigned long *dest, const unsigned long *src, const unsigned lo
 	if (size % 8 != 0)
 	{
 		resize = size + 8 - (size % 8);
-		memset((char *)src + size, 0, resize - size);
+		memset((char *) src + size, 0, resize - size);
 	}
 	else
 		resize = size;

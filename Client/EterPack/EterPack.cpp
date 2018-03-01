@@ -35,6 +35,7 @@
 
 #define ENABLE_CRC32_CHECK
 
+#define ENABLE_WARLORDS_CRYPT
 
 void CMakePackLog::SetFileName(const char* c_szFileName)
 {
@@ -255,11 +256,20 @@ bool CEterPack::Create(CEterFileDict& rkFileDict, const char * dbname, const cha
 	strncpy(m_dbName, dbname, DBNAME_MAX_LEN);
 
 	strncpy(m_indexFileName, dbname, MAX_PATH);
+
+#ifdef ENABLE_WARLORDS_CRYPT
+	strcat(m_indexFileName, ".lor");
+#else
 	strcat(m_indexFileName, ".eix");
+#endif
 
 	m_stDataFileName = dbname;
-	m_stDataFileName += ".epk";
 
+#ifdef ENABLE_WARLORDS_CRYPT
+	m_stDataFileName += ".war";
+#else
+	m_stDataFileName += ".epk";
+#endif
 	m_bReadOnly = bReadOnly;
 
 	// bReadOnly 모드가 아니고 데이터 베이스가 열린다면 생성 실패
@@ -327,18 +337,32 @@ bool CEterPack::DecryptIndexFile()
 
 static DWORD s_adwEterPackKey[] =
 {
+#ifdef ENABLE_WARLORDS_CRYPT
+	223145241,
+	251344428,
+	672167546,
+	348624134,
+#else
 	45129401,
 	92367215,
 	681285731,
 	1710201,
+#endif
 };
 
 static DWORD s_adwEterPackSecurityKey[] =
 {
+#ifdef ENABLE_WARLORDS_CRYPT
+	341253433,
+	221384913,
+	761453434,
+	485789212,
+#else
 	78952482,
 	527348324,
 	1632942,
 	486274726,
+#endif
 };
 
 bool CEterPack::EncryptIndexFile()

@@ -165,7 +165,10 @@ class NewPickMoneyDialog(ui.ScriptWindow):
 
 		self.SetPosition(xPos, mouseY - self.GetHeight() - 20)
 
-		self.pickValueWonEditLine.SetText(1)
+		if self.type == 1:
+			self.pickValueWonEditLine.SetText(1000000)
+		else:
+			self.pickValueWonEditLine.SetText(1)
 		self.pickValueWonEditLine.SetFocus()
 
 		ime.SetCursorPosition(2)

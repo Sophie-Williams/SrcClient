@@ -1,4 +1,4 @@
-metin2_map_valle_degli_orchi	256000	665600	6	6
+metin2_map_valle_orchi	256000	665600	6	6
 map_b2	102400	51200	6	6
 map_c2	665600	281600	6	6
 map_n_snowm_01	358400	153600	6	6

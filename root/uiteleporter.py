@@ -15,7 +15,7 @@ class QuestionDialog(ui.ScriptWindow):
 	def __init__(self):
 		ui.ScriptWindow.__init__(self)
 		self.__CreateDialog()
-
+		
 	def __del__(self):
 		ui.ScriptWindow.__del__(self)
 
@@ -87,13 +87,18 @@ class uiTeleporter(ui.ScriptWindow):
 								[ "forestaincantata",	90, "Foresta Incantata" ],
 								[ "comingsoon",			115 ],
 						]
-		self.LoadGui()
+		self.isLoaded = 0
 		
 	def __del__(self):
 		ui.ScriptWindow.__del__(self)
 	
 	def LoadGui(self):
 		try:
+			if self.isLoaded == 1:
+				self.Close()
+				return
+			self.isLoaded = 1
+
 			pyScrLoader = ui.PythonScriptLoader()
 			pyScrLoader.LoadScriptFile(self, "tp/teleporter.py")
 			self.board			= self.GetChild("Board")
@@ -168,3 +173,4 @@ class uiTeleporter(ui.ScriptWindow):
 	def Close(self):
 		self.OnCloseQuestionDialog()
 		self.Hide()
+		self.isLoaded = 0

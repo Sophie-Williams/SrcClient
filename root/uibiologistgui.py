@@ -19,6 +19,8 @@ class BiologistGui(ui.ScriptWindow):
 			textLine.Show()
 			self.textLine = textLine
 			self.index = 0
+
+			
 			
 		def __del__(self):
 			ui.Window.__del__(self)
@@ -36,7 +38,8 @@ class BiologistGui(ui.ScriptWindow):
 		self.tooltipInfo = self.TextToolTip()
 		self.tooltipInfo2 = self.TextToolTip()
 		self.tooltipInfo3 = self.TextToolTip()
-		
+		self.isLoaded = 0
+
 
 	
 	def __del__(self):
@@ -48,6 +51,7 @@ class BiologistGui(ui.ScriptWindow):
 
 	def Close(self):
 		self.Hide()
+		self.isLoaded = 0
 		
 	def OnPressEscapeKey(self):
 		self.Close()
@@ -55,6 +59,10 @@ class BiologistGui(ui.ScriptWindow):
 
 	def LoadGui(self, idx, count):
 		try:
+			if self.isLoaded == 1:
+				self.Close()
+				return
+			self.isLoaded = 1
 			pyScrLoader = ui.PythonScriptLoader()
 			pyScrLoader.LoadScriptFile(self, "Biologist/Quest/uiQuest.py")
 			self.name_map		= self.GetChild("name_map")

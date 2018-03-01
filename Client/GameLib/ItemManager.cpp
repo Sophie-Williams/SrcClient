@@ -6,10 +6,17 @@
 
 static DWORD s_adwItemProtoKey[4] =
 {
+#ifdef ENABLE_WARLORDS_CRYPT
+	223145241,
+	251344428,
+	672167546,
+	348624134,
+#else
 	173217,
 	72619434,
 	408587239,
 	27973291
+#endif
 };
 
 BOOL CItemManager::SelectItemData(DWORD dwIndex)

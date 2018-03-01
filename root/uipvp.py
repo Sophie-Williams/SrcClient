@@ -10,8 +10,20 @@ LARGE_VALUE_FILE = "d:/ymir work/ui/public/Parameter_Slot_04.sub"
 WHITE_COLOR = grp.GenerateColor(1.0, 1.0, 1.0, 0.5)
 
 class uiPvP(ui.ScriptWindow):
+	def __init__(self):
+		self.Window = ui.ScriptWindow
+		self.Window.__init__(self)
+		self.isLoaded = 0
+	def __del__(self):
+		self.Window = ui.ScriptWindow
+		self.Window.__del__(self)
 
 	def LoadGui(self, state):
+		if self.isLoaded == 1:
+			self.Close()
+			return True
+		self.isLoaded = 1
+
 		try:
 			pyScrLoader = ui.PythonScriptLoader()
 			pyScrLoader.LoadScriptFile(self, "pvp_system/Register.py")
@@ -31,6 +43,7 @@ class uiPvP(ui.ScriptWindow):
 		
 	def Close(self):
 		self.Hide()
+		self.isLoaded = 0
 		
 	def OnPressEscapeKey(self):
 		self.Close()

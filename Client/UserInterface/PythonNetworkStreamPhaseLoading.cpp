@@ -180,10 +180,8 @@ void CPythonNetworkStream::SetLoadingPhase()
 	m_dwChangingPhaseTime = ELTimer_GetMSec();
 	m_phaseProcessFunc.Set(this, &CPythonNetworkStream::LoadingPhase);
 	m_phaseLeaveFunc.Set(this, &CPythonNetworkStream::__LeaveLoadingPhase);
-
 	CPythonPlayer& rkPlayer=CPythonPlayer::Instance();
 	rkPlayer.Clear();
-
 	CFlyingManager::Instance().DeleteAllInstances();
 	CEffectManager::Instance().DeleteAllInstances();
 

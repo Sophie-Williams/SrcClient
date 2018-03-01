@@ -1,0 +1,144 @@
+FolderName "pack"
+PackName "root"
+
+List ExcludedFolderNameList
+{
+	".svn"
+}
+
+List ExcludedPathList
+{
+	"d:/ymir work/bin/"
+}
+
+List ExcludedFileNameList
+{
+	"MakePack.exe"
+}
+
+List CompressExtNameList
+{
+	py
+	txt
+	msk
+	mss
+	mse
+	msf
+	msa
+	spt
+	atr
+	dds
+	raw
+	wtr
+	mde
+	tga
+}
+List FileList
+{
+	"20110915_ymir_item_proto"
+	"936mob_proto"
+	"936skilldesc.txt"
+	"936skilltable.txt"
+	"assassin_m.msm"
+	"assassin_w.msm"
+	"atlasinfo.txt"
+	"colorinfo.py"
+	"consolemodule.py"
+	"constinfo.py"
+	"debuginfo.py"
+	"dragon_soul_refine_settings.py"
+	"emotion.py"
+	"exception.py"
+	"game.py"
+	"grpblk.txt"
+	"interfacemodule.py"
+	"introcreate.py"
+	"introempire.py"
+	"introloading.py"
+	"intrologin.py"
+	"intrologo.py"
+	"introselect.py"
+	"localeinfo.py"
+	"makepackscript_onlyrootnopython.txt"
+	"mousemodule.py"
+	"musicinfo.py"
+	"networkmodule.py"
+	"npclist.txt"
+	"playersettingmodule.py"
+	"prototype.py"
+	"race_height.txt"
+	"rootlibcythonizer.py"
+	"servercommandparser.py"
+	"serverinfo.py"
+	"shaman_m.msm"
+	"shaman_w.msm"
+	"stringcommander.py"
+	"sura_m.msm"
+	"sura_w.msm"
+	"system.py"
+	"test_affect.py"
+	"ui.py"
+	"uiacce.py"
+	"uiaffectshower.py"
+	"uiattachmetin.py"
+	"uiauction.py"
+	"uiautoban.py"
+	"uibiologistgui.py"
+	"uicandidate.py"
+	"uicharacter.py"
+	"uichat.py"
+	"uicommon.py"
+	"uicube.py"
+	"uidragonsoul.py"
+	"uiequipmentdialog.py"
+	"uiex.py"
+	"uiexchange.py"
+	"uigamebutton.py"
+	"uigameoption.py"
+	"uigquest.py"
+	"uigquestgui.py"
+	"uiguild.py"
+	"uihelp.py"
+	"uihorsegui.py"
+	"uiinventory.py"
+	"uimapnameshower.py"
+	"uimercenary2.py"
+	"uimercenarygui.py"
+	"uimessenger.py"
+	"uiminimap.py"
+	"uiofflineshop.py"
+	"uiofflineshopbuilder.py"
+	"uioption.py"
+	"uiparty.py"
+	"uiphasecurtain.py"
+	"uipickmoney.py"
+	"uiplayergauge.py"
+	"uipointreset.py"
+	"uiprivateshopbuilder.py"
+	"uipvp.py"
+	"uipvp_confirm.py"
+	"uiquest.py"
+	"uirefine.py"
+	"uirestart.py"
+	"uisafebox.py"
+	"uiscriptlocale.py"
+	"uiselectitem.py"
+	"uiselectmusic.py"
+	"uishop.py"
+	"uisurveygui.py"
+	"uisystem.py"
+	"uisystemlist.py"
+	"uisystemoption.py"
+	"uitarget.py"
+	"uitaskbar.py"
+	"uiteleporter.py"
+	"uitip.py"
+	"uitooltip.py"
+	"uiuploadmark.py"
+	"uiweb.py"
+	"uiwhisper.py"
+	"utils.py"
+	"warrior_m.msm"
+	"warrior_w.msm"
+	"wolfman_m.msm"
+}

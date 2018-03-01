@@ -174,6 +174,8 @@ class LoadingWindow(ui.ScriptWindow):
 			self.update=0
 
 	def __SetProgress(self, p):
+		import dbg
+		dbg.TraceError(" !!! Failed to load game data : STEP [%d]" % (p))
 		if self.loadingGage:
 			self.loadingGage.SetPercentage(2+98*p/100, 100)
 

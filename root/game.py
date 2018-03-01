@@ -1237,6 +1237,13 @@ class GameWindow(ui.ScriptWindow):
 	def ShowBiologist(self):
 		net.SendChatPacket("/biologist_open")
 		
+	def ShowHuntingQuest(self):
+		self.uiGQuest.Show()
+		
+	def ShowGQuest(self):
+		self.uiGQuest.Open(title, 1)
+
+		
 	def ShowSurvey(self):
 		net.SendChatPacket("/survey_open")
 		
@@ -2035,13 +2042,6 @@ class GameWindow(ui.ScriptWindow):
 			"MyShopPriceList"		: self.__PrivateShop_PriceList,
 			# END_OF_PRIVATE_SHOP_PRICE_LIST
 			
-			
-			# GQuestGui
-			"GQUEST_AddHuntingQuest"	: self.GQuest_ADDHuntingQuest,
-			"GQUEST_MakeList"			: self.GQuest_MakeList,
-			"GQUEST_UpdateHuntingQuest"	: self.GQuest_UpdateHuntingQuest,
-			"GQUEST_ClearHuntingQuest"	: self.GQuest_ClearHuntingQuest,
-			"GQUEST_Close"				: self.GQuest_Close,
 		}
 
 		self.serverCommander=stringCommander.Analyzer()
@@ -2078,7 +2078,7 @@ class GameWindow(ui.ScriptWindow):
 
 	# GQuestGui
 	def GQuest_Open(self, title):
-		self.uiGQuest.Open(title)
+		self.uiGQuest.Open(title, 1)
 		self.uiGQuest.Show()
 
 	def GQuest_AppendLabel(self, text):
@@ -2095,28 +2095,6 @@ class GameWindow(ui.ScriptWindow):
 		
 	def GQuest_ClearQuest(self):
 		self.uiGQuest.ClearGui()
-	
-	def GQuest_ADDHuntingQuest(self, idx, target, kill, total_kill):		
-		self.target_hunt = constInfo.GQUEST_MAP_INFO[int(idx)]['target'][int(target)]
-		self.uiGQuestGui.ADDHuntingQuest(int(idx), self.target_hunt, int(kill), int(total_kill))
-		
-	def GQuest_MakeList(self, idx, idx_lv):
-		self.uiGQuestGui.LoadGui()
-		self.uiGQuestGui.MakeListGQuest(int(idx), int(idx_lv))
-		self.uiGQuestGui.Show()
-
-	def GQuest_UpdateHuntingQuest(self, idx_map, target, kill, total_kill):
-		self.uiGQuestGui.UpdateHuntingQuest(int(target), constInfo.GQUEST_MAP_INFO[int(idx_map)]['target'][int(target)], int(kill), int(total_kill))
-
-	def GQuest_ClearHuntingQuest(self, idx):
-		constInfo.GQUEST_MAP_INFO[int(idx)]['hunting_quest'] = []
-
-	def GQuest_Close(self):
-		self.uiGQuestGui.Close()
-
-	def GQuest_test(self, text, dif, item, exp, yang):
-		net.SendChatPacket(str(text) + " " + str(dif) + " " + str(item) + " " + str(exp) + " " + str(yang))
-
 	
 	# ITEM_MALL
 	def AskMallPassword(self):
