@@ -157,7 +157,7 @@ class uiGQuest(ui.ScriptWindow):
 		self.set_bar = 0
 		
 	def RefreshGui(self):
-		new_y = 54 + (self.label_inc*20) + (self.cQuest*20)
+		new_y = 57 + (self.label_inc*20) + (self.cQuest*20)
 		#chat.AppendChat(chat.CHAT_TYPE_INFO, str(new_y))
 		self.board.SetSize(300, new_y)
 		# chat.AppendChat(chat.CHAT_TYPE_INFO, str(new_y) + " " + str(self.label_inc) + " " + str(self.cQuest))
