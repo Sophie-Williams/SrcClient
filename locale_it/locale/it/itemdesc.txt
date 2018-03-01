@@ -10,7 +10,10 @@
 50513	Pietra delle Anime	La leggendaria pietra che è usata per allenare il proprio io, dopo che l'occhio spirituale è stato aperto.	Utilizzo singolo | Miglioramento abilità | Crafting del Fabbro
 81005	Pietra delle Anime (B)	La leggendaria pietra che è usata per allenare il proprio io, dopo che l'occhio spirituale è stato aperto.	Utilizzo singolo | Miglioramento abilità | Item Baule Apprendista | Non commerciabile
 
-30102	Ascia d'oro	Un'ascia creata dagli antichi nani guerrieri. | Item biologo
+30102	Ascia d'oro	Un'ascia creata dagli antichi nani guerrieri.
+
+71151	Incantesimo Verde	Ti permette di cambiare un bonus ad un tuo pezzo di equipaggiamento per un bonus massimizzato, se dato a Yonah.	Miglioramento equip. | Droppabile da: Qualsiasi Metin
+76023	Incantesimo Verde (B)	Ti permette di cambiare un bonus ad un tuo pezzo di equipaggiamento per un bonus massimizzato, se dato a Yonah.	Miglioramento equip. | Item-Shop & War-Shop | Non commerciabile
 
 78401	Scatola Rara	Una piccola scatola contenente qualche oggetto per miglioramenti non epici.
 78801	Scatola Epica	Una scatola di medie dimensioni, ricca di oggetti per miglioramenti non epici.
@@ -4144,7 +4147,6 @@
 71148	Anello Forza di Volontà	Ti conferisce per 7 giorni il 30% in più di EXP, il 20% in più di difesa dai guerrieri, il 20% in più di difesa dai ninja, il 20% in più di difesa dai lican, il 30% in più di forza contro i mostri, il 10% in più di HP massimi e il 10% in più di MP massimi.
 71149	Anello Potenza Letale	Ti conferisce per 7 giorni il 30% in più di EXP, il 20% in più di difesa dai sura, il 20% in più di difesa dagli shamani, il 20% in più di difesa dai lican, il 30% in più di forza contro i mostri, il 10% in più di HP massimi e il 10% in più di MP massimi.
 71150	Uovo magico	Questo pregiatissimo baule ovale finemente decorato contiene più di una sorpresa di Pasqua, ma svela i suoi tesori solo pian piano.
-71151	Incantesimo Verde	Rimuove i bonus da uno dei tuoi oggetti e te ne aggiunge di nuovi. Può essere utilizzato solo fino al livello 40 per armi e armature. Non è commerciabile.
 71152	Forza Verde	Con un po' di fortuna aggiunge un nuovo bonus a uno dei tuoi oggetti (fino a un massimo di 4 bonus). Può essere utilizzato solo fino al livello 40 per armi e armature. Non è commerciabile.
 71153	Pozione della saggezza	Questa pozione ti da la possibilità di accumulare durante un'ora di gioco il 100% di esperienza in più. Non è commerciabile.
 71154	Pozione ascesa (3h)	Grazie a questa pozione potrai accumulare l'80% in più di esperienza in tre ore di gioco. Non è commerciabile.
@@ -4592,7 +4594,6 @@
 76020	Elisir del Ricercatore	Aumenta la qualità degli oggetti per le ricerche e quindi la probabilità che essi vengano accettati con successo. Non è commerciabile.
 76021	Elisir del Sole (P)	Ripristina automaticamente i tuoi HP. Contiene 100.000 HP. Non è commerciabile.
 76022	Elisir del Sole (M)	Ripristina automaticamente i tuoi HP. Contiene 3.000.000 HP. Non è commerciabile.
-76023	Incantesimo Verde	Rimuove i bonus da uno dei tuoi oggetti e te ne aggiunge di nuovi. Può essere utilizzato solo fino al livello 40 per armi e armature. L'item proviene dal Baule di Livello e non è commerciabile.
 76024	Forza Verde	Con un po' di fortuna aggiunge un nuovo bonus a uno dei tuoi oggetti (fino a un massimo di 4 bonus). Può essere utilizzato solo fino al livello 40 per armi e armature. L'item proviene dal Baule di Livello e non è commerciabile.
 76025	Scarpe del vento	Quando le indossi la tua velocità di movimento aumenta di 30.
 76026	Papiro dell'esorcismo	Ti libera dalla maledizione dello spirito malvagio quando la lettura fallisce. Con l'aiuto di questo papiro puoi leggere un altro Documento abilità nello stesso giorno.
