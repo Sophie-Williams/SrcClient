@@ -1,0 +1,1 @@
+cd root && MakePack.exe root.txt

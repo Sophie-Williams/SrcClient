@@ -1,0 +1,2 @@
+Del *.log
+Del *.txt
