@@ -362,7 +362,7 @@ class GameWindow(ui.ScriptWindow):
 		onPressKeyDict[app.DIK_F6]	= lambda : self.ShowOfflineShop()
 		onPressKeyDict[app.DIK_F7]	= lambda : self.ShowPvP()
 		onPressKeyDict[app.DIK_F8]	= lambda : self.ShowBiologist()
-		onPressKeyDict[app.DIK_F9]	= lambda : self.ShowSurvey()
+		onPressKeyDict[app.DIK_F9]	= lambda : self.ShowGQuest()
 
 		onPressKeyDict[app.DIK_LALT]		= lambda : self.ShowName()
 		onPressKeyDict[app.DIK_LCONTROL]	= lambda : self.ShowMouseImage()
@@ -1241,7 +1241,7 @@ class GameWindow(ui.ScriptWindow):
 		self.uiGQuest.Show()
 		
 	def ShowGQuest(self):
-		self.uiGQuest.Open(title, 1)
+		self.uiGQuest.Open2()
 
 		
 	def ShowSurvey(self):

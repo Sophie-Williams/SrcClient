@@ -114,7 +114,7 @@ class uiGQuest(ui.ScriptWindow):
 			if self.isLoaded == 1:
 				self.Close()
 				return
-			if (self.reset == 0 or self.isLoaded == 1):
+			if (self.reset == 0 or self.isLoaded == 0):
 				pyScrLoader = ui.PythonScriptLoader()
 				pyScrLoader.LoadScriptFile(self, "gquest_system/GQuest.py")
 				self.board		= self.GetChild("Board")
@@ -134,16 +134,14 @@ class uiGQuest(ui.ScriptWindow):
 			exception.Abort("Error: GUI Error: GQuest.py")
 		
 	def Open2(self):
-		try:
-			if self.isLoaded == 1:
-				self.Close()
-				return
-			else:
-				self.board.Show()
-				
-		except:
-			exception.Abort("Error: GUI Error: GQuest.py")
-		
+		if self.isLoaded == 1:
+			self.Close()
+			self.isLoaded = 0
+			return
+		else:
+			self.isLoaded = 1
+			self.Show()
+						
 	def ClearGui(self):
 		for child in self.board.Children:
 			child.Hide()
