@@ -1045,13 +1045,12 @@ class ItemToolTip(ToolTip):
 			## 방어력
 			defGrade = item.GetValue(1)
 			defBonus = item.GetValue(5)*2 ## 방어력 표시 잘못 되는 문제를 수정
-								
 
 			if defGrade > 0:
 				self.AppendSpace(5)
 				self.AppendTextLine(localeInfo.TOOLTIP_ITEM_DEF_GRADE % (defGrade+defBonus), self.GetChangeTextLineColor(defGrade))
 
-			self.__AppendMagicDefenceInfo()
+			#self.__AppendMagicDefenceInfo()
 			self.__AppendAffectInformation()
 			self.__AppendAttributeInformation(attrSlot)
 			
